@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.canerture.booksapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/books_app_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/books_app_logo_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BooksApp"
+        android:usesCleartextTraffic="true">
+        <activity android:name="com.canerture.booksapp.activity.LoginActivity" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.canerture.booksapp.activity.MainActivity" android:windowSoftInputMode="adjustPan">
+
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <data>
+        <variable name = "booksFragmentObject" type = "com.canerture.booksapp.fragment.BooksFragment" />
+        <variable name="booksAdapter" type="com.canerture.booksapp.adapter.BooksAdapter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/acikmavi">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/toolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/amaranth_bold"
+                android:text="Books App"
+                android:textAlignment="center"
+                android:textColor="@color/aciksari"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="153dp"
+                tools:layout_editor_absoluteY="13dp" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleLine="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip1"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/sari"
+                        android:checkable="true"
+                        android:checked="false"
+                        android:focusable="true"
+                        android:focusableInTouchMode="false"
+                        android:fontFamily="@font/amaranth"
+                        android:gravity="center"
+                        android:text="Can Çocuk Yayınları"
+                        android:textColor="@color/yesil"
+                        android:textSize="14sp"
+                        app:checkedIconVisible="true" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip2"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/sari"
+                        android:checkable="true"
+                        android:checked="false"
+                        android:fontFamily="@font/amaranth"
+                        android:gravity="center"
+                        android:text="Yapı Kredi Yayınları"
+                        android:textColor="@color/yesil"
+                        android:textSize="14sp"
+                        app:checkedIconVisible="true" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip3"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/sari"
+                        android:checkable="true"
+                        android:checked="false"
+                        android:fontFamily="@font/amaranth"
+                        android:gravity="center"
+                        android:text="April Yayıncılık"
+                        android:textColor="@color/yesil"
+                        android:textSize="14sp"
+                        app:checkedIconVisible="true" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip4"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/sari"
+                        android:checkable="true"
+                        android:checked="false"
+                        android:fontFamily="@font/amaranth"
+                        android:gravity="center"
+                        android:text="Can Yayınları"
+                        android:textColor="@color/yesil"
+                        android:textSize="14sp"
+                        app:checkedIconVisible="true" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip5"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/sari"
+                        android:checkable="true"
+                        android:checked="false"
+                        android:fontFamily="@font/amaranth"
+                        android:gravity="center"
+                        android:text="İletişim Yayıncılık"
+                        android:textColor="@color/yesil"
+                        android:textSize="14sp"
+                        app:checkedIconVisible="true" />
+
+                </com.google.android.material.chip.ChipGroup>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/booksRecycleView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:adapter="@{booksAdapter}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/horizontalScrollView"
+            app:spanCount="2">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

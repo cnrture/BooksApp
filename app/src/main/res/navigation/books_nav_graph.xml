@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/books_nav_graph"
+    app:startDestination="@id/booksFragment">
+
+    <fragment
+        android:id="@+id/booksFragment"
+        android:name="com.canerture.booksapp.fragment.BooksFragment"
+        android:label="BooksFragment"
+        tools:layout="@layout/fragment_books"/>
+    <fragment
+        android:id="@+id/basketBooksFragment"
+        android:name="com.canerture.booksapp.fragment.BooksCartFragment"
+        android:label="BasketBooksFragment"
+        tools:layout="@layout/fragment_cart_books"/>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.canerture.booksapp.fragment.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile"/>
+</navigation>
