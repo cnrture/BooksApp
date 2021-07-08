@@ -46,7 +46,7 @@ class BooksRepository {
             override fun onResponse(call: Call<BooksResponse>?, response: Response<BooksResponse>) {
                 val books = response.body()!!.books
                 val cartBooks = arrayListOf<Books>()
-
+                println(books)
                 for (book in books) {
                     if (book.cart_status == 1) {
                         cartBooks.add(book)

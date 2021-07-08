@@ -11,11 +11,12 @@ class BooksFragmentViewModel: ViewModel() {
     var books = MutableLiveData<List<Books>>()
 
     init {
-        books = mrepo.booksList()
+        getBooks()
     }
 
     fun getBooks() {
         mrepo.getBooks()
+        books = mrepo.booksList()
     }
 
     fun getSearchedBooks(bookPublisher: String) {

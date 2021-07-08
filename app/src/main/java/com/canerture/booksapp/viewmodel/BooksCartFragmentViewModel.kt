@@ -12,17 +12,16 @@ class BooksCartFragmentViewModel: ViewModel() {
 
     init {
         getCartBooks()
-        cartBooks = mrepo.cartBooksList()
     }
 
     private fun getCartBooks() {
         mrepo.getCartBooks()
+        cartBooks = mrepo.cartBooksList()
     }
 
     fun deleteCartBook(bookId: Int) {
         mrepo.cartStatusChange(bookId, 0)
         mrepo.getCartBooks()
-        cartBooks = mrepo.cartBooksList()
     }
 
 }
