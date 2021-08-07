@@ -96,6 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
+                android:password="false"
                 android:singleLine="true"
                 android:textColor="@color/yesil"
                 android:textColorHint="@color/yesil" />

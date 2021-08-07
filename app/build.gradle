@@ -65,7 +65,6 @@ dependencies {
 
     //LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
-    //kapt "androidx.lifecycle:lifecycle-compiler:2.3.1"
 
     implementation 'com.squareup.picasso:picasso:2.71828'
 

@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import com.canerture.booksapp.R
 import com.canerture.booksapp.activity.MainActivity
 import com.canerture.booksapp.databinding.FragmentSignInBinding
 import com.canerture.booksapp.viewmodel.SignInFragmentViewModel
@@ -22,7 +24,7 @@ class SignInFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSignInBinding.inflate(inflater, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_in, container, false)
 
         return binding.root
     }
