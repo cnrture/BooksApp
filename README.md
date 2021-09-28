@@ -15,7 +15,7 @@
 - TabLayout & ViewPager2 used for Sign In and Sign Up screens.
 
 <p align="left">
-<img src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/sign_in_screen.jpg" width="200" height="400"/>
+<img src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/sign_in_screen.png" width="200" height="400"/>
 <img src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/sign_up_screen.jpg" width="200" height="400"/>
 </p>
 
