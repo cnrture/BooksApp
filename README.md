@@ -15,8 +15,8 @@
 - TabLayout & ViewPager2 used for Sign In and Sign Up screens.
 
 <p align="left">
-<img src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/sign_in_screen.png" width="200" height="400"/>
-<img src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/sign_up_screen.jpg" width="200" height="400"/>
+<img src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/sign_in_screen.png" width="250" height="500"/>
+<img src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/sign_up_screen.png" width="250" height="500"/>
 </p>
 
 ### Main Screen
@@ -27,13 +27,13 @@
 - The "+" button in the Toolbar is used to add a book. (Note: Images are added with url.)
 
 <p align="left">
-<img src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/books_screen.jpg" width="200" height="400"/>
+<img src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/books_screen.png" width="250" height="500"/>
 
-<img src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/book_detail.jpg" width="200" height="400"/>
+<img src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/book_detail.png" width="250" height="500"/>
 
-<img src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/search.jpg" width="200" height="400"/>
+<img src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/search.png" width="250" height="500"/>
   
-<img src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/add_book.jpg" width="200" height="400"/>
+<img src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/add_book.png" width="250" height="500"/>
 </p>
 
 ### Cart Screen
@@ -41,7 +41,7 @@
 - Books in cart are pulled and listed with RecyclerView.
 - Pressing the delete button deletes the book from the basket.
 <p align="left">
-<img src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/book_cart.jpg" width="200" height="400"/>
+<img src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/book_cart.png" width="250" height="500"/>
 </p>
 
 ### Profile Screen
@@ -49,5 +49,5 @@
 - User information is kept using SharedPreferences when a member is logged in. When this page is entered, information from the SharedPreferences structure is retrieved and displayed.
 
 <p align="left">
-<img src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/profile_screen.jpg" width="200" height="400"/>
+<img src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/profile_screen.png" width="250" height="500"/>
 </p>
