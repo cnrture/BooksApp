@@ -26,7 +26,7 @@ Project Features
 Login Screen
 </h2>
 
-<h3 align="left"> - TabLayout & ViewPager2 used for Sign In and Sign Up screens. </h3><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h3 align="center"><br><br><br><br><br><br> TabLayout & ViewPager2 used for Sign In and Sign Up screens. </h3><br><br><br><br><br><br><br><br><br><br>
 
 <h2 align="center">
 Main Screen
@@ -47,26 +47,28 @@ Main Screen
 <img align="center" src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/add_book.png" width="250" height="530"/>
 </p>
 
+<br><br>
 <img align="right" src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/book_cart.png" width="250" height="530"/>
 
 <h2 align="center">
 Cart Screen
 </h2>
 
-<h3 align="left">
-- Books in cart are pulled and listed with RecyclerView. <br>
-- Pressing the delete button deletes the book from the basket.
+<h3 align="center"><br><br><br><br><br><br>
+Books in cart are pulled and listed with RecyclerView. <br>
+Pressing the delete button deletes the book from the basket.
 </h3>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br>
 
 <img align="left" src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/profile_screen.png" width="250" height="530"/>
 
+<br>
 <h2 align="center">
 Profile Screen
 </h2>
 
-<h3 align="left">
-- User information is kept using SharedPreferences when a member is logged in. When this page is entered, information from the SharedPreferences structure is retrieved and displayed.
+<h3 align="center"><br><br><br><br><br>
+User information is kept using SharedPreferences when a member is logged in. When this page is entered, information from the SharedPreferences structure is retrieved and displayed.
  </h3>
 
 
