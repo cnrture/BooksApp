@@ -37,8 +37,10 @@ class UsersReporsitory {
     fun signIn(e_mail: String, password: String) {
         userDIF.signIn(e_mail, password).enqueue(object : Callback<UserResponse>{
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
-                val user = response.body()!!.users
-                userData.value = user
+                val user = response.body()?.users
+                user?.let {
+                    userData.value = it
+                }
             }
 
             override fun onFailure(call: Call<UserResponse>, t: Throwable) {

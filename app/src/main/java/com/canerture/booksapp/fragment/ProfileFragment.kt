@@ -12,13 +12,14 @@ import com.canerture.booksapp.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
 
-    private lateinit var binding: FragmentProfileBinding
+    private var _binding: FragmentProfileBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
+        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
         return binding.root
     }
 
@@ -27,12 +28,16 @@ class ProfileFragment : Fragment() {
 
         binding.profileFragmentObject = this
 
-        val prefences = requireActivity().getSharedPreferences("com.canerture.booksapp", Context.MODE_PRIVATE)
+        val preferences =
+            requireActivity().getSharedPreferences("com.canerture.booksapp", Context.MODE_PRIVATE)
 
-        binding.emailText.text = prefences.getString("e_mail", "e_mail")
-        binding.nameSurnameText.text = prefences.getString("name_surname", "name_surname")
-        binding.phoneNumberText.text = prefences.getString("phone_number", "phone_number")
+        binding.emailText.text = preferences.getString("e_mail", "e_mail")
+        binding.nameSurnameText.text = preferences.getString("name_surname", "name_surname")
+        binding.phoneNumberText.text = preferences.getString("phone_number", "phone_number")
     }
 
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

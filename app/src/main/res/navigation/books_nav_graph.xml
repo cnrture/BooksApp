@@ -9,15 +9,28 @@
         android:id="@+id/booksFragment"
         android:name="com.canerture.booksapp.fragment.BooksFragment"
         android:label="BooksFragment"
-        tools:layout="@layout/fragment_books"/>
+        tools:layout="@layout/fragment_books">
+        <action
+            android:id="@+id/action_booksFragment_to_bookDetailBottomSheet"
+            app:destination="@id/bookDetailBottomSheet" />
+    </fragment>
     <fragment
-        android:id="@+id/basketBooksFragment"
-        android:name="com.canerture.booksapp.fragment.BooksCartFragment"
+        android:id="@+id/booksBasketFragment"
+        android:name="com.canerture.booksapp.fragment.BooksBasketFragment"
         android:label="BasketBooksFragment"
-        tools:layout="@layout/fragment_cart_books"/>
+        tools:layout="@layout/fragment_books_basket" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.canerture.booksapp.fragment.ProfileFragment"
         android:label="ProfileFragment"
-        tools:layout="@layout/fragment_profile"/>
+        tools:layout="@layout/fragment_profile" />
+    <dialog
+        android:id="@+id/bookDetailBottomSheet"
+        android:name="com.canerture.booksapp.fragment.BookDetailBottomSheet"
+        android:label="BookDetailBottomSheet"
+        tools:layout="@layout/book_detail_bottom_sheet">
+        <argument
+            android:name="booksModel"
+            app:argType="com.canerture.booksapp.model.Books" />
+    </dialog>
 </navigation>

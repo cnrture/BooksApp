@@ -12,15 +12,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BooksApp"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.canerture.booksapp.activity.LoginActivity" android:windowSoftInputMode="adjustPan">
+        <activity
+            android:name="com.canerture.booksapp.activity.SplashActivity"
+            android:exported="true"
+            android:theme="@style/SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.canerture.booksapp.activity.MainActivity" android:windowSoftInputMode="adjustPan">
 
-        </activity>
+        <activity
+            android:name="com.canerture.booksapp.activity.LoginActivity"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name="com.canerture.booksapp.activity.MainActivity"
+            android:windowSoftInputMode="adjustPan" />
 
         <meta-data
             android:name="preloaded_fonts"

@@ -5,13 +5,17 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name = "signUpFragmentObject" type = "com.canerture.booksapp.fragment.SignUpFragment" />
+
+        <variable
+            name="signUpFragmentObject"
+            type="com.canerture.booksapp.fragment.SignUpFragment" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/acikmavi"
+        android:background="@color/aquahaze"
         tools:context=".fragment.SignUpFragment">
 
         <com.google.android.material.textfield.TextInputLayout
@@ -19,13 +23,13 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="75dp"
-            android:layout_marginTop="150dp"
-            android:layout_marginEnd="75dp"
-            android:layout_marginBottom="2dp"
-            android:textColorHint="@color/yesil"
-            app:boxStrokeColor="@color/sari"
-            app:boxStrokeWidth="2dp"
+            android:layout_marginStart="@dimen/margin_biggest"
+            android:layout_marginTop="@dimen/margin_incredible"
+            android:layout_marginEnd="@dimen/margin_biggest"
+            android:layout_marginBottom="@dimen/margin_very_small"
+            android:textColorHint="@color/eden"
+            app:boxStrokeColor="@color/chardonnay"
+            app:boxStrokeWidth="@dimen/stroke_width_small"
             app:layout_constraintBottom_toTopOf="@+id/passwordInputLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,9 +39,9 @@
                 android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="E-Mail Address"
-                android:textColor="@color/yesil"
-                android:textColorHint="@color/yesil" />
+                android:hint="@string/e_mail_hint"
+                android:textColor="@color/eden"
+                android:textColorHint="@color/eden" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -45,13 +49,13 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="75dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="75dp"
-            android:layout_marginBottom="5dp"
-            android:textColorHint="@color/yesil"
-            app:boxStrokeColor="@color/sari"
-            app:boxStrokeWidth="2dp"
+            android:layout_marginStart="@dimen/margin_biggest"
+            android:layout_marginTop="@dimen/margin_very_big"
+            android:layout_marginEnd="@dimen/margin_biggest"
+            android:layout_marginBottom="@dimen/margin_very_small"
+            android:textColorHint="@color/eden"
+            app:boxStrokeColor="@color/chardonnay"
+            app:boxStrokeWidth="@dimen/stroke_width_small"
             app:layout_constraintBottom_toTopOf="@+id/nameSurnameInputLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,10 +65,10 @@
                 android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:hint="@string/password_hint"
                 android:inputType="textPassword"
-                android:textColor="@color/yesil"
-                android:textColorHint="@color/yesil" />
+                android:textColor="@color/eden"
+                android:textColorHint="@color/eden" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -72,13 +76,13 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="75dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="75dp"
-            android:layout_marginBottom="7dp"
-            android:textColorHint="@color/yesil"
-            app:boxStrokeColor="@color/sari"
-            app:boxStrokeWidth="2dp"
+            android:layout_marginStart="@dimen/margin_biggest"
+            android:layout_marginTop="@dimen/margin_very_big"
+            android:layout_marginEnd="@dimen/margin_biggest"
+            android:layout_marginBottom="@dimen/margin_very_small"
+            android:textColorHint="@color/eden"
+            app:boxStrokeColor="@color/chardonnay"
+            app:boxStrokeWidth="@dimen/stroke_width_small"
             app:layout_constraintBottom_toTopOf="@+id/phoneNumberInputLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -88,9 +92,9 @@
                 android:id="@+id/nameSurnameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Name Surname"
-                android:textColor="@color/yesil"
-                android:textColorHint="@color/yesil" />
+                android:hint="@string/name_surname_hint"
+                android:textColor="@color/eden"
+                android:textColorHint="@color/eden" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -98,13 +102,13 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="75dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="75dp"
-            android:layout_marginBottom="50dp"
-            android:textColorHint="@color/yesil"
-            app:boxStrokeColor="@color/sari"
-            app:boxStrokeWidth="2dp"
+            android:layout_marginStart="@dimen/margin_biggest"
+            android:layout_marginTop="@dimen/margin_very_big"
+            android:layout_marginEnd="@dimen/margin_biggest"
+            android:layout_marginBottom="@dimen/margin_very_big"
+            android:textColorHint="@color/eden"
+            app:boxStrokeColor="@color/chardonnay"
+            app:boxStrokeWidth="@dimen/stroke_width_small"
             app:layout_constraintBottom_toTopOf="@+id/signUpButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -114,22 +118,20 @@
                 android:id="@+id/phoneNumberEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Phone Number"
-                android:textColor="@color/yesil"
-                android:textColorHint="@color/yesil" />
+                android:hint="@string/phone_number_hint"
+                android:textColor="@color/eden"
+                android:textColorHint="@color/eden" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/signUpButton"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/button_width"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="142dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginEnd="100dp"
-            android:backgroundTint="@color/sari"
+            android:layout_marginBottom="@dimen/margin_incredible"
+            android:backgroundTint="@color/chardonnay"
             android:onClick="@{() -> signUpFragmentObject.signUpButton(emailEditText.getText().toString(),passwordEditText.getText().toString(),nameSurnameEditText.getText().toString(),phoneNumberEditText.getText().toString())}"
-            android:text="SIGN UP"
-            android:textColor="@color/yesil"
+            android:text="@string/sign_up"
+            android:textColor="@color/eden"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

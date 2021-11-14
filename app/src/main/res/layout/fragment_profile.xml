@@ -9,55 +9,27 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/acikmavi">
+        android:background="@color/aquahaze">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarProfile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="@dimen/profile_card_width_height"
+            android:layout_height="@dimen/profile_card_width_height"
+            android:layout_marginStart="@dimen/margin_very_big"
+            android:layout_marginEnd="@dimen/margin_very_big"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintBottom_toTopOf="@+id/cardView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/toolbarTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/amaranth_bold"
-                android:text="Profile"
-                android:textColor="@color/aciksari"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                tools:layout_editor_absoluteX="153dp"
-                tools:layout_editor_absoluteY="13dp" />
-
-        </androidx.appcompat.widget.Toolbar>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/cardView2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarProfile">
-
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 app:srcCompat="@drawable/profile"
-                android:contentDescription="Profile Picture"/>
+                android:contentDescription="@string/profile_picture_description"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -65,17 +37,16 @@
             android:id="@+id/cardView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="20dp"
+            android:layout_marginStart="@dimen/margin_very_big"
+            android:layout_marginEnd="@dimen/margin_very_big"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation"
             app:layout_constraintBottom_toTopOf="@+id/cardView3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView"
-            app:strokeColor="@color/yesil"
-            app:strokeWidth="2dp">
+            app:strokeColor="@color/eden"
+            app:strokeWidth="@dimen/stroke_width_small">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -87,7 +58,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.3"
-                    android:background="@color/yesil">
+                    android:background="@color/eden">
 
                     <TextView
                         android:id="@+id/textView2"
@@ -96,16 +67,16 @@
                         android:layout_gravity="center"
                         android:fontFamily="@font/amaranth"
                         android:gravity="center"
-                        android:text="E - Mail\nAddress"
-                        android:textColor="@color/sari"
-                        android:textSize="16sp" />
+                        android:text="@string/e_mail_address"
+                        android:textColor="@color/chardonnay"
+                        android:textSize="@dimen/text_size_small" />
                 </FrameLayout>
 
                 <View
                     android:id="@+id/divider"
-                    android:layout_width="3dp"
-                    android:layout_height="75dp"
-                    android:background="@color/sari" />
+                    android:layout_width="@dimen/divider_width_profile"
+                    android:layout_height="@dimen/divider_height_profile"
+                    android:background="@color/chardonnay" />
 
                 <FrameLayout
                     android:layout_width="0dp"
@@ -117,13 +88,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:fontFamily="@font/amaranth"
+                        android:fontFamily="@font/amaranth_bold"
                         android:gravity="center"
-                        android:text="TextView"
                         android:textAlignment="center"
-                        android:textColor="@color/yesil"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/eden"
+                        android:textSize="@dimen/text_size_big" />
                 </FrameLayout>
 
             </LinearLayout>
@@ -134,17 +103,16 @@
             android:id="@+id/cardView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="20dp"
+            android:layout_marginStart="@dimen/margin_very_big"
+            android:layout_marginEnd="@dimen/margin_very_big"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation"
             app:layout_constraintBottom_toTopOf="@+id/cardView4"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView2"
-            app:strokeColor="@color/yesil"
-            app:strokeWidth="2dp">
+            app:strokeColor="@color/eden"
+            app:strokeWidth="@dimen/stroke_width_small">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -156,7 +124,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.3"
-                    android:background="@color/yesil">
+                    android:background="@color/eden">
 
                     <TextView
                         android:id="@+id/textView3"
@@ -165,16 +133,16 @@
                         android:layout_gravity="center"
                         android:fontFamily="@font/amaranth"
                         android:gravity="center"
-                        android:text="Name\nSurname"
-                        android:textColor="@color/sari"
-                        android:textSize="16sp" />
+                        android:text="@string/name_surname"
+                        android:textColor="@color/chardonnay"
+                        android:textSize="@dimen/text_size_small" />
                 </FrameLayout>
 
                 <View
                     android:id="@+id/divider2"
-                    android:layout_width="3dp"
-                    android:layout_height="75dp"
-                    android:background="@color/sari" />
+                    android:layout_width="@dimen/divider_width_profile"
+                    android:layout_height="@dimen/divider_height_profile"
+                    android:background="@color/chardonnay" />
 
                 <FrameLayout
                     android:layout_width="0dp"
@@ -186,13 +154,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:fontFamily="@font/amaranth"
+                        android:fontFamily="@font/amaranth_bold"
                         android:gravity="center"
-                        android:text="TextView"
                         android:textAlignment="center"
-                        android:textColor="@color/yesil"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/eden"
+                        android:textSize="@dimen/text_size_big"/>
                 </FrameLayout>
 
             </LinearLayout>
@@ -203,17 +169,16 @@
             android:id="@+id/cardView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="20dp"
+            android:layout_marginStart="@dimen/margin_very_big"
+            android:layout_marginEnd="@dimen/margin_very_big"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView3"
-            app:strokeColor="@color/yesil"
-            app:strokeWidth="2dp">
+            app:strokeColor="@color/eden"
+            app:strokeWidth="@dimen/stroke_width_small">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -225,7 +190,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.3"
-                    android:background="@color/yesil">
+                    android:background="@color/eden">
 
                     <TextView
                         android:id="@+id/textView4"
@@ -234,16 +199,16 @@
                         android:layout_gravity="center"
                         android:fontFamily="@font/amaranth"
                         android:gravity="center"
-                        android:text="Phone\nNumber"
-                        android:textSize="16sp"
-                        android:textColor="@color/sari" />
+                        android:text="@string/phone_number"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="@color/chardonnay" />
                 </FrameLayout>
 
                 <View
                     android:id="@+id/divider3"
-                    android:layout_width="3dp"
-                    android:layout_height="75dp"
-                    android:background="@color/sari" />
+                    android:layout_width="@dimen/divider_width_profile"
+                    android:layout_height="@dimen/divider_height_profile"
+                    android:background="@color/chardonnay" />
 
                 <FrameLayout
                     android:layout_width="0dp"
@@ -255,13 +220,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:fontFamily="@font/amaranth"
+                        android:fontFamily="@font/amaranth_bold"
                         android:gravity="center"
-                        android:text="TextView"
                         android:textAlignment="center"
-                        android:textColor="@color/yesil"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/eden"
+                        android:textSize="@dimen/text_size_big" />
                 </FrameLayout>
 
             </LinearLayout>

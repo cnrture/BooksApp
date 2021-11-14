@@ -1,34 +1,30 @@
 package com.canerture.booksapp.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.canerture.booksapp.repos.BooksRepository
 import com.canerture.booksapp.model.Books
 
-class BooksFragmentViewModel: ViewModel() {
+class BooksFragmentViewModel : ViewModel() {
 
-    private var mrepo = BooksRepository()
-    var books = MutableLiveData<List<Books>>()
+    private var booksRepo = BooksRepository()
+
+    private var _books = MutableLiveData<List<Books>>()
+    val books: LiveData<List<Books>>
+        get() = _books
 
     init {
         getBooks()
     }
 
-    fun getBooks() {
-        mrepo.getBooks()
-        books = mrepo.booksList()
-    }
-
-    fun getSearchedBooks(bookPublisher: String) {
-        mrepo.getSearchedBooks(bookPublisher)
-    }
-
-    fun addBook(bookName: String, bookAuthor: String, bookPublisher: String, bookPrice: String, bookImageUrl: String) {
-        mrepo.addBook(bookName, bookAuthor, bookPublisher, bookPrice, bookImageUrl)
+    private fun getBooks() {
+        booksRepo.getBooks()
+        _books = booksRepo.booksList()
     }
 
     fun addCartBook(bookId: Int) {
-        mrepo.cartStatusChange(bookId, 1)
+        booksRepo.basketStatusChange(bookId, 1)
     }
 
 }

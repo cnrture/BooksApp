@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
 import com.canerture.booksapp.R
 import com.canerture.booksapp.activity.MainActivity
 import com.canerture.booksapp.databinding.FragmentSignInBinding
@@ -17,45 +16,51 @@ import com.canerture.booksapp.viewmodel.SignInFragmentViewModel
 
 class SignInFragment : Fragment() {
 
-    private lateinit var binding: FragmentSignInBinding
-    private lateinit var viewModel : SignInFragmentViewModel
+    private var _binding: FragmentSignInBinding? = null
+    private val binding get() = _binding!!
+
+    private val viewModel by lazy { SignInFragmentViewModel() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_in, container, false)
-
+        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_in, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val temp : SignInFragmentViewModel by viewModels()
-        viewModel = temp
-
-        val prefences = requireActivity().getSharedPreferences("com.canerture.booksapp", Context.MODE_PRIVATE)
-        val editor = prefences!!.edit()
+        val preferences =
+            requireActivity().getSharedPreferences("com.canerture.booksapp", Context.MODE_PRIVATE)
+        val editor = preferences!!.edit()
 
         binding.signInFragmentObject = this
 
         viewModel.user.observe(viewLifecycleOwner, {
+
             if (it[0].okay == 1) {
                 editor.putString("e_mail", it[0].e_mail)
                 editor.putString("name_surname", it[0].name_surname)
                 editor.putString("phone_number", it[0].phone_number)
-                editor.commit()
+                editor.apply()
                 val intent = Intent(context, MainActivity::class.java)
                 startActivity(intent)
-            }   else {
-                Toast.makeText(context, "Wrong E-mail or Password, Try Again !", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, "Wrong E-mail or Password, Try Again !", Toast.LENGTH_SHORT)
+                    .show()
             }
+
         })
     }
 
-    fun signInButton(email:String, password:String) {
+    fun signInButton(email: String, password: String) {
         viewModel.signIn(email, password)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

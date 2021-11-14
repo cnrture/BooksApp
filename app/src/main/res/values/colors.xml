@@ -7,8 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="yesil">#104E5B</color>
-    <color name="sari">#FDC684</color>
-    <color name="aciksari">#FFEFDB</color>
-    <color name="acikmavi">#F2F6F7</color>
+
+    <color name="eden">#104E5B</color>
+    <color name="chardonnay">#FDC684</color>
+    <color name="peachcream">#FFEFDB</color>
+    <color name="aquahaze">#F2F6F7</color>
+
+    <color name="elm">#197c84</color>
+    <color name="icecold">#b0e8f4</color>
+    <color name="macaroniandcheese">#ffb57a</color>
 </resources>

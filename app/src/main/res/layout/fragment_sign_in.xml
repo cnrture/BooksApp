@@ -5,40 +5,42 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name = "signInFragmentObject" type = "com.canerture.booksapp.fragment.SignInFragment" />
+
+        <variable
+            name="signInFragmentObject"
+            type="com.canerture.booksapp.fragment.SignInFragment" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/acikmavi"
+        android:background="@color/aquahaze"
         tools:context=".fragment.SignInFragment">
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="75dp"
-            android:contentDescription="Books App Logo"
+            android:layout_marginTop="@dimen/margin_biggest"
+            android:contentDescription="@string/books_app_logo_description"
             app:layout_constraintBottom_toTopOf="@+id/textView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/booksapplogo" />
+            app:srcCompat="@drawable/books_app_logo" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/amaranth_bold"
-            android:text="Books App"
+            android:text="@string/app_name"
             android:textAlignment="center"
-            android:textColor="@color/yesil"
-            android:textSize="36sp"
+            android:textColor="@color/eden"
+            android:textSize="@dimen/text_size_very_big"
             app:layout_constraintBottom_toTopOf="@+id/emailInputLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -47,27 +49,26 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            android:hint="E - Mail"
-            android:textColorHint="@color/yesil"
-            app:boxStrokeColor="@color/sari"
-            app:boxStrokeWidth="2dp"
+            android:layout_marginStart="@dimen/margin_very_big"
+            android:layout_marginEnd="@dimen/margin_very_big"
+            android:hint="@string/e_mail_hint"
+            android:textColorHint="@color/eden"
+            app:boxStrokeColor="@color/chardonnay"
+            app:boxStrokeWidth="@dimen/stroke_width_small"
             app:layout_constraintBottom_toTopOf="@+id/passwordInputLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
             app:startIconDrawable="@drawable/e_mail"
-            app:startIconTint="@color/yesil">
+            app:startIconTint="@color/eden">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:textColor="@color/yesil"
-                android:textColorHint="@color/yesil" />
+                android:textColor="@color/eden"
+                android:textColorHint="@color/eden" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -75,49 +76,45 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            android:hint="Password"
-            android:textColorHint="@color/yesil"
-            app:boxStrokeColor="@color/sari"
-            app:boxStrokeWidth="2dp"
+            android:layout_marginStart="@dimen/margin_very_big"
+            android:layout_marginEnd="@dimen/margin_very_big"
+            android:hint="@string/password_hint"
+            android:textColorHint="@color/eden"
+            app:boxStrokeColor="@color/chardonnay"
+            app:boxStrokeWidth="@dimen/stroke_width_small"
             app:layout_constraintBottom_toTopOf="@+id/signInButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/emailInputLayout"
             app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/yesil"
+            app:passwordToggleTint="@color/eden"
             app:startIconDrawable="@drawable/password"
-            app:startIconTint="@color/yesil">
+            app:startIconTint="@color/eden">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:password="false"
                 android:singleLine="true"
-                android:textColor="@color/yesil"
-                android:textColorHint="@color/yesil" />
+                android:textColor="@color/eden"
+                android:textColorHint="@color/eden" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/signInButton"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/button_width"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginBottom="75dp"
-            android:backgroundTint="@color/sari"
+            android:layout_marginBottom="@dimen/margin_biggest"
+            android:backgroundTint="@color/chardonnay"
             android:onClick="@{() -> signInFragmentObject.signInButton(emailEditText.getText().toString(),passwordEditText.getText().toString())}"
-            android:text="SIGN IN"
+            android:text="@string/sign_in"
+            android:textSize="@dimen/button_text_size"
             android:textAlignment="center"
-            android:textColor="@color/yesil"
+            android:textColor="@color/eden"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/passwordInputLayout" />
     </androidx.constraintlayout.widget.ConstraintLayout>

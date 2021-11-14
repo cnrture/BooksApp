@@ -5,10 +5,10 @@ import com.canerture.booksapp.repos.UsersReporsitory
 
 class SignUpFragmentViewModel: ViewModel() {
 
-    private var mrepo = UsersReporsitory()
+    private var usersRepo = UsersReporsitory()
 
     fun signUp(email:String, password:String, nameSurname:String, phoneNumber:String){
-        mrepo.singUp(email, password, nameSurname, phoneNumber)
+        usersRepo.singUp(email, password, nameSurname, phoneNumber)
     }
 
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kitaplar Uygulaması</string>
+    <string name="book_image_description">Kitap Görseli</string>
+    <string name="cancel">VAZGEÇ</string>
+    <string name="add_cart">SEPETE EKLE</string>
+    <string name="sign_up">ÜYE OL</string>
+    <string name="sign_in">GİRİŞ YAP</string>
+    <string name="search_view_hint">Kitap adı, yazar veya yayınevi giriniz</string>
+    <string name="name_surname_hint">Ad Soyad</string>
+    <string name="phone_number_hint">Tel No</string>
+    <string name="e_mail_hint">E- Mail</string>
+    <string name="password_hint">Şifre</string>
+    <string name="profile_picture_description">Profil Resmi</string>
+    <string name="books_app_logo_description">Kitaplar Uygulaması Logo</string>
+    <string name="e_mail_address">E-Mail\nAdresi</string>
+    <string name="name_surname">Ad\nSoyad</string>
+    <string name="phone_number">Telefon\nNumarası</string>
+    <string name="books">Kitaplar</string>
+    <string name="basket">Sepet</string>
+    <string name="profile">Profil</string>
+</resources>

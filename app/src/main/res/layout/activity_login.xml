@@ -20,7 +20,7 @@
         app:tabGravity="fill"
         app:tabIndicatorGravity="bottom"
         app:tabMode="fixed"
-        app:tabTextColor="@color/sari" />
+        app:tabTextColor="@color/chardonnay" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"

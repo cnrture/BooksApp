@@ -5,17 +5,17 @@ import androidx.lifecycle.ViewModel
 import com.canerture.booksapp.model.User
 import com.canerture.booksapp.repos.UsersReporsitory
 
-class SignInFragmentViewModel: ViewModel() {
+class SignInFragmentViewModel : ViewModel() {
 
-    private var mrepo = UsersReporsitory()
+    private var usersRepo = UsersReporsitory()
     var user = MutableLiveData<List<User>>()
 
     init {
-        user = mrepo.userData()
+        user = usersRepo.userData()
     }
 
-    fun signIn(email:String, password:String){
-        mrepo.signIn(email, password)
+    fun signIn(email: String, password: String) {
+        usersRepo.signIn(email, password)
     }
 
 }

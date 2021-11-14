@@ -5,16 +5,16 @@
     <item
         android:id="@+id/booksFragment"
         android:icon="@drawable/book"
-        android:title="Books" />
+        android:title="@string/books" />
 
     <item
-        android:id="@+id/basketBooksFragment"
+        android:id="@+id/booksBasketFragment"
         android:icon="@drawable/basket"
-        android:title="Basket" />
+        android:title="@string/basket" />
 
     <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/profile"
-        android:title="Profile" />
+        android:title="@string/profile" />
 
 </menu>
