@@ -1,9 +1,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name = "profileFragmentObject" type = "com.canerture.booksapp.fragment.ProfileFragment" />
+
+        <variable
+            name="profileFragmentObject"
+            type="com.canerture.booksapp.ui.main.profile.ProfileFragment" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,8 +32,8 @@
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/profile"
-                android:contentDescription="@string/profile_picture_description"/>
+                android:contentDescription="@string/profile_picture_description"
+                app:srcCompat="@drawable/profile" />
 
         </androidx.cardview.widget.CardView>
 
@@ -65,7 +69,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:fontFamily="@font/amaranth"
                         android:gravity="center"
                         android:text="@string/e_mail_address"
                         android:textColor="@color/chardonnay"
@@ -88,7 +91,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:fontFamily="@font/amaranth_bold"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/eden"
@@ -131,7 +133,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:fontFamily="@font/amaranth"
                         android:gravity="center"
                         android:text="@string/name_surname"
                         android:textColor="@color/chardonnay"
@@ -154,11 +155,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:fontFamily="@font/amaranth_bold"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/eden"
-                        android:textSize="@dimen/text_size_big"/>
+                        android:textSize="@dimen/text_size_big" />
                 </FrameLayout>
 
             </LinearLayout>
@@ -197,11 +197,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:fontFamily="@font/amaranth"
                         android:gravity="center"
                         android:text="@string/phone_number"
-                        android:textSize="@dimen/text_size_small"
-                        android:textColor="@color/chardonnay" />
+                        android:textColor="@color/chardonnay"
+                        android:textSize="@dimen/text_size_small" />
                 </FrameLayout>
 
                 <View
@@ -220,7 +219,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:fontFamily="@font/amaranth_bold"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/eden"

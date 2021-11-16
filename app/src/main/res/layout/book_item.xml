@@ -7,23 +7,22 @@
 
         <variable
             name="bookModel"
-            type="com.canerture.booksapp.model.Books" />
+            type="com.canerture.booksapp.data.model.BookModel" />
 
     </data>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_small"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="@dimen/card_corner_radius"
-        app:cardElevation="@dimen/card_elevation"
+        app:cardElevation="@dimen/card_elevation_small"
         app:contentPadding="@dimen/padding_big"
         app:strokeColor="@color/eden"
         app:strokeWidth="@dimen/stroke_width_small">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -32,54 +31,59 @@
             <ImageView
                 android:id="@+id/bookImageView"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="@dimen/layout_height"
                 android:layout_margin="@dimen/margin_very_small"
-                android:layout_weight="0.8"
-                android:contentDescription="@string/book_image_description" />
+                android:contentDescription="@string/book_image_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/bookNameText"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_gravity="center"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_very_small"
-                android:layout_weight="0.25"
-                android:fontFamily="@font/amaranth_bold"
                 android:gravity="center"
+                android:lines="2"
                 android:text="@{bookModel.book_name}"
                 android:textAlignment="center"
                 android:textColor="@color/eden"
-                android:textSize="@dimen/text_size_small" />
+                android:textSize="@dimen/text_size_small"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bookImageView" />
 
             <TextView
                 android:id="@+id/bookAuthorText"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_gravity="center"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_very_small"
-                android:layout_weight="0.1"
-                android:fontFamily="@font/amaranth"
                 android:gravity="center"
+                android:lines="2"
                 android:text="@{bookModel.book_author}"
                 android:textAlignment="center"
                 android:textColor="@color/eden"
-                android:textSize="@dimen/text_size_very_small" />
+                android:textSize="@dimen/text_size_very_small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bookNameText" />
 
             <TextView
                 android:id="@+id/bookPriceText"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_gravity="center"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_very_small"
-                android:layout_weight="0.1"
-                android:fontFamily="@font/amaranth"
                 android:gravity="center"
                 android:text='@{bookModel.book_price + " ₺"}'
                 android:textAlignment="center"
                 android:textColor="@color/eden"
-                android:textSize="@dimen/text_size_very_small" />
+                android:textSize="@dimen/text_size_very_small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bookAuthorText" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
 

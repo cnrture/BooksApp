@@ -8,7 +8,7 @@
 
         <variable
             name="signUpFragmentObject"
-            type="com.canerture.booksapp.fragment.SignUpFragment" />
+            type="com.canerture.booksapp.ui.login.signup.SignUpFragment" />
 
     </data>
 
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/aquahaze"
-        tools:context=".fragment.SignUpFragment">
+        tools:context=".ui.login.signup.SignUpFragment">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailInputLayout"

@@ -22,7 +22,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/amaranth_bold"
             android:textAlignment="center"
             android:textColor="@color/chardonnay"
             android:textSize="@dimen/toolbar_title" />

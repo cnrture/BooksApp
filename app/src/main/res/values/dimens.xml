@@ -11,17 +11,20 @@
     <dimen name="margin_very_big">32dp</dimen>
     <dimen name="margin_big">24dp</dimen>
     <dimen name="margin_medium">16dp</dimen>
-    <dimen name="margin_small">10dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
     <dimen name="margin_very_small">4dp</dimen>
 
     <dimen name="card_corner_radius">10dp</dimen>
     <dimen name="card_elevation">10dp</dimen>
+    <dimen name="card_elevation_small">6dp</dimen>
 
     <dimen name="padding_big">16dp</dimen>
     <dimen name="padding_medium">10dp</dimen>
+    <dimen name="padding_medium_small">8dp</dimen>
     <dimen name="padding_small">4dp</dimen>
 
-    <dimen name="text_size_very_big">36sp</dimen>
+    <dimen name="text_size_biggest">36sp</dimen>
+    <dimen name="text_size_very_big">24sp</dimen>
     <dimen name="text_size_big">20sp</dimen>
     <dimen name="text_size_medium">18sp</dimen>
     <dimen name="text_size_small">16sp</dimen>
@@ -43,5 +46,8 @@
     <dimen name="image_card_height">225dp</dimen>
 
     <dimen name="profile_card_width_height">200dp</dimen>
+
+    <dimen name="layout_width">125dp</dimen>
+    <dimen name="layout_height">175dp</dimen>
 
 </resources>

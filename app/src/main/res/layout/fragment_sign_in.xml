@@ -8,7 +8,7 @@
 
         <variable
             name="signInFragmentObject"
-            type="com.canerture.booksapp.fragment.SignInFragment" />
+            type="com.canerture.booksapp.ui.login.signin.SignInFragment" />
 
     </data>
 
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/aquahaze"
-        tools:context=".fragment.SignInFragment">
+        tools:context=".ui.login.signin.SignInFragment">
 
         <ImageView
             android:id="@+id/imageView2"
@@ -34,11 +34,10 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/amaranth_bold"
             android:text="@string/app_name"
             android:textAlignment="center"
             android:textColor="@color/eden"
-            android:textSize="@dimen/text_size_very_big"
+            android:textSize="@dimen/text_size_biggest"
             app:layout_constraintBottom_toTopOf="@+id/emailInputLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

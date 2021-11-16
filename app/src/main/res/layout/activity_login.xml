@@ -7,7 +7,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.LoginActivity">
+    tools:context=".ui.login.LoginActivity">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/loginTabLayout"

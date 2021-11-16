@@ -32,16 +32,19 @@
         <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.16018518518518518" />
         <entry key="app/src/main/res/drawable/password.xml" value="0.16018518518518518" />
         <entry key="app/src/main/res/drawable/profile.xml" value="0.16018518518518518" />
+        <entry key="app/src/main/res/drawable/sadsda.xml" value="0.24444444444444444" />
         <entry key="app/src/main/res/drawable/search_white.xml" value="0.16018518518518518" />
         <entry key="app/src/main/res/drawable/selector_bottom_nav.xml" value="0.2421875" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2722222222222222" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/best_seller_item.xml" value="0.3619791666666667" />
+        <entry key="app/src/main/res/layout/best_sellers_list.xml" value="0.2538136431271553" />
         <entry key="app/src/main/res/layout/book_basket_item.xml" value="0.2657407407407407" />
         <entry key="app/src/main/res/layout/book_bottom_sheet.xml" value="0.3638888888888889" />
         <entry key="app/src/main/res/layout/book_card.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/book_detail_alert.xml" value="0.25052083333333336" />
-        <entry key="app/src/main/res/layout/book_detail_bottom_sheet.xml" value="0.2657407407407407" />
+        <entry key="app/src/main/res/layout/book_detail_bottom_sheet.xml" value="0.2222222222222222" />
         <entry key="app/src/main/res/layout/book_item.xml" value="0.21944444444444444" />
         <entry key="app/src/main/res/layout/book_search_view.xml" value="0.1" />
         <entry key="app/src/main/res/layout/books_list.xml" value="0.2212962962962963" />
@@ -50,7 +53,7 @@
         <entry key="app/src/main/res/layout/fragment_books_basket.xml" value="0.2722222222222222" />
         <entry key="app/src/main/res/layout/fragment_cart_books.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.20555555555555555" />
-        <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.20555555555555555" />
+        <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.2222222222222222" />
         <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.19814814814814816" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="app/src/main/res/menu/toolbar_menu.xml" value="0.1" />

@@ -8,11 +8,12 @@
 
         <variable
             name="booksFragmentObject"
-            type="com.canerture.booksapp.fragment.BooksFragment" />
+            type="com.canerture.booksapp.ui.main.books.BooksFragment" />
 
         <variable
             name="booksListRecyclerAdapter"
             type="androidx.recyclerview.widget.ConcatAdapter" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

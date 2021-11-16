@@ -6,10 +6,10 @@
 
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.canerture.booksapp.fragment.SignInFragment"
+        android:name="com.canerture.booksapp.ui.login.signin.SignInFragment"
         android:label="SignInFragment" />
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.canerture.booksapp.fragment.SignUpFragment"
+        android:name="com.canerture.booksapp.ui.login.signup.SignUpFragment"
         android:label="SignUpFragment" />
 </navigation>

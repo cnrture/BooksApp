@@ -7,8 +7,8 @@
     <data>
 
         <variable
-            name="booksModel"
-            type="com.canerture.booksapp.model.Books" />
+            name="bookModel"
+            type="com.canerture.booksapp.data.model.BookModel" />
 
     </data>
 
@@ -57,7 +57,7 @@
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/margin_medium"
             android:layout_marginEnd="@dimen/margin_big"
-            android:text="@{booksModel.book_name}"
+            android:text="@{bookModel.book_name}"
             android:textAlignment="center"
             android:textColor="@color/eden"
             android:textSize="@dimen/text_size_small"
@@ -72,7 +72,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@{booksModel.book_author}"
+            android:text="@{bookModel.book_author}"
             android:textAlignment="center"
             android:textColor="@color/eden"
             android:textSize="@dimen/text_size_small"
@@ -85,7 +85,7 @@
             android:id="@+id/bookPublisher"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{booksModel.book_publisher}"
+            android:text="@{bookModel.book_publisher}"
             android:textAlignment="center"
             android:textColor="@color/eden"
             android:textSize="@dimen/text_size_small"
@@ -99,7 +99,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text='@{booksModel.book_price + " ₺"}'
+            android:text='@{bookModel.book_price + " ₺"}'
             android:textAlignment="center"
             android:textColor="@color/eden"
             android:textSize="@dimen/text_size_small"
@@ -122,7 +122,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/addCartButton"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bookImageCard" />
+            app:layout_constraintTop_toBottomOf="@+id/bookImageCard"
+            app:rippleColor="@color/white" />
 
         <Button
             android:id="@+id/addCartButton"
@@ -136,7 +137,8 @@
             app:layout_constraintBottom_toBottomOf="@+id/cancelButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cancelButton"
-            app:layout_constraintTop_toTopOf="@+id/cancelButton" />
+            app:layout_constraintTop_toTopOf="@+id/cancelButton"
+            app:rippleColor="@color/white" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

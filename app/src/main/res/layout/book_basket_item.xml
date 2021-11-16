@@ -7,7 +7,7 @@
 
         <variable
             name="bookModel"
-            type="com.canerture.booksapp.model.Books" />
+            type="com.canerture.booksapp.data.model.BookModel" />
 
     </data>
 

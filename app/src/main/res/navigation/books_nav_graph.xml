@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/booksFragment"
-        android:name="com.canerture.booksapp.fragment.BooksFragment"
+        android:name="com.canerture.booksapp.ui.main.books.BooksFragment"
         android:label="BooksFragment"
         tools:layout="@layout/fragment_books">
         <action
@@ -16,21 +16,21 @@
     </fragment>
     <fragment
         android:id="@+id/booksBasketFragment"
-        android:name="com.canerture.booksapp.fragment.BooksBasketFragment"
+        android:name="com.canerture.booksapp.ui.main.booksbasket.BooksBasketFragment"
         android:label="BasketBooksFragment"
         tools:layout="@layout/fragment_books_basket" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.canerture.booksapp.fragment.ProfileFragment"
+        android:name="com.canerture.booksapp.ui.main.profile.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile" />
     <dialog
         android:id="@+id/bookDetailBottomSheet"
-        android:name="com.canerture.booksapp.fragment.BookDetailBottomSheet"
+        android:name="com.canerture.booksapp.ui.main.bookdetail.BookDetailBottomSheet"
         android:label="BookDetailBottomSheet"
         tools:layout="@layout/book_detail_bottom_sheet">
         <argument
-            android:name="booksModel"
-            app:argType="com.canerture.booksapp.model.Books" />
+            android:name="bookModel"
+            app:argType="com.canerture.booksapp.data.model.BookModel" />
     </dialog>
 </navigation>

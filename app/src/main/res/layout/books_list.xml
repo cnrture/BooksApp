@@ -10,8 +10,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/booksRecycler"
             android:layout_width="0dp"
-            android:padding="@dimen/padding_medium"
             android:layout_height="wrap_content"
+            android:padding="@dimen/padding_medium_small"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
