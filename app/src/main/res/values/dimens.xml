@@ -14,7 +14,8 @@
     <dimen name="margin_small">8dp</dimen>
     <dimen name="margin_very_small">4dp</dimen>
 
-    <dimen name="card_corner_radius">10dp</dimen>
+    <dimen name="card_corner_radius_medium">8dp</dimen>
+    <dimen name="card_corner_radius_small">10dp</dimen>
     <dimen name="card_elevation">10dp</dimen>
     <dimen name="card_elevation_small">6dp</dimen>
 

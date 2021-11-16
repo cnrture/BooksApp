@@ -20,14 +20,6 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
         NavigationUI.setupWithNavController(binding.bottomNav, navHostFragment.navController)
 
-        navHostFragment.navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            when (destination.id) {
-                R.id.booksFragment -> binding.toolbarTitle.text = getString(R.string.books)
-                R.id.booksBasketFragment -> binding.toolbarTitle.text = getString(R.string.basket)
-                R.id.profileFragment -> binding.toolbarTitle.text = getString(R.string.profile)
-            }
-        }
-
     }
 
     override fun onBackPressed() {

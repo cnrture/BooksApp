@@ -16,7 +16,7 @@ class BooksBasketFragment : Fragment() {
 
     private val viewModel by lazy { BooksBasketFragmentViewModel() }
 
-    private val booksBasketAdapter by lazy { BooksBasketAdapter(viewModel) }
+    private val booksBasketAdapter by lazy { BooksBasketAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,8 +42,13 @@ class BooksBasketFragment : Fragment() {
                 if (it.isNullOrEmpty().not()) {
                     booksBasketAdapter.updateList(it)
                     booksBasketRecyclerAdapter = booksBasketAdapter
+                    emptyBasketText.visibility = View.GONE
                 }
             })
+
+            booksBasketAdapter.onRemoveBasketClick = {
+                viewModel.deleteBasketBook(it)
+            }
 
         }
     }

@@ -13,6 +13,7 @@ class BooksListAdapter : RecyclerView.Adapter<BooksListAdapter.BooksListDesign>(
 
     private val booksList = ArrayList<BookModel>()
     var booksFilterList = ArrayList<BookModel>()
+    var onAddBasketClick: (Int) -> Unit = {}
 
     init {
         booksFilterList = booksList
@@ -37,6 +38,7 @@ class BooksListAdapter : RecyclerView.Adapter<BooksListAdapter.BooksListDesign>(
                 adapter = BooksItemAdapter()
                     .also {
                         it.updateList(bookModelFilterList)
+                        it.onAddBasketClick = onAddBasketClick
                     }
             }
 

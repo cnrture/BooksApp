@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.jaredrummler:animated-svg-view:1.0.6@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/83b268c421c212a4259e6263b435f6f6/animated-svg-view-1.0.6/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/fd1534c9c2ecef7ab1b92e4f923668fc/transformed/animated-svg-view-1.0.6/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/83b268c421c212a4259e6263b435f6f6/animated-svg-view-1.0.6/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/83b268c421c212a4259e6263b435f6f6/animated-svg-view-1.0.6/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/83b268c421c212a4259e6263b435f6f6/animated-svg-view-1.0.6/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fd1534c9c2ecef7ab1b92e4f923668fc/transformed/animated-svg-view-1.0.6/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fd1534c9c2ecef7ab1b92e4f923668fc/transformed/animated-svg-view-1.0.6/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/fd1534c9c2ecef7ab1b92e4f923668fc/transformed/animated-svg-view-1.0.6/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jaredrummler/animated-svg-view/1.0.6/c747517cbc1831a94956559835b921de542355b6/animated-svg-view-1.0.6-javadoc.jar!/" />

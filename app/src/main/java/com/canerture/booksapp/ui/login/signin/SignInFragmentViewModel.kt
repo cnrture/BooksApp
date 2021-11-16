@@ -12,8 +12,8 @@ class SignInFragmentViewModel : ViewModel() {
 
     private var usersRepo = UsersReporsitory()
 
-    private var _userData = MutableLiveData<UserModel?>()
-    val userData: LiveData<UserModel?>
+    private var _userData = MutableLiveData<UserModel>()
+    val userData: LiveData<UserModel>
         get() = _userData
 
     private var _eMailValidation = MutableLiveData<Boolean>()

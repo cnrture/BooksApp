@@ -30,7 +30,7 @@ class BooksBasketFragmentViewModel : ViewModel() {
 
     fun deleteBasketBook(bookId: Int) {
         booksRepo.basketStatusChange(bookId, 0)
-        booksRepo.booksBasket()
+        getBooksBasket()
     }
 
 }

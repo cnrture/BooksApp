@@ -59,7 +59,10 @@ class BooksFragment : Fragment() {
                     booksListAdapter.filter.filter(it)
                     concatAdapter.addAdapter(1, bestSellersAdapter)
                 }
+            }
 
+            booksListAdapter.onAddBasketClick = {
+                viewModel.addCartBook(it)
             }
 
         }

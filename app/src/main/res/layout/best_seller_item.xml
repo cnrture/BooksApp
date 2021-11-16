@@ -17,14 +17,14 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_medium"
         app:cardBackgroundColor="@color/aquahaze"
-        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:cardCornerRadius="@dimen/card_corner_radius_small"
         app:cardElevation="0dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/bookImageCard"
             android:layout_width="match_parent"
             android:layout_height="@dimen/layout_height"
-            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardCornerRadius="@dimen/card_corner_radius_small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">

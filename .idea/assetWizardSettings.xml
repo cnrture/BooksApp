@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/alternate_email/baseline_alternate_email_24.xml" />
+                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/add_shopping_cart/baseline_add_shopping_cart_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -29,8 +29,8 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="fdc684" />
-                            <entry key="outputName" value="e_mail" />
-                            <entry key="sourceFile" value="C:\Users\cnrture\Desktop\Asset 1.svg" />
+                            <entry key="outputName" value="add_basket" />
+                            <entry key="sourceFile" value="/C:\Users\cnrture\Desktop\Asset 1.svg" />
                           </map>
                         </option>
                       </PersistentState>

@@ -7,10 +7,10 @@ import com.canerture.booksapp.databinding.BookBasketItemBinding
 import com.canerture.booksapp.data.model.BookModel
 import com.squareup.picasso.Picasso
 
-class BooksBasketAdapter(var viewModel: BooksBasketFragmentViewModel) :
-    RecyclerView.Adapter<BooksBasketAdapter.BookBasketItemDesign>() {
+class BooksBasketAdapter : RecyclerView.Adapter<BooksBasketAdapter.BookBasketItemDesign>() {
 
     private val cartBooksList = ArrayList<BookModel>()
+    var onRemoveBasketClick: (Int) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookBasketItemDesign {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -19,13 +19,13 @@ class BooksBasketAdapter(var viewModel: BooksBasketFragmentViewModel) :
     }
 
     override fun onBindViewHolder(holder: BookBasketItemDesign, position: Int) {
-        holder.bind(cartBooksList[position])
+        holder.bind(cartBooksList[position], position)
     }
 
     inner class BookBasketItemDesign(private var bookBasketItemBinding: BookBasketItemBinding) :
         RecyclerView.ViewHolder(bookBasketItemBinding.root) {
 
-        fun bind(bookBasket: BookModel) {
+        fun bind(bookBasket: BookModel, position: Int) {
 
             bookBasketItemBinding.apply {
 
@@ -36,7 +36,7 @@ class BooksBasketAdapter(var viewModel: BooksBasketFragmentViewModel) :
                 }
 
                 cartDeleteButton.setOnClickListener {
-                    viewModel.deleteBasketBook(bookBasket.book_id)
+                    onRemoveBasketClick(bookBasket.book_id)
                 }
 
             }

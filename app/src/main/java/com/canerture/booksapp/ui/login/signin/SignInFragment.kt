@@ -39,7 +39,7 @@ class SignInFragment : Fragment() {
         binding.signInFragmentObject = this
 
         viewModel.eMailValidation.observe(viewLifecycleOwner, {
-            if (!it) Snackbar.make(view, "Geçerli bir mail giriniz!", 1000).show()
+            if (!it) Snackbar.make(view, R.string.e_mail_not_valid, 1000).show()
         })
 
         viewModel.userData.observe(viewLifecycleOwner, {
