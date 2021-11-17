@@ -48,10 +48,6 @@ class BookDetailBottomSheet : BottomSheetDialogFragment() {
                 Snackbar.make(dialog?.window!!.decorView, R.string.add_cart_snack_text, 1000).show()
             }
 
-            cancelButton.setOnClickListener {
-                dismiss()
-            }
-
         }
     }
 

@@ -3,6 +3,11 @@
   <component name="WizardSettings">
     <option name="children">
       <map>
+        <entry key="imageWizard">
+          <value>
+            <PersistentState />
+          </value>
+        </entry>
         <entry key="vectorWizard">
           <value>
             <PersistentState>
@@ -18,7 +23,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/add_shopping_cart/baseline_add_shopping_cart_24.xml" />
+                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/edit/baseline_edit_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -29,8 +34,8 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="fdc684" />
-                            <entry key="outputName" value="add_basket" />
-                            <entry key="sourceFile" value="/C:\Users\cnrture\Desktop\Asset 1.svg" />
+                            <entry key="outputName" value="edit_address" />
+                            <entry key="sourceFile" value="$USER_HOME$/Downloads/googlepay.svg" />
                           </map>
                         </option>
                       </PersistentState>

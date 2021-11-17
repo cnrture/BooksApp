@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.canerture.booksapp.databinding.ActivitySplashBinding
 import com.canerture.booksapp.ui.login.LoginActivity
-import com.canerture.booksapp.ui.main.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 

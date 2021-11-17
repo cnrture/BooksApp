@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aquahaze"
+    tools:context=".ui.main.PaymentFragment">
+
+    <TextView
+        android:id="@+id/paymentTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Payment Method"
+        android:textColor="@color/eden"
+        android:textSize="@dimen/text_size_very_big"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/masterCard"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        app:cardBackgroundColor="#CAE5ED"
+        app:cardCornerRadius="@dimen/card_corner_radius_small"
+        app:cardElevation="@dimen/card_elevation_small"
+        app:contentPadding="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/paypalCard"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paymentTitle">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mastercard" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/paypalCard"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:cardBackgroundColor="@color/aquahaze"
+        app:cardCornerRadius="@dimen/card_corner_radius_small"
+        app:cardElevation="@dimen/card_elevation_small"
+        app:contentPadding="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/masterCard"
+        app:layout_constraintEnd_toStartOf="@+id/appleCard"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/masterCard"
+        app:layout_constraintTop_toTopOf="@+id/masterCard">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/paypal" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/googleCard"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="@color/aquahaze"
+        app:cardCornerRadius="@dimen/card_corner_radius_small"
+        app:cardElevation="@dimen/card_elevation_small"
+        app:contentPadding="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/masterCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/appleCard"
+        app:layout_constraintTop_toTopOf="@+id/masterCard">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/googlepay" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/appleCard"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:cardBackgroundColor="@color/aquahaze"
+        app:cardCornerRadius="@dimen/card_corner_radius_small"
+        app:cardElevation="@dimen/card_elevation_small"
+        app:contentPadding="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/masterCard"
+        app:layout_constraintEnd_toStartOf="@+id/googleCard"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/paypalCard"
+        app:layout_constraintTop_toTopOf="@+id/masterCard">
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/applepay" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/creditCardTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/eden"
+        android:textSize="@dimen/text_size_big"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/masterCard"
+        tools:text="Credit Card" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:alpha="0.7"
+        app:cardCornerRadius="@dimen/card_corner_radius_medium"
+        app:cardElevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/creditCardTitle">
+
+        <ImageView
+            android:id="@+id/paymentCard"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/bg_payment_card" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/cardNumberText"
+        android:layout_width="266dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:elevation="6dp"
+        android:text="* * * *     * * * *     * * * *     9 2 7 8"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_small"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/cardCard"
+        app:layout_constraintStart_toStartOf="@+id/cardCard"
+        app:layout_constraintTop_toTopOf="@+id/cardCard" />
+
+    <ImageView
+        android:id="@+id/paymentTypeImage"
+        android:layout_width="55dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="24dp"
+        android:elevation="6dp"
+        android:src="@drawable/mastercard"
+        app:layout_constraintBottom_toBottomOf="@+id/cardCard"
+        app:layout_constraintEnd_toEndOf="@+id/cardCard"
+        app:layout_constraintTop_toTopOf="@+id/cardCard" />
+
+    <TextView
+        android:id="@+id/addressTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/eden"
+        android:textSize="@dimen/text_size_big"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardCard"
+        tools:text="Address" />
+
+    <TextView
+        android:id="@+id/addressText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:alpha="0.7"
+        android:lines="3"
+        android:text="TextView"
+        android:textColor="@color/eden"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintEnd_toStartOf="@+id/editImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressTitle" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/addressTextInput"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:boxStrokeColor="@color/eden"
+        app:layout_constraintBottom_toBottomOf="@+id/addressText"
+        app:layout_constraintEnd_toStartOf="@+id/editImage"
+        app:layout_constraintStart_toStartOf="@+id/addressTitle"
+        app:layout_constraintTop_toBottomOf="@+id/addressTitle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/addressEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="hint"
+            android:lines="3" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/editImage"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="4dp"
+        android:src="@drawable/edit_address"
+        app:layout_constraintBottom_toBottomOf="@+id/editText"
+        app:layout_constraintEnd_toStartOf="@+id/editText"
+        app:layout_constraintTop_toTopOf="@+id/editText"
+        app:tint="@color/eden" />
+
+    <TextView
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/eden"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintBottom_toBottomOf="@+id/addressText"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Edit" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/eden"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressText"
+        tools:text="Total Price" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/eden"
+        android:textSize="@dimen/text_size_medium"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView12"
+        tools:text="$348,67" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Order Now"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
