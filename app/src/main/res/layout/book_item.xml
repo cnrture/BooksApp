@@ -38,7 +38,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/books_app_logo" />
+                tools:src="@drawable/ic_books_app" />
 
             <TextView
                 android:id="@+id/bookNameText"
@@ -96,10 +96,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
-            android:background="@drawable/add_basket_bg"
+            android:background="@drawable/bg_add_basket"
             android:padding="@dimen/padding_medium_small"
-            app:srcCompat="@drawable/add"
-            app:tint="@color/eden" />
+            app:srcCompat="@drawable/ic_add"
+            app:tint="@color/eden"
+            android:contentDescription="@string/add_basket_description" />
 
     </com.google.android.material.card.MaterialCardView>
 

@@ -58,7 +58,7 @@
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="@color/eden"
-                    android:textSize="@dimen/text_size_big"
+                    android:textSize="@dimen/text_size_medium"
                     android:textStyle="bold" />
 
                 <TextView
@@ -83,7 +83,7 @@
                 android:background="@color/chardonnay"
                 android:contentDescription="Book Delete Icon"
                 android:padding="@dimen/padding_small"
-                app:srcCompat="@drawable/delete" />
+                app:srcCompat="@drawable/ic_delete" />
 
         </LinearLayout>
 

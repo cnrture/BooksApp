@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.canerture.booksapp.R
-import com.canerture.booksapp.ui.ViewPagerAdapter
 import com.canerture.booksapp.databinding.ActivityLoginBinding
 import com.google.android.material.tabs.TabLayoutMediator
 

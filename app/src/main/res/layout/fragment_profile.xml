@@ -33,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/profile_picture_description"
-                app:srcCompat="@drawable/profile" />
+                app:srcCompat="@drawable/profile_unselected" />
 
         </androidx.cardview.widget.CardView>
 

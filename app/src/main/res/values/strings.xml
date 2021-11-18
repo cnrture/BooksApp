@@ -5,6 +5,7 @@
     <string name="book_image_description">Book Image</string>
     <string name="profile_picture_description">Profile Picture</string>
     <string name="books_app_logo_description">Books App Logo</string>
+    <string name="add_basket_description">Add Basket Icon</string>
 
     <string name="cancel">CANCEL</string>
     <string name="add_cart">ADD CART</string>
@@ -28,6 +29,18 @@
     <string name="basket_empty">Your basket is empty!</string>
     <string name="e_mail_not_valid">Invalid e-mail address</string>
     <string name="incomplete_information_entered">Incomplete information entered!</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="credit_card">Credit Card</string>
+    <string name="paypal">Paypal</string>
+    <string name="apple_pay">Apple Pay</string>
+    <string name="google_pay">Google Pay</string>
+    <string name="address_title">Address</string>
+    <string name="edit">Edit</string>
+    <string name="save">Save</string>
+    <string name="total_price">Total Price</string>
+    <string name="order_now">Order Now</string>
+    <string name="choose_a_payment_method">Choose a payment method</string>
+    <string name="your_order_has_been_received">Your order\nhas been received</string>
 
     <string-array name="booksapp_logo_strings">
         <item>M5.27,46.7H146.63c2.9,0 5.27,1.74 5.27,3.86v63.17c0,2.12 -2.37,3.86 -5.27,3.86l-69,4.35a26.93,26.93 0,0 1,-5.46 0L5.27,117.59c-2.9,0 -5.27,-1.74 -5.27,-3.86V50.56C0,48.44 2.37,46.7 5.27,46.7Z</item>
@@ -52,21 +65,5 @@
         <item>@color/macaroniandcheese</item>
         <item>@color/chardonnay</item>
     </integer-array>
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
-
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
-
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

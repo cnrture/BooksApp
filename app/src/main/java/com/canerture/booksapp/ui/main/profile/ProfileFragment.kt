@@ -31,7 +31,7 @@ class ProfileFragment : Fragment() {
         val preferences =
             requireActivity().getSharedPreferences("com.canerture.booksapp", Context.MODE_PRIVATE)
 
-        binding.emailText.text = preferences.getString("e_mail", "e_mail")
+        binding.emailText.text = preferences.getString("ic_e_mail", "ic_e_mail")
         binding.nameSurnameText.text = preferences.getString("name_surname", "name_surname")
         binding.phoneNumberText.text = preferences.getString("phone_number", "phone_number")
     }

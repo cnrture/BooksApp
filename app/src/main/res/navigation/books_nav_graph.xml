@@ -18,7 +18,11 @@
         android:id="@+id/booksBasketFragment"
         android:name="com.canerture.booksapp.ui.main.booksbasket.BooksBasketFragment"
         android:label="BasketBooksFragment"
-        tools:layout="@layout/fragment_books_basket" />
+        tools:layout="@layout/fragment_books_basket" >
+        <action
+            android:id="@+id/action_booksBasketFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.canerture.booksapp.ui.main.profile.ProfileFragment"
@@ -33,4 +37,19 @@
             android:name="bookModel"
             app:argType="com.canerture.booksapp.data.model.BookModel" />
     </dialog>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.canerture.booksapp.ui.main.payment.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" >
+        <argument
+            android:name="totalPrice"
+            app:argType="float" />
+        <action
+            android:id="@+id/action_paymentFragment_to_booksFragment"
+            app:destination="@id/booksFragment" />
+        <action
+            android:id="@+id/action_paymentFragment_to_booksBasketFragment"
+            app:destination="@id/booksBasketFragment" />
+    </fragment>
 </navigation>

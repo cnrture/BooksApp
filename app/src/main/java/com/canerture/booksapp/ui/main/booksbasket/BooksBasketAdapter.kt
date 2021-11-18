@@ -19,13 +19,13 @@ class BooksBasketAdapter : RecyclerView.Adapter<BooksBasketAdapter.BookBasketIte
     }
 
     override fun onBindViewHolder(holder: BookBasketItemDesign, position: Int) {
-        holder.bind(cartBooksList[position], position)
+        holder.bind(cartBooksList[position])
     }
 
     inner class BookBasketItemDesign(private var bookBasketItemBinding: BookBasketItemBinding) :
         RecyclerView.ViewHolder(bookBasketItemBinding.root) {
 
-        fun bind(bookBasket: BookModel, position: Int) {
+        fun bind(bookBasket: BookModel) {
 
             bookBasketItemBinding.apply {
 

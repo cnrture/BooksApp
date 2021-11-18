@@ -28,7 +28,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/books_app_logo" />
+            app:srcCompat="@drawable/ic_books_app" />
 
         <TextView
             android:id="@+id/textView"
@@ -58,7 +58,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:startIconDrawable="@drawable/e_mail"
+            app:startIconDrawable="@drawable/ic_e_mail"
             app:startIconTint="@color/eden">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -87,7 +87,7 @@
             app:layout_constraintTop_toBottomOf="@+id/emailInputLayout"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/eden"
-            app:startIconDrawable="@drawable/password"
+            app:startIconDrawable="@drawable/ic_password"
             app:startIconTint="@color/eden">
 
             <com.google.android.material.textfield.TextInputEditText

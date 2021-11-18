@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.canerture.booksapp.R
 import com.canerture.booksapp.databinding.FragmentBooksBasketBinding
 
@@ -48,6 +49,12 @@ class BooksBasketFragment : Fragment() {
 
             booksBasketAdapter.onRemoveBasketClick = {
                 viewModel.deleteBasketBook(it)
+            }
+
+            goToPayButton.setOnClickListener {
+                val action =
+                    BooksBasketFragmentDirections.actionBooksBasketFragmentToPaymentFragment(129.90f)
+                it.findNavController().navigate(action)
             }
 
         }

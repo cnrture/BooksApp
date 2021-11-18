@@ -80,4 +80,7 @@ dependencies {
 
     //Animated Svg for Splash
     implementation 'com.jaredrummler:animated-svg-view:1.0.6'
+
+    implementation 'androidx.core:core-splashscreen:1.0.0-alpha02'
+
 }

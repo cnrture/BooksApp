@@ -45,7 +45,7 @@ class SignInFragment : Fragment() {
         viewModel.userData.observe(viewLifecycleOwner, {
             if (it?.id != null) {
                 println(1)
-                editor.putString("e_mail", it.eMail)
+                editor.putString("ic_e_mail", it.eMail)
                 editor.putString("name_surname", it.nameSurname)
                 editor.putString("phone_number", it.phoneNumber)
                 editor.apply()

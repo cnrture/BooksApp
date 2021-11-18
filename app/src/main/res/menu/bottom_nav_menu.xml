@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/booksFragment"
-        android:icon="@drawable/book"
+        android:icon="@drawable/books_selector"
         android:title="@string/books" />
 
     <item
         android:id="@+id/booksBasketFragment"
-        android:icon="@drawable/basket"
+        android:icon="@drawable/basket_selector"
         android:title="@string/basket" />
 
     <item
         android:id="@+id/profileFragment"
-        android:icon="@drawable/profile"
+        android:icon="@drawable/profile_selector"
         android:title="@string/profile" />
 
 </menu>

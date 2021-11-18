@@ -13,7 +13,7 @@
         android:theme="@style/Theme.BooksApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name="com.canerture.booksapp.ui.SplashActivity"
+            android:name="com.canerture.booksapp.ui.splash.SplashActivity"
             android:exported="true"
             android:theme="@style/SplashActivity">
 
