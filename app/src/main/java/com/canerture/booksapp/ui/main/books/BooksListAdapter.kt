@@ -7,13 +7,14 @@ import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.canerture.booksapp.databinding.BooksListBinding
 import com.canerture.booksapp.data.model.BookModel
+import com.canerture.booksapp.data.model.BooksBasketRoomModel
 import kotlin.collections.ArrayList
 
 class BooksListAdapter : RecyclerView.Adapter<BooksListAdapter.BooksListDesign>(), Filterable {
 
     private val booksList = ArrayList<BookModel>()
     var booksFilterList = ArrayList<BookModel>()
-    var onAddBasketClick: (Int) -> Unit = {}
+    var onAddBasketClick: (BooksBasketRoomModel) -> Unit = {}
 
     init {
         booksFilterList = booksList
@@ -65,11 +66,17 @@ class BooksListAdapter : RecyclerView.Adapter<BooksListAdapter.BooksListDesign>(
                 } else {
                     val resultList = ArrayList<BookModel>()
                     for (row in booksList) {
-                        if (row.book_name.lowercase().contains(searchText) ||
-                            row.book_author.lowercase().contains(searchText) ||
-                            row.book_publisher.lowercase().contains(searchText)
-                        ) {
-                            resultList.add(row)
+                        row.book_name?.let { bookName ->
+                            row.book_author?.let { bookAuthor ->
+                                row.book_publisher?.let { bookPublisher ->
+                                    if (bookName.lowercase().contains(searchText) ||
+                                        bookAuthor.lowercase().contains(searchText) ||
+                                        bookPublisher.lowercase().contains(searchText)
+                                    ) {
+                                        resultList.add(row)
+                                    }
+                                }
+                            }
                         }
                     }
                     resultList

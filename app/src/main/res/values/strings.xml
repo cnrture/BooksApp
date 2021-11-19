@@ -8,7 +8,7 @@
     <string name="add_basket_description">Add Basket Icon</string>
 
     <string name="cancel">CANCEL</string>
-    <string name="add_cart">ADD CART</string>
+    <string name="add_basket">ADD BASKET</string>
     <string name="sign_up">SIGN UP</string>
     <string name="sign_in">SIGN IN</string>
 
@@ -25,7 +25,7 @@
     <string name="basket">Basket</string>
     <string name="profile">Profile</string>
     <string name="best_sellers">Best Sellers</string>
-    <string name="add_cart_snack_text">Book added to basket!</string>
+    <string name="add_basket_snack_text">Book added to basket!</string>
     <string name="basket_empty">Your basket is empty!</string>
     <string name="e_mail_not_valid">Invalid e-mail address</string>
     <string name="incomplete_information_entered">Incomplete information entered!</string>
@@ -46,6 +46,7 @@
     <string name="total_price_value">%s ₺</string>
     <string name="order_now_error">Please choose a payment method!</string>
     <string name="address_error">Please enter address information!</string>
+    <string name="add_book_basket_error">The book is already in the basket!</string>
 
     <string-array name="booksapp_logo_strings">
         <item>M5.27,46.7H146.63c2.9,0 5.27,1.74 5.27,3.86v63.17c0,2.12 -2.37,3.86 -5.27,3.86l-69,4.35a26.93,26.93 0,0 1,-5.46 0L5.27,117.59c-2.9,0 -5.27,-1.74 -5.27,-3.86V50.56C0,48.44 2.37,46.7 5.27,46.7Z</item>

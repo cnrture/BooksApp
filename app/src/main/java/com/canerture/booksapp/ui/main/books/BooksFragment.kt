@@ -7,17 +7,20 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ConcatAdapter
 import com.canerture.booksapp.R
 import com.canerture.booksapp.databinding.FragmentBooksBinding
+import com.google.android.material.snackbar.Snackbar
 
 class BooksFragment : Fragment() {
 
     private var _binding: FragmentBooksBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel by lazy { BooksFragmentViewModel() }
+    private val viewModel by lazy { BooksFragmentViewModel(requireContext()) }
 
     private val bestSellersAdapter by lazy { BestSellersListAdapter() }
     private val booksListAdapter by lazy { BooksListAdapter() }
     private val searchBookAdapter by lazy { SearchBookAdapter() }
+
+    private var concatAdapter = ConcatAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,26 +33,13 @@ class BooksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val concatAdapter = ConcatAdapter(searchBookAdapter, bestSellersAdapter, booksListAdapter)
+        concatAdapter = ConcatAdapter(searchBookAdapter, bestSellersAdapter, booksListAdapter)
 
         binding.apply {
 
             booksRecycleView.setHasFixedSize(true)
 
-            viewModel.isLoading.observe(viewLifecycleOwner, {
-                if (!it) booksLoadingView.visibility = View.GONE
-            })
-
-            viewModel.bestSellersList.observe(viewLifecycleOwner, {
-                if (it.isNullOrEmpty().not()) bestSellersAdapter.updateList(it)
-            })
-
-            viewModel.booksList.observe(viewLifecycleOwner, {
-                if (it.isNullOrEmpty().not()) {
-                    booksListAdapter.updateList(it)
-                    booksListRecyclerAdapter = concatAdapter
-                }
-            })
+            initObservers()
 
             searchBookAdapter.searchText = {
                 if (it.isNullOrEmpty().not()) {
@@ -62,10 +52,37 @@ class BooksFragment : Fragment() {
             }
 
             booksListAdapter.onAddBasketClick = {
-                viewModel.addCartBook(it)
+                if (viewModel.addBookToBasket(it).not()) {
+                    Snackbar.make(view, getString(R.string.add_book_basket_error), 1000).show()
+                }   else {
+                    Snackbar.make(view, getString(R.string.add_basket_snack_text), 1000).show()
+                }
             }
 
         }
+    }
+
+    private fun initObservers() {
+
+        binding.apply {
+            with(viewModel) {
+                isLoading.observe(viewLifecycleOwner, {
+                    if (!it) booksLoadingView.visibility = View.GONE
+                })
+
+                bestSellersList.observe(viewLifecycleOwner, {
+                    if (it.isNullOrEmpty().not()) bestSellersAdapter.updateList(it)
+                })
+
+                booksList.observe(viewLifecycleOwner, {
+                    if (it.isNullOrEmpty().not()) {
+                        booksListAdapter.updateList(it)
+                        booksListRecyclerAdapter = concatAdapter
+                    }
+                })
+            }
+        }
+
     }
 
     override fun onDestroyView() {

@@ -1,17 +1,19 @@
 package com.canerture.booksapp.ui.main.booksbasket
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.canerture.booksapp.data.repos.BooksRepository
 import com.canerture.booksapp.data.model.BookModel
+import com.canerture.booksapp.data.model.BooksBasketRoomModel
 
-class BooksBasketFragmentViewModel : ViewModel() {
+class BooksBasketFragmentViewModel(context: Context) : ViewModel() {
 
-    private val booksRepo = BooksRepository()
+    private val booksRepo = BooksRepository(context)
 
-    private var _booksBasket = MutableLiveData<List<BookModel>>()
-    val booksBasket: LiveData<List<BookModel>>
+    private var _booksBasket = MutableLiveData<List<BooksBasketRoomModel>>()
+    val booksBasket: LiveData<List<BooksBasketRoomModel>>
         get() = _booksBasket
 
     private var _isLoading = MutableLiveData<Boolean>()
@@ -28,8 +30,8 @@ class BooksBasketFragmentViewModel : ViewModel() {
         _isLoading = booksRepo.getIsLoading()
     }
 
-    fun deleteBasketBook(bookId: Int) {
-        booksRepo.basketStatusChange(bookId, 0)
+    fun deleteBookFromBasket(bookId: Int) {
+        booksRepo.deleteBookFromBasket(bookId)
         getBooksBasket()
     }
 

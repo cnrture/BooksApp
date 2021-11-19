@@ -133,7 +133,7 @@
             android:layout_marginTop="@dimen/margin_small"
             android:layout_marginBottom="@dimen/margin_big"
             android:backgroundTint="@color/chardonnay"
-            android:text="@string/add_cart"
+            android:text="@string/add_basket"
             android:textColor="@color/eden"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold"

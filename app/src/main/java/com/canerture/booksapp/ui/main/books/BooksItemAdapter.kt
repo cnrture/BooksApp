@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.canerture.booksapp.R
 import com.canerture.booksapp.databinding.BookItemBinding
 import com.canerture.booksapp.data.model.BookModel
+import com.canerture.booksapp.data.model.BooksBasketRoomModel
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import kotlin.collections.ArrayList
@@ -14,7 +15,7 @@ import kotlin.collections.ArrayList
 class BooksItemAdapter : RecyclerView.Adapter<BooksItemAdapter.BookItemDesign>() {
 
     private val booksList = ArrayList<BookModel>()
-    var onAddBasketClick: (Int) -> Unit = {}
+    var onAddBasketClick: (BooksBasketRoomModel) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookItemDesign {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -46,8 +47,15 @@ class BooksItemAdapter : RecyclerView.Adapter<BooksItemAdapter.BookItemDesign>()
                 }
 
                 addBasketImage.setOnClickListener {
-                    onAddBasketClick(book.book_id)
-                    Snackbar.make(it, R.string.add_cart_snack_text, 1000).show()
+                    onAddBasketClick(
+                        BooksBasketRoomModel(
+                            bookName = book.book_name,
+                            bookAuthor = book.book_author,
+                            bookPublisher = book.book_publisher,
+                            bookPrice = book.book_price,
+                            bookImageUrl = book.book_image_url
+                        )
+                    )
                 }
 
             }

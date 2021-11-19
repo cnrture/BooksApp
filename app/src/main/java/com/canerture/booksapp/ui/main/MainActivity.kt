@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
         NavigationUI.setupWithNavController(binding.bottomNav, navHostFragment.navController)
 
-        navHostFragment.navController.addOnDestinationChangedListener { controller, destination, arguments ->
+        navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.paymentFragment) {
                 binding.bottomNav.visibility = View.GONE
             }   else {

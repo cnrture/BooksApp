@@ -5,11 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.canerture.booksapp.databinding.BookBasketItemBinding
 import com.canerture.booksapp.data.model.BookModel
+import com.canerture.booksapp.data.model.BooksBasketRoomModel
 import com.squareup.picasso.Picasso
 
 class BooksBasketAdapter : RecyclerView.Adapter<BooksBasketAdapter.BookBasketItemDesign>() {
 
-    private val cartBooksList = ArrayList<BookModel>()
+    private val booksBasketList = ArrayList<BooksBasketRoomModel>()
     var onRemoveBasketClick: (Int) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookBasketItemDesign {
@@ -19,24 +20,24 @@ class BooksBasketAdapter : RecyclerView.Adapter<BooksBasketAdapter.BookBasketIte
     }
 
     override fun onBindViewHolder(holder: BookBasketItemDesign, position: Int) {
-        holder.bind(cartBooksList[position])
+        holder.bind(booksBasketList[position])
     }
 
     inner class BookBasketItemDesign(private var bookBasketItemBinding: BookBasketItemBinding) :
         RecyclerView.ViewHolder(bookBasketItemBinding.root) {
 
-        fun bind(bookBasket: BookModel) {
+        fun bind(bookBasket: BooksBasketRoomModel) {
 
             bookBasketItemBinding.apply {
 
                 bookModel = bookBasket
 
-                bookBasket.book_image_url.let {
-                    Picasso.get().load(bookBasket.book_image_url).into(cartBookImageView)
+                bookBasket.bookImageUrl.let {
+                    Picasso.get().load(it).into(bookBasketImageView)
                 }
 
-                cartDeleteButton.setOnClickListener {
-                    onRemoveBasketClick(bookBasket.book_id)
+                bookBasketDelete.setOnClickListener {
+                    onRemoveBasketClick(bookBasket.bookId)
                 }
 
             }
@@ -45,12 +46,12 @@ class BooksBasketAdapter : RecyclerView.Adapter<BooksBasketAdapter.BookBasketIte
     }
 
     override fun getItemCount(): Int {
-        return cartBooksList.size
+        return booksBasketList.size
     }
 
-    fun updateList(list: List<BookModel>) {
-        cartBooksList.clear()
-        cartBooksList.addAll(list)
+    fun updateList(list: List<BooksBasketRoomModel>) {
+        booksBasketList.clear()
+        booksBasketList.addAll(list)
         notifyDataSetChanged()
     }
 

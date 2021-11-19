@@ -15,7 +15,7 @@ class BooksBasketFragment : Fragment() {
     private var _binding: FragmentBooksBasketBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel by lazy { BooksBasketFragmentViewModel() }
+    private val viewModel by lazy { BooksBasketFragmentViewModel(requireContext()) }
 
     private val booksBasketAdapter by lazy { BooksBasketAdapter() }
 
@@ -48,7 +48,7 @@ class BooksBasketFragment : Fragment() {
             })
 
             booksBasketAdapter.onRemoveBasketClick = {
-                viewModel.deleteBasketBook(it)
+                viewModel.deleteBookFromBasket(it)
             }
 
             goToPayButton.setOnClickListener {

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.RadioButton
 import androidx.appcompat.app.AlertDialog
 import androidx.navigation.findNavController
@@ -20,7 +21,7 @@ class PaymentFragment : Fragment() {
     private var _binding: FragmentPaymentBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel by lazy { PaymentFragmentViewModel() }
+    private val viewModel by lazy { PaymentFragmentViewModel(requireContext()) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,7 +37,9 @@ class PaymentFragment : Fragment() {
         viewModel.booksBasket.observe(viewLifecycleOwner, {
             var totalPrice = 0f
             for (i in it) {
-                totalPrice += i.book_price.toFloat()
+                i.bookPrice?.let {
+                    totalPrice += it.toFloat()
+                }
             }
             binding.totalPriceText.text =
                 NumberFormat.getCurrencyInstance(Locale("tr", "TR")).format(totalPrice)
@@ -80,6 +83,12 @@ class PaymentFragment : Fragment() {
 
         }
 
+    }
+
+    private fun Button.click() {
+        setOnClickListener {
+
+        }
     }
 
     private fun RadioButton.checked() {

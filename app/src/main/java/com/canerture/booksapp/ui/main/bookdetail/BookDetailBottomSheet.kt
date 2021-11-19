@@ -1,6 +1,7 @@
 package com.canerture.booksapp.ui.main.bookdetail
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.navArgs
 import com.canerture.booksapp.R
+import com.canerture.booksapp.data.model.BooksBasketRoomModel
 import com.canerture.booksapp.databinding.BookDetailBottomSheetBinding
 import com.canerture.booksapp.ui.main.books.BooksFragmentViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -19,7 +21,7 @@ class BookDetailBottomSheet : BottomSheetDialogFragment() {
     private var _binding: BookDetailBottomSheetBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel by lazy { BooksFragmentViewModel() }
+    private val viewModel by lazy { BooksFragmentViewModel(requireContext()) }
 
     private val args: BookDetailBottomSheetArgs by navArgs()
 
@@ -44,8 +46,29 @@ class BookDetailBottomSheet : BottomSheetDialogFragment() {
             Picasso.get().load(book.book_image_url).into(bookImage)
 
             addCartButton.setOnClickListener {
-                viewModel.addCartBook(book.book_id)
-                Snackbar.make(dialog?.window!!.decorView, R.string.add_cart_snack_text, 1000).show()
+
+                if (viewModel.addBookToBasket(
+                        BooksBasketRoomModel(
+                            bookName = book.book_name,
+                            bookAuthor = book.book_author,
+                            bookPublisher = book.book_publisher,
+                            bookPrice = book.book_price,
+                            bookImageUrl = book.book_image_url
+                        )
+                    ).not()
+                ) {
+                    Snackbar.make(
+                        dialog?.window!!.decorView,
+                        getString(R.string.add_book_basket_error),
+                        1000
+                    ).show()
+                } else {
+                    Snackbar.make(
+                        dialog?.window!!.decorView,
+                        getString(R.string.add_basket_snack_text),
+                        1000
+                    ).show()
+                }
             }
 
         }
