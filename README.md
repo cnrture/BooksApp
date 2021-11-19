@@ -11,10 +11,13 @@ Project Features
  - LiveData <br>
  - DataBinding <br>
  - Retrofit <br>
+ - Room Database <br>
  - BottomNavigation <br>
- - ViewPager2 in TabLayout  <br>
- - SearchView in Toolbar <br>
- - Picasso for images 
+ - ViewPager2 in TabLayout <br>
+ - SearchView in RecyclerView(<a href="https://www.tugbaustundag.com/android-recyclerviewa-search-filter-ekleme/">Source</a>) <br>
+ - Picasso(<a href="https://square.github.io/picasso/">Source</a>) <br>
+ - Lottie(<a href="https://github.com/LottieFiles/lottie-android">Source</a>) <br>
+ - Animated Svg for Splash(<a href="https://github.com/jaredrummler/AnimatedSvgView">Source</a>)
  </h3><br>
 
 <p align="left">
