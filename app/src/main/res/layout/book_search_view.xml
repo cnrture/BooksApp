@@ -22,8 +22,6 @@
                 android:id="@+id/searchView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/aquahaze"
-                android:backgroundTint="@color/aquahaze"
                 app:iconifiedByDefault="false"
                 app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

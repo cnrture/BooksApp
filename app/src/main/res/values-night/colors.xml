@@ -8,6 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="sirocco">#424242</color>
+
     <color name="eden">#104E5B</color>
     <color name="chardonnay">#FFB052</color>
     <color name="peachcream">#FFEFDB</color>
