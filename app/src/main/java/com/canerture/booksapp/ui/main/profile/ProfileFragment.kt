@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.canerture.booksapp.R
 import com.canerture.booksapp.databinding.FragmentProfileBinding
+import com.canerture.booksapp.ui.login.signin.SignInFragment
 
 class ProfileFragment : Fragment() {
 
@@ -29,11 +30,11 @@ class ProfileFragment : Fragment() {
         binding.profileFragmentObject = this
 
         val preferences =
-            requireActivity().getSharedPreferences("com.canerture.booksapp", Context.MODE_PRIVATE)
+            requireActivity().getSharedPreferences(SignInFragment.PACKAGE_NAME, Context.MODE_PRIVATE)
 
-        binding.emailText.text = preferences.getString("ic_e_mail", "ic_e_mail")
-        binding.nameSurnameText.text = preferences.getString("name_surname", "name_surname")
-        binding.phoneNumberText.text = preferences.getString("phone_number", "phone_number")
+        binding.emailText.text = preferences.getString(SignInFragment.E_MAIL, SignInFragment.E_MAIL)
+        binding.nameSurnameText.text = preferences.getString(SignInFragment.NAME_SURNAME, SignInFragment.NAME_SURNAME)
+        binding.phoneNumberText.text = preferences.getString(SignInFragment.PHONE_NUMBER, SignInFragment.PHONE_NUMBER)
     }
 
     override fun onDestroyView() {

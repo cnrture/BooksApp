@@ -14,10 +14,6 @@ class PaymentFragmentViewModel : ViewModel() {
     val booksBasket: LiveData<List<BookModel>>
         get() = _booksBasket
 
-    private var _totalPrice = MutableLiveData<Float>()
-    val totalPrice: LiveData<Float>
-        get() = _totalPrice
-
     init {
         getBooksBasket()
     }

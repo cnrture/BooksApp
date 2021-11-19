@@ -26,13 +26,13 @@
         <item name="android:fontFamily">@font/roboto</item>
     </style>
 
-    <style name="SplashActivity" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="SplashActivity" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
     </style>
 
-    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppModalStyle</item>
     </style>
 

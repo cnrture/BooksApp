@@ -1,2 +1,2 @@
-rootProject.name = "MVVMExample"
+rootProject.name = "BooksApp"
 include ':app'

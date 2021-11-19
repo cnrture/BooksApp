@@ -33,6 +33,7 @@
 
     <dimen name="button_text_size_medium">16sp</dimen>
     <dimen name="button_text_size">14sp</dimen>
+    <dimen name="button_height">56dp</dimen>
     <dimen name="button_width">150dp</dimen>
 
     <dimen name="stroke_width_very_small">1dp</dimen>
@@ -51,5 +52,7 @@
 
     <dimen name="layout_width">125dp</dimen>
     <dimen name="layout_height">175dp</dimen>
+
+    <dimen name="radio_button_width_height">80dp</dimen>
 
 </resources>

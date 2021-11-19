@@ -2,11 +2,9 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
+    android:layout_height="match_parent"
+    android:background="@color/aquahaze">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/container"
@@ -23,10 +21,9 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
-        android:layout_height="66dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/bg_bottom_nav"
         app:itemHorizontalTranslationEnabled="false"
-        app:itemIconSize="26dp"
         app:itemIconTint="@drawable/bottom_nav_selector"
         app:itemTextColor="@color/chardonnay"
         app:labelVisibilityMode="selected"

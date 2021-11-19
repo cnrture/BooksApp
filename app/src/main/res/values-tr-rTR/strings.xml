@@ -29,6 +29,7 @@
     <string name="basket_empty">Sepetiniz boş!</string>
     <string name="e_mail_not_valid">Geçersiz e-mail adresi!</string>
     <string name="incomplete_information_entered">Eksik bilgi girildi!</string>
+    <string name="wrong_email_password">Hatalı E-mail veya şifre, tekrar deneyin!</string>
     <string name="payment_method">Ödeme Yöntemi</string>
     <string name="credit_card">Kredi Kartı</string>
     <string name="paypal">Paypal</string>
@@ -41,6 +42,10 @@
     <string name="order_now">Şimdi Sipariş Ver</string>
     <string name="choose_a_payment_method">Ödeme yöntemi seçin</string>
     <string name="your_order_has_been_received">Siparişiniz alındı</string>
+    <string name="go_to_pay">Ödemeye Geç</string>
+    <string name="total_price_value">%f ₺</string>
+    <string name="order_now_error">Lütfen ödeme yöntemi seçiniz!</string>
+    <string name="address_error">Lütfen adres bilgisi girin!</string>
 
     <string-array name="booksapp_logo_strings">
         <item>M5.27,46.7H146.63c2.9,0 5.27,1.74 5.27,3.86v63.17c0,2.12 -2.37,3.86 -5.27,3.86l-69,4.35a26.93,26.93 0,0 1,-5.46 0L5.27,117.59c-2.9,0 -5.27,-1.74 -5.27,-3.86V50.56C0,48.44 2.37,46.7 5.27,46.7Z</item>

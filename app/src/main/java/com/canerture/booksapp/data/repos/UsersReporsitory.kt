@@ -3,7 +3,7 @@ package com.canerture.booksapp.data.repos
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.canerture.booksapp.data.model.UserModel
-import com.canerture.booksapp.data.retrofit.ApiUtils
+import com.canerture.booksapp.data.util.ApiUtils
 import com.canerture.booksapp.data.response.CRUDResponse
 import com.canerture.booksapp.data.response.UserResponse
 import com.canerture.booksapp.data.retrofit.UsersDAOInterface

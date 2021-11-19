@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.canerture.booksapp.R
 import com.canerture.booksapp.ui.main.MainActivity
@@ -33,7 +32,7 @@ class SignInFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val preferences =
-            requireActivity().getSharedPreferences("com.canerture.booksapp", Context.MODE_PRIVATE)
+            requireActivity().getSharedPreferences(PACKAGE_NAME, Context.MODE_PRIVATE)
         val editor = preferences!!.edit()
 
         binding.signInFragmentObject = this
@@ -44,17 +43,14 @@ class SignInFragment : Fragment() {
 
         viewModel.userData.observe(viewLifecycleOwner, {
             if (it?.id != null) {
-                println(1)
-                editor.putString("ic_e_mail", it.eMail)
-                editor.putString("name_surname", it.nameSurname)
-                editor.putString("phone_number", it.phoneNumber)
+                editor.putString(E_MAIL, it.eMail)
+                editor.putString(NAME_SURNAME, it.nameSurname)
+                editor.putString(PHONE_NUMBER, it.phoneNumber)
                 editor.apply()
                 val intent = Intent(context, MainActivity::class.java)
                 startActivity(intent)
             } else {
-                println(2)
-                Toast.makeText(context, "Wrong E-mail or Password, Try Again !", Toast.LENGTH_SHORT)
-                    .show()
+                Snackbar.make(view, getString(R.string.wrong_email_password), 1000).show()
             }
 
         })
@@ -67,5 +63,12 @@ class SignInFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        const val PACKAGE_NAME = "com.canerture.booksapp"
+        const val E_MAIL = "e_mail"
+        const val NAME_SURNAME = "name_surname"
+        const val PHONE_NUMBER = "phone_number"
     }
 }

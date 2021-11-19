@@ -29,6 +29,7 @@
     <string name="basket_empty">Your basket is empty!</string>
     <string name="e_mail_not_valid">Invalid e-mail address</string>
     <string name="incomplete_information_entered">Incomplete information entered!</string>
+    <string name="wrong_email_password">Wrong E-mail or Password, Try Again !</string>
     <string name="payment_method">Payment Method</string>
     <string name="credit_card">Credit Card</string>
     <string name="paypal">Paypal</string>
@@ -41,6 +42,10 @@
     <string name="order_now">Order Now</string>
     <string name="choose_a_payment_method">Choose a payment method</string>
     <string name="your_order_has_been_received">Your order\nhas been received</string>
+    <string name="go_to_pay">Go To Pay</string>
+    <string name="total_price_value">%s ₺</string>
+    <string name="order_now_error">Please choose a payment method!</string>
+    <string name="address_error">Please enter address information!</string>
 
     <string-array name="booksapp_logo_strings">
         <item>M5.27,46.7H146.63c2.9,0 5.27,1.74 5.27,3.86v63.17c0,2.12 -2.37,3.86 -5.27,3.86l-69,4.35a26.93,26.93 0,0 1,-5.46 0L5.27,117.59c-2.9,0 -5.27,-1.74 -5.27,-3.86V50.56C0,48.44 2.37,46.7 5.27,46.7Z</item>

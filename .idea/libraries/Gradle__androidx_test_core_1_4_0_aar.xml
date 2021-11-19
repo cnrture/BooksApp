@@ -1,10 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.test:core:1.4.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/aec07dc07231d02e439f255e674eb9f5/core-1.4.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/08cf4531efde15d8afb87fb92bc27348/core-1.4.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/403fd4008a0a7e389401bc53c9c3d650/transformed/core-1.4.0/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/403fd4008a0a7e389401bc53c9c3d650/transformed/core-1.4.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/403fd4008a0a7e389401bc53c9c3d650/transformed/core-1.4.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/403fd4008a0a7e389401bc53c9c3d650/transformed/core-1.4.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>

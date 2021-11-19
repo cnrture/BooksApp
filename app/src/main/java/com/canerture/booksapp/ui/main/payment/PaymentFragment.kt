@@ -11,6 +11,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.navigation.findNavController
 import com.canerture.booksapp.R
 import com.canerture.booksapp.databinding.FragmentPaymentBinding
+import com.google.android.material.snackbar.Snackbar
+import java.text.NumberFormat
+import java.util.*
 
 class PaymentFragment : Fragment() {
 
@@ -35,7 +38,8 @@ class PaymentFragment : Fragment() {
             for (i in it) {
                 totalPrice += i.book_price.toFloat()
             }
-            binding.totalPriceText.text = "$totalPrice ₺"
+            binding.totalPriceText.text =
+                NumberFormat.getCurrencyInstance(Locale("tr", "TR")).format(totalPrice)
         })
 
         binding.apply {
@@ -59,7 +63,15 @@ class PaymentFragment : Fragment() {
             }
 
             orderNowButton.setOnClickListener {
-                showSuccessDialog()
+                if (masterCard.isChecked || paypalCard.isChecked || appleCard.isChecked || googleCard.isChecked) {
+                    if (addressText.text.isEmpty().not()) {
+                        showSuccessDialog()
+                    }   else {
+                        Snackbar.make(it, R.string.address_error, 1000).show()
+                    }
+                }   else {
+                    Snackbar.make(it, R.string.order_now_error, 1000).show()
+                }
             }
 
             cancelPaymentButton.setOnClickListener {

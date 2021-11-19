@@ -3,93 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="../../../../layout/custom_preview.xml" value="0.3851282051282051" />
-        <entry key="..\:/Users/cnrture/Documents/GitHub/BooksApp/app/src/main/res/layout/activity_login.xml" value="0.275" />
-        <entry key="..\:/Users/cnrture/Documents/GitHub/BooksApp/app/src/main/res/layout/activity_main.xml" value="0.275" />
-        <entry key="..\:/Users/cnrture/Documents/GitHub/BooksApp/app/src/main/res/layout/book_card.xml" value="0.275" />
-        <entry key="..\:/Users/cnrture/Documents/GitHub/BooksApp/app/src/main/res/layout/book_detail_alert.xml" value="0.3489583333333333" />
-        <entry key="..\:/Users/cnrture/Documents/GitHub/BooksApp/app/src/main/res/layout/fragment_books.xml" value="0.27076923076923076" />
-        <entry key="..\:/Users/cnrture/Documents/GitHub/BooksApp/app/src/main/res/layout/fragment_cart_books.xml" value="0.3489583333333333" />
-        <entry key="..\:/Users/cnrture/Documents/GitHub/BooksApp/app/src/main/res/layout/fragment_sign_in.xml" value="0.3489583333333333" />
-        <entry key="..\:/Users/cnrture/Documents/GitHub/BooksApp/app/src/main/res/layout/fragment_sign_up.xml" value="0.275" />
-        <entry key="..\:/Users/cnrture/Documents/GitHub/BooksApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.275" />
-        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.16018518518518518" />
-        <entry key="app/src/main/res/drawable-v24/selector_payment_card.xml" value="0.3921875" />
-        <entry key="app/src/main/res/drawable/add.xml" value="0.262037037037037" />
-        <entry key="app/src/main/res/drawable/add_basket_bg.xml" value="0.2388888888888889" />
-        <entry key="app/src/main/res/drawable/basket.xml" value="0.3861538461538462" />
-        <entry key="app/src/main/res/drawable/basket_selector.xml" value="0.3921875" />
-        <entry key="app/src/main/res/drawable/bg_bottom_nav.xml" value="0.2601851851851852" />
-        <entry key="app/src/main/res/drawable/bg_bottom_sheet.xml" value="0.26256410256410256" />
-        <entry key="app/src/main/res/drawable/bg_payment_card.xml" value="0.3861538461538462" />
-        <entry key="app/src/main/res/drawable/bg_payment_selected.xml" value="0.3861538461538462" />
-        <entry key="app/src/main/res/drawable/bg_payment_unselected.xml" value="0.3723076923076923" />
-        <entry key="app/src/main/res/drawable/book.xml" value="0.16018518518518518" />
-        <entry key="app/src/main/res/drawable/books_app_logo.xml" value="0.2601851851851852" />
-        <entry key="app/src/main/res/drawable/books_selected.xml" value="0.3921875" />
-        <entry key="app/src/main/res/drawable/books_selector.xml" value="0.3921875" />
-        <entry key="app/src/main/res/drawable/books_unselected.xml" value="0.3921875" />
-        <entry key="app/src/main/res/drawable/booksapplogo.xml" value="0.16018518518518518" />
-        <entry key="app/src/main/res/drawable/bottom_sheet_line.xml" value="0.2722222222222222" />
-        <entry key="app/src/main/res/drawable/bottomnavdesign.xml" value="0.16018518518518518" />
-        <entry key="app/src/main/res/drawable/card_view_stroke_design.xml" value="0.16018518518518518" />
-        <entry key="app/src/main/res/drawable/cart.xml" value="0.16018518518518518" />
-        <entry key="app/src/main/res/drawable/delete.xml" value="0.16018518518518518" />
-        <entry key="app/src/main/res/drawable/e_mail.xml" value="0.16018518518518518" />
-        <entry key="app/src/main/res/drawable/edit_address.xml" value="0.3921875" />
-        <entry key="app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.16018518518518518" />
-        <entry key="app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.16018518518518518" />
-        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.16018518518518518" />
-        <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.16018518518518518" />
-        <entry key="app/src/main/res/drawable/password.xml" value="0.16018518518518518" />
-        <entry key="app/src/main/res/drawable/payment_card.xml" value="0.3921875" />
-        <entry key="app/src/main/res/drawable/profile.xml" value="0.16018518518518518" />
-        <entry key="app/src/main/res/drawable/profile_selected.xml" value="0.3921875" />
-        <entry key="app/src/main/res/drawable/profile_selector.xml" value="0.3921875" />
-        <entry key="app/src/main/res/drawable/sadsda.xml" value="0.24444444444444444" />
-        <entry key="app/src/main/res/drawable/search_white.xml" value="0.16018518518518518" />
-        <entry key="app/src/main/res/drawable/selector_bottom_nav.xml" value="0.2421875" />
-        <entry key="app/src/main/res/drawable/selector_payment_card.xml" value="0.3861538461538462" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25052083333333336" />
-        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/best_seller_item.xml" value="0.3619791666666667" />
-        <entry key="app/src/main/res/layout/best_sellers_list.xml" value="0.2538136431271553" />
-        <entry key="app/src/main/res/layout/book_basket_item.xml" value="0.2657407407407407" />
-        <entry key="app/src/main/res/layout/book_bottom_sheet.xml" value="0.3638888888888889" />
-        <entry key="app/src/main/res/layout/book_card.xml" value="0.37604166666666666" />
-        <entry key="app/src/main/res/layout/book_detail_alert.xml" value="0.25052083333333336" />
-        <entry key="app/src/main/res/layout/book_detail_bottom_sheet.xml" value="0.27870370370370373" />
-        <entry key="app/src/main/res/layout/book_item.xml" value="0.37604166666666666" />
-        <entry key="app/src/main/res/layout/book_search_view.xml" value="0.21296296296296297" />
-        <entry key="app/src/main/res/layout/books_list.xml" value="0.2212962962962963" />
-        <entry key="app/src/main/res/layout/cart_book_item.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_books.xml" value="0.2657407407407407" />
-        <entry key="app/src/main/res/layout/fragment_books_basket.xml" value="0.37604166666666666" />
-        <entry key="app/src/main/res/layout/fragment_cart_books.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_bottom_nav.xml" value="0.27685185185185185" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.36354166666666665" />
+        <entry key="app/src/main/res/layout/book_search_view.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/fragment_books_basket.xml" value="0.2361111111111111" />
         <entry key="app/src/main/res/layout/fragment_payment.xml" value="0.37604166666666666" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.20555555555555555" />
-        <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.2222222222222222" />
-        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.19814814814814816" />
-        <entry key="app/src/main/res/layout/preference_layout.xml" value="0.18703703703703703" />
-        <entry key="app/src/main/res/layout/success_order.xml" value="0.275" />
-        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
-        <entry key="app/src/main/res/menu/toolbar_menu.xml" value="0.1" />
-        <entry key="app/src/main/res/xml/root_preferences.xml" value="0.18703703703703703" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.37604166666666666" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.398043254376931" />
-      </ProjectState>
-    </option>
   </component>
 </project>

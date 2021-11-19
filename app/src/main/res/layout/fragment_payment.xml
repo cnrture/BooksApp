@@ -12,7 +12,6 @@
         android:id="@+id/paymentTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="@string/payment_method"
         android:textColor="@color/eden"
         android:textSize="@dimen/text_size_very_big"
@@ -23,14 +22,13 @@
 
     <RadioButton
         android:id="@+id/masterCard"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/radio_button_width_height"
+        android:layout_height="@dimen/radio_button_width_height"
         android:background="@drawable/payment_card_selector"
         android:button="@null"
         android:elevation="@dimen/card_elevation_small"
         app:layout_constraintBottom_toTopOf="@+id/paymentMethodText"
         app:layout_constraintEnd_toStartOf="@+id/paypalCard"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/paymentTitle">
@@ -39,8 +37,8 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/radio_button_width_height"
+        android:layout_height="@dimen/radio_button_width_height"
         android:elevation="@dimen/card_elevation"
         android:padding="@dimen/padding_big"
         android:src="@drawable/ic_mastercard"
@@ -51,14 +49,13 @@
 
     <RadioButton
         android:id="@+id/paypalCard"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/radio_button_width_height"
+        android:layout_height="@dimen/radio_button_width_height"
         android:background="@drawable/payment_card_selector"
         android:button="@null"
         android:elevation="@dimen/card_elevation_small"
         app:layout_constraintBottom_toBottomOf="@+id/masterCard"
         app:layout_constraintEnd_toStartOf="@+id/appleCard"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/masterCard"
         app:layout_constraintTop_toTopOf="@+id/masterCard">
 
@@ -66,8 +63,8 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/radio_button_width_height"
+        android:layout_height="@dimen/radio_button_width_height"
         android:elevation="@dimen/card_elevation"
         android:padding="@dimen/padding_big"
         android:src="@drawable/ic_paypal"
@@ -78,14 +75,13 @@
 
     <RadioButton
         android:id="@+id/googleCard"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/radio_button_width_height"
+        android:layout_height="@dimen/radio_button_width_height"
         android:background="@drawable/payment_card_selector"
         android:button="@null"
         android:elevation="@dimen/card_elevation_small"
         app:layout_constraintBottom_toBottomOf="@+id/masterCard"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/appleCard"
         app:layout_constraintTop_toTopOf="@+id/masterCard">
 
@@ -93,8 +89,8 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/radio_button_width_height"
+        android:layout_height="@dimen/radio_button_width_height"
         android:elevation="@dimen/card_elevation"
         android:padding="@dimen/padding_big"
         android:src="@drawable/ic_googlepay"
@@ -105,14 +101,13 @@
 
     <RadioButton
         android:id="@+id/appleCard"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/radio_button_width_height"
+        android:layout_height="@dimen/radio_button_width_height"
         android:background="@drawable/payment_card_selector"
         android:button="@null"
         android:elevation="@dimen/card_elevation_small"
         app:layout_constraintBottom_toBottomOf="@+id/masterCard"
         app:layout_constraintEnd_toStartOf="@+id/googleCard"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/paypalCard"
         app:layout_constraintTop_toTopOf="@+id/masterCard">
 
@@ -120,8 +115,8 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/radio_button_width_height"
+        android:layout_height="@dimen/radio_button_width_height"
         android:elevation="@dimen/card_elevation"
         android:padding="@dimen/padding_big"
         android:src="@drawable/ic_applepay"
@@ -146,31 +141,30 @@
         android:id="@+id/cardCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="@dimen/margin_very_big"
         android:alpha="0.5"
         app:cardCornerRadius="@dimen/card_corner_radius_medium"
-        app:cardElevation="5dp"
+        app:cardElevation="@dimen/card_elevation_small"
         app:layout_constraintBottom_toTopOf="@+id/addressText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/paymentMethodText">
 
         <ImageView
             android:id="@+id/paymentCard"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="@dimen/image_card_width"
             android:src="@drawable/bg_credit_card" />
 
     </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/cardNumberText"
-        android:layout_width="266dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="8dp"
-        android:elevation="6dp"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:elevation="@dimen/card_elevation_small"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_small"
         android:textStyle="bold"
@@ -183,9 +177,9 @@
     <ImageView
         android:id="@+id/paymentTypeImage"
         android:layout_width="55dp"
-        android:layout_height="150dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="24dp"
-        android:elevation="6dp"
+        android:elevation="@dimen/card_elevation_small"
         app:layout_constraintBottom_toBottomOf="@+id/cardCard"
         app:layout_constraintEnd_toEndOf="@+id/cardCard"
         app:layout_constraintTop_toTopOf="@+id/cardCard"
@@ -195,7 +189,7 @@
         android:id="@+id/addressTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="@dimen/margin_very_small"
         android:text="@string/address_title"
         android:textColor="@color/eden"
         android:textSize="@dimen/text_size_big"
@@ -240,7 +234,7 @@
     <ImageView
         android:id="@+id/editImage"
         android:layout_width="wrap_content"
-        android:layout_height="22dp"
+        android:layout_height="0dp"
         android:src="@drawable/ic_edit"
         app:layout_constraintBottom_toBottomOf="@+id/editText"
         app:layout_constraintEnd_toStartOf="@+id/editText"
@@ -284,8 +278,8 @@
     <Button
         android:id="@+id/orderNowButton"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginBottom="@dimen/margin_small"
         android:text="@string/order_now"
         android:textColor="@color/chardonnay"
         android:textSize="@dimen/button_text_size_medium"
@@ -297,8 +291,7 @@
     <Button
         android:id="@+id/cancelPaymentButton"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="@dimen/button_height"
         android:text="@string/cancel"
         android:textColor="@color/chardonnay"
         android:textSize="@dimen/button_text_size_medium"

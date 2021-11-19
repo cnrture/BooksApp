@@ -53,9 +53,9 @@
         <Button
             android:id="@+id/goToPayButton"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="@dimen/button_height"
             android:layout_margin="@dimen/margin_medium"
-            android:text="Go To Pay"
+            android:text="@string/go_to_pay"
             android:textColor="@color/chardonnay"
             android:textSize="@dimen/button_text_size_medium"
             android:textStyle="bold"
