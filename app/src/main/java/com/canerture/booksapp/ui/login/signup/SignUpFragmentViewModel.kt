@@ -4,33 +4,61 @@ import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.canerture.booksapp.data.repos.UsersReporsitory
+import com.canerture.booksapp.data.repos.UsersRepository
 
 class SignUpFragmentViewModel : ViewModel() {
 
-    private var usersRepo = UsersReporsitory()
+    private var usersRepo = UsersRepository()
 
     private var _isInfosValid = MutableLiveData<Boolean>()
     val isInfosValid: LiveData<Boolean>
         get() = _isInfosValid
 
-    private var _isMailValid = MutableLiveData<Boolean>()
-    val isMailValid: LiveData<Boolean>
-        get() = _isMailValid
+    private var _isValidMail = MutableLiveData<Boolean>()
+    val isValidMail: LiveData<Boolean>
+        get() = _isValidMail
 
-    fun signUp(email: String, password: String, nameSurname: String, phoneNumber: String) {
+    private var _isPasswordMatch = MutableLiveData<Boolean>()
+    val isPasswordMatch: LiveData<Boolean>
+        get() = _isPasswordMatch
 
-        if (email.isNotEmpty() && password.isNotEmpty() && nameSurname.isNotEmpty() && phoneNumber.isNotEmpty()) {
-            if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                usersRepo.singUp(email, password, nameSurname, phoneNumber)
-                _isMailValid.value = true
-                _isInfosValid.value = true
-            } else {
-                _isMailValid.value = false
-            }
-        }   else {
-            _isInfosValid.value = false
-        }
+    private var _isSignUp = MutableLiveData<Boolean>()
+    val isSignUp: LiveData<Boolean>
+        get() = _isSignUp
 
+    init {
+        _isSignUp = usersRepo.getIsSignUp()
     }
+
+    fun signUp(
+        eMail: String,
+        password: String,
+        confirmPassword: String,
+        nickname: String,
+        phoneNumber: String
+    ) {
+
+        if (eMail.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || nickname.isEmpty() || phoneNumber.isEmpty()) {
+
+            _isInfosValid.value = false
+
+        }   else {
+
+            if (Patterns.EMAIL_ADDRESS.matcher(eMail).matches().not()) {
+
+                _isValidMail.value = false
+
+            }   else {
+
+                if (password != confirmPassword) {
+
+                    _isPasswordMatch.value = false
+
+                }   else {
+                    usersRepo.signUp(eMail, password, nickname, phoneNumber)
+                }
+            }
+        }
+    }
+
 }

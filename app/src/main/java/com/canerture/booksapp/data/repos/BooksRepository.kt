@@ -1,6 +1,7 @@
 package com.canerture.booksapp.data.repos
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.canerture.booksapp.data.model.BookModel
@@ -66,17 +67,18 @@ class BooksRepository(context: Context) {
         _isLoading.value = true
         booksDIF.allBooks().enqueue(object : Callback<BooksResponse> {
             override fun onResponse(call: Call<BooksResponse>, response: Response<BooksResponse>) {
-                val books = response.body()?.books
-                books?.let {
+
+                response.body()?.books?.let {
                     _booksList.value = it
                     _isLoading.value = false
-                } ?: kotlin.run {
+                } ?: run {
                     _isLoading.value = false
                 }
+
             }
 
             override fun onFailure(call: Call<BooksResponse>, t: Throwable) {
-                println(t.localizedMessage?.toString())
+                t.localizedMessage?.toString()?.let { Log.e("Books Failure", it) }
                 _isLoading.value = false
             }
         })
@@ -86,17 +88,18 @@ class BooksRepository(context: Context) {
         _isLoading.value = true
         booksDIF.bestSellers().enqueue(object : Callback<BooksResponse> {
             override fun onResponse(call: Call<BooksResponse>, response: Response<BooksResponse>) {
-                val bestSellers = response.body()?.books
-                bestSellers?.let {
+
+                response.body()?.books?.let {
                     _bestSellersList.value = it
                     _isLoading.value = false
-                } ?: kotlin.run {
+                } ?: run {
                     _isLoading.value = false
                 }
+
             }
 
             override fun onFailure(call: Call<BooksResponse>, t: Throwable) {
-                println(t.localizedMessage?.toString())
+                t.localizedMessage?.toString()?.let { Log.e("Bestsellers Failure", it) }
                 _isLoading.value = false
             }
 
@@ -109,7 +112,7 @@ class BooksRepository(context: Context) {
         booksBasketDAOInterface?.getBooksBasket()?.let {
             _booksBasketList.value = it
             _isLoading.value = false
-        }?: run {
+        } ?: run {
             _isLoading.value = false
         }
     }
@@ -120,7 +123,7 @@ class BooksRepository(context: Context) {
             isBookAddBasket = if (it.contains(bookModel.bookName).not()) {
                 booksBasketDAOInterface.addBookBasket(bookModel)
                 true
-            }   else {
+            } else {
                 false
             }
         }
@@ -129,6 +132,10 @@ class BooksRepository(context: Context) {
 
     fun deleteBookFromBasket(bookId: Int) {
         booksBasketDAOInterface?.deleteBookWithId(bookId)
+    }
+
+    fun clearBasket() {
+        booksBasketDAOInterface?.clearBasket()
     }
 
 }

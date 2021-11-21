@@ -11,5 +11,9 @@
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.canerture.booksapp.ui.login.signup.SignUpFragment"
-        android:label="SignUpFragment" />
+        android:label="SignUpFragment" >
+        <action
+            android:id="@+id/action_signUpFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
 </navigation>

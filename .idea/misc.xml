@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/bg_bottom_nav.xml" value="0.27685185185185185" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.30092592592592593" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.36354166666666665" />
         <entry key="app/src/main/res/layout/book_basket_item.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/book_detail_bottom_sheet.xml" value="0.21197916666666666" />
@@ -11,6 +12,7 @@
         <entry key="app/src/main/res/layout/fragment_books_basket.xml" value="0.2361111111111111" />
         <entry key="app/src/main/res/layout/fragment_payment.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.2101851851851852" />
       </map>
     </option>
   </component>

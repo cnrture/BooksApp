@@ -35,11 +35,11 @@ class BooksFragment : Fragment() {
 
         concatAdapter = ConcatAdapter(searchBookAdapter, bestSellersAdapter, booksListAdapter)
 
-        binding.apply {
+        initObservers()
+
+        with(binding) {
 
             booksRecycleView.setHasFixedSize(true)
-
-            initObservers()
 
             searchBookAdapter.searchText = {
                 if (it.isNullOrEmpty().not()) {
@@ -53,9 +53,9 @@ class BooksFragment : Fragment() {
 
             booksListAdapter.onAddBasketClick = {
                 if (viewModel.addBookToBasket(it).not()) {
-                    Snackbar.make(view, getString(R.string.add_book_basket_error), 1000).show()
-                }   else {
-                    Snackbar.make(view, getString(R.string.add_basket_snack_text), 1000).show()
+                    Snackbar.make(view, R.string.add_book_basket_error, 1000).show()
+                } else {
+                    Snackbar.make(view, R.string.add_basket_snack_text, 1000).show()
                 }
             }
 
@@ -64,8 +64,10 @@ class BooksFragment : Fragment() {
 
     private fun initObservers() {
 
-        binding.apply {
+        with(binding) {
+
             with(viewModel) {
+
                 isLoading.observe(viewLifecycleOwner, {
                     if (!it) booksLoadingView.visibility = View.GONE
                 })
@@ -80,7 +82,9 @@ class BooksFragment : Fragment() {
                         booksListRecyclerAdapter = concatAdapter
                     }
                 })
+
             }
+
         }
 
     }

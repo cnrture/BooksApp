@@ -136,7 +136,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:text="@string/name_surname"
+                        android:text="@string/nickname"
                         android:textColor="@color/chardonnay"
                         android:textSize="@dimen/text_size_small" />
                 </FrameLayout>
@@ -154,7 +154,7 @@
                     android:background="@color/white">
 
                     <TextView
-                        android:id="@+id/nameSurnameText"
+                        android:id="@+id/nicknameText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.RadioButton
 import androidx.appcompat.app.AlertDialog
 import androidx.navigation.findNavController
@@ -45,7 +44,7 @@ class PaymentFragment : Fragment() {
                 NumberFormat.getCurrencyInstance(Locale("tr", "TR")).format(totalPrice)
         })
 
-        binding.apply {
+        with(binding) {
 
             masterCard.checked()
             paypalCard.checked()
@@ -69,6 +68,7 @@ class PaymentFragment : Fragment() {
                 if (masterCard.isChecked || paypalCard.isChecked || appleCard.isChecked || googleCard.isChecked) {
                     if (addressText.text.isEmpty().not()) {
                         showSuccessDialog()
+                        viewModel.clearBasket()
                     }   else {
                         Snackbar.make(it, R.string.address_error, 1000).show()
                     }
@@ -80,13 +80,6 @@ class PaymentFragment : Fragment() {
             cancelPaymentButton.setOnClickListener {
                 it.findNavController().navigate(R.id.action_paymentFragment_to_booksBasketFragment)
             }
-
-        }
-
-    }
-
-    private fun Button.click() {
-        setOnClickListener {
 
         }
     }

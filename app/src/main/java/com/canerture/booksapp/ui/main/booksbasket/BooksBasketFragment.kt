@@ -31,30 +31,41 @@ class BooksBasketFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.apply {
+        initObservers()
+
+        with(binding) {
 
             booksBasketRecycleView.setHasFixedSize(true)
-
-            viewModel.isLoading.observe(viewLifecycleOwner, {
-                if (!it) booksLoadingView.visibility = View.GONE
-            })
-
-            viewModel.booksBasket.observe(viewLifecycleOwner, {
-                if (it.isNullOrEmpty().not()) {
-                    booksBasketAdapter.updateList(it)
-                    booksBasketRecyclerAdapter = booksBasketAdapter
-                    emptyBasketText.visibility = View.GONE
-                }
-            })
 
             booksBasketAdapter.onRemoveBasketClick = {
                 viewModel.deleteBookFromBasket(it)
             }
 
             goToPayButton.setOnClickListener {
-                val action =
-                    BooksBasketFragmentDirections.actionBooksBasketFragmentToPaymentFragment(129.90f)
-                it.findNavController().navigate(action)
+                it.findNavController().navigate(R.id.action_booksBasketFragment_to_paymentFragment)
+            }
+
+        }
+    }
+
+    private fun initObservers() {
+
+        with(binding) {
+
+            with(viewModel) {
+
+                isLoading.observe(viewLifecycleOwner, {
+                    if (!it) booksLoadingView.visibility = View.GONE
+                })
+
+                booksBasket.observe(viewLifecycleOwner, {
+                    if (it.isNullOrEmpty().not()) {
+                        booksBasketAdapter.updateList(it)
+                        booksBasketRecyclerAdapter = booksBasketAdapter
+                        emptyBasketText.visibility = View.GONE
+                    }
+                })
+
             }
 
         }

@@ -59,13 +59,13 @@ class BookDetailBottomSheet : BottomSheetDialogFragment() {
                 ) {
                     Snackbar.make(
                         dialog?.window!!.decorView,
-                        getString(R.string.add_book_basket_error),
+                        R.string.add_book_basket_error,
                         1000
                     ).show()
                 } else {
                     Snackbar.make(
                         dialog?.window!!.decorView,
-                        getString(R.string.add_basket_snack_text),
+                        R.string.add_basket_snack_text,
                         1000
                     ).show()
                 }

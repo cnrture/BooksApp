@@ -1,36 +1,24 @@
 package com.canerture.booksapp.ui.login.signin
 
-import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.canerture.booksapp.data.model.BookModel
-import com.canerture.booksapp.data.model.UserModel
-import com.canerture.booksapp.data.repos.UsersReporsitory
+import com.canerture.booksapp.data.repos.UsersRepository
 
 class SignInFragmentViewModel : ViewModel() {
 
-    private var usersRepo = UsersReporsitory()
+    private var usersRepo = UsersRepository()
 
-    private var _userData = MutableLiveData<UserModel>()
-    val userData: LiveData<UserModel>
-        get() = _userData
-
-    private var _eMailValidation = MutableLiveData<Boolean>()
-    val eMailValidation: LiveData<Boolean>
-        get() = _eMailValidation
+    private var _isSignIn = MutableLiveData<Boolean>()
+    val isSignIn: LiveData<Boolean>
+        get() = _isSignIn
 
     init {
-        _userData = usersRepo.getUserData()
+        _isSignIn = usersRepo.getIsSignIn()
     }
 
-    fun signIn(email: String, password: String) {
-        if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            usersRepo.signIn(email, password)
-            _eMailValidation.value = true
-        }   else {
-            _eMailValidation.value = false
-        }
+    fun signIn(eMail: String, password: String) {
+        usersRepo.signIn(eMail, password)
     }
 
 }

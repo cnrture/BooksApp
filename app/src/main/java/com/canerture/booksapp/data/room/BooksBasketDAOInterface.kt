@@ -20,4 +20,7 @@ interface BooksBasketDAOInterface {
     @Query("DELETE FROM booksbasketdatabase WHERE id = :idInput")
     fun deleteBookWithId(idInput: Int)
 
+    @Query("DELETE FROM booksbasketdatabase")
+    fun clearBasket()
+
 }

@@ -30,22 +30,75 @@ class SignUpFragment : Fragment() {
 
         binding.signUpFragmentObject = this
 
-        viewModel.isMailValid.observe(viewLifecycleOwner, {
-            if (!it) {
-                binding.emailInputLayout.error = getString(R.string.e_mail_not_valid)
-            }
-        })
-
-        viewModel.isInfosValid.observe(viewLifecycleOwner, {
-            if (!it) {
-                Snackbar.make(view, R.string.incomplete_information_entered, 1000).show()
-            }
-        })
+        initObservers()
 
     }
 
-    fun signUpButton(email: String, password: String, nameSurname: String, phoneNumber: String) {
-        viewModel.signUp(email, password, nameSurname, phoneNumber)
+    private fun initObservers() {
+
+        with(binding) {
+
+            with(viewModel) {
+
+                isInfosValid.observe(viewLifecycleOwner, {
+
+                    if (it.not()) Snackbar.make(requireView(), R.string.incomplete_information_entered, 1000).show()
+
+                })
+
+                isValidMail.observe(viewLifecycleOwner, {
+
+                    if (it.not()) {
+                        emailInputLayout.error = getString(R.string.invalid_mail)
+                    }   else {
+                        emailInputLayout.error = ""
+                    }
+
+                })
+
+                isPasswordMatch.observe(viewLifecycleOwner, {
+
+                    if (it.not()) {
+                        passwordInputLayout.error = getString(R.string.password_match_error)
+                        confirmPasswordInputLayout.error = getString(R.string.password_match_error)
+                    }   else {
+                        passwordInputLayout.error = ""
+                        confirmPasswordInputLayout.error = ""
+                    }
+
+                })
+
+                isSignUp.observe(viewLifecycleOwner, {
+
+                    if (it) {
+                        Snackbar.make(requireView(), R.string.sign_up_snack_text, 1000).show()
+                        clearFields()
+                    }   else {
+                        emailInputLayout.error = getString(R.string.registered_mail)
+                    }
+
+                })
+            }
+        }
+    }
+
+    fun signUpButton(email: String, password: String, confirmPassword: String, nickname: String, phoneNumber: String) {
+        viewModel.signUp(email, password, confirmPassword, nickname, phoneNumber)
+    }
+
+    private fun clearFields() {
+        with(binding) {
+            emailEditText.setText("")
+            emailInputLayout.error = ""
+            passwordEditText.setText("")
+            passwordInputLayout.error = ""
+            confirmPasswordEditText.setText("")
+            confirmPasswordInputLayout.error = ""
+            nicknameEditText.setText("")
+            nicknameInputLayout.error = ""
+            phoneNumberEditText.setText("")
+            phoneNumberInputLayout.error = ""
+        }
     }
 
     override fun onDestroyView() {

@@ -42,9 +42,6 @@
         android:name="com.canerture.booksapp.ui.main.payment.PaymentFragment"
         android:label="fragment_payment"
         tools:layout="@layout/fragment_payment" >
-        <argument
-            android:name="totalPrice"
-            app:argType="float" />
         <action
             android:id="@+id/action_paymentFragment_to_booksFragment"
             app:destination="@id/booksFragment" />
