@@ -1,6 +1,7 @@
 package com.canerture.booksapp.ui.main.profile
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,8 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.canerture.booksapp.R
 import com.canerture.booksapp.databinding.FragmentProfileBinding
+import com.canerture.booksapp.ui.login.LoginActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -43,15 +46,20 @@ class ProfileFragment : Fragment() {
                 val docRef = db.collection("users").document(user.uid)
                 docRef.get()
                     .addOnSuccessListener { document ->
-                        if (document != null) {
-                            
-                        } else {
-
+                        document?.let {
+                            nicknameText.text = document.get("nickname") as String
+                            phoneNumberText.text = document.get("phonenumber") as String
                         }
                     }
                     .addOnFailureListener { exception ->
                         Log.d(TAG, "get failed with ", exception)
                     }
+            }
+
+            signOutButton.setOnClickListener {
+                Firebase.auth.signOut()
+                val intent = Intent(requireActivity(), LoginActivity::class.java)
+                startActivity(intent)
             }
 
         }
