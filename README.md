@@ -1,5 +1,5 @@
 <h1 align="center">
-BooksApp with MVVM & Retrofit & Navigation
+BooksApp
 </h1>
 
 <h2 align="center">
@@ -16,7 +16,7 @@ Project Features
  - ViewPager2 in TabLayout <br>
  - SearchView, Vertical Adapter(BestSellers) and Horizontal Adapter(All Books) with ConcatAdapter for Main Screen <br>
  - Firebase Auth (<a href="https://firebase.google.com/docs/auth?authuser=0">Source</a>) <br>
- - SearchView in RecyclerView (<a href="https://www.tugbaustundag.com/android-recyclerviewa-search-filter-ekleme/">Source</a>) <br>
+ - SearchView in Adapter (<a href="https://www.tugbaustundag.com/android-recyclerviewa-search-filter-ekleme/">Source</a>) <br>
  - Picasso (<a href="https://square.github.io/picasso/">Source</a>) <br>
  - Lottie (<a href="https://github.com/LottieFiles/lottie-android">Source</a>) <br>
  - Animated Svg for Splash (<a href="https://github.com/jaredrummler/AnimatedSvgView">Source</a>)
