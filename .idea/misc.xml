@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/layout/fragment_payment.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.2101851851851852" />
+        <entry key="app/src/main/res/layout/success_order.xml" value="0.20185185185185187" />
       </map>
     </option>
   </component>
