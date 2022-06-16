@@ -54,20 +54,18 @@ class BooksBasketFragment : Fragment() {
 
             with(viewModel) {
 
-                isLoading.observe(viewLifecycleOwner, {
+                isLoading.observe(viewLifecycleOwner) {
                     if (!it) booksLoadingView.visibility = View.GONE
-                })
+                }
 
-                booksBasket.observe(viewLifecycleOwner, {
+                booksBasket.observe(viewLifecycleOwner) {
                     if (it.isNullOrEmpty().not()) {
                         booksBasketAdapter.updateList(it)
                         booksBasketRecyclerAdapter = booksBasketAdapter
                         emptyBasketText.visibility = View.GONE
                     }
-                })
-
+                }
             }
-
         }
     }
 

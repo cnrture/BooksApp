@@ -4,12 +4,11 @@ import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
+import androidx.fragment.app.Fragment
 import com.canerture.booksapp.R
 import com.canerture.booksapp.databinding.FragmentProfileBinding
 import com.canerture.booksapp.ui.login.LoginActivity
@@ -61,9 +60,7 @@ class ProfileFragment : Fragment() {
                 val intent = Intent(requireActivity(), LoginActivity::class.java)
                 startActivity(intent)
             }
-
         }
-
     }
 
     override fun onDestroyView() {

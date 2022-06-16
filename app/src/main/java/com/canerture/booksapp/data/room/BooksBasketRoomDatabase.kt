@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.canerture.booksapp.data.model.BooksBasketRoomModel
 
 @Database(entities = [BooksBasketRoomModel::class], version = 1)
-abstract class BooksBasketRoomDatabase: RoomDatabase() {
+abstract class BooksBasketRoomDatabase : RoomDatabase() {
 
     abstract fun booksBasketDAOInterface(): BooksBasketDAOInterface
 
@@ -21,13 +21,12 @@ abstract class BooksBasketRoomDatabase: RoomDatabase() {
                 instance = Room.databaseBuilder(
                     context,
                     BooksBasketRoomDatabase::class.java,
-                    "booksbasketdatabase.db")
+                    "booksbasketdatabase.db"
+                )
                     .allowMainThreadQueries()
                     .build()
             }
             return instance
         }
-
     }
-
 }

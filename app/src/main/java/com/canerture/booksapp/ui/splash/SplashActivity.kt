@@ -18,9 +18,7 @@ class SplashActivity : AppCompatActivity() {
         val background = object : Thread() {
             override fun run() {
                 try {
-
                     binding.animatedSvgView.start()
-
                     sleep(3000)
 
                     val intent = Intent(this@SplashActivity, LoginActivity::class.java)

@@ -7,8 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import com.canerture.booksapp.data.model.BookModel
 import com.canerture.booksapp.data.model.BooksBasketRoomModel
 import com.canerture.booksapp.data.response.BooksResponse
-import com.canerture.booksapp.data.response.CRUDResponse
-import com.canerture.booksapp.data.retrofit.*
+import com.canerture.booksapp.data.retrofit.BooksDAOInterface
 import com.canerture.booksapp.data.room.BooksBasketDAOInterface
 import com.canerture.booksapp.data.room.BooksBasketRoomDatabase
 import com.canerture.booksapp.data.util.ApiUtils

@@ -44,5 +44,4 @@ class BooksFragmentViewModel(context: Context) : ViewModel() {
     fun addBookToBasket(bookModel: BooksBasketRoomModel): Boolean {
         return booksRepo.addBookToBasket(bookModel)
     }
-
 }

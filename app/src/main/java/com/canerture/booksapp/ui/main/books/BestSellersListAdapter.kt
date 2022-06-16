@@ -1,16 +1,14 @@
 package com.canerture.booksapp.ui.main.books
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.canerture.booksapp.databinding.BookItemBinding
 import com.canerture.booksapp.data.model.BookModel
 import com.canerture.booksapp.databinding.BestSellersListBinding
-import com.squareup.picasso.Picasso
-import kotlin.collections.ArrayList
 
-class BestSellersListAdapter : RecyclerView.Adapter<BestSellersListAdapter.BestSellersListDesign>() {
+class BestSellersListAdapter :
+    RecyclerView.Adapter<BestSellersListAdapter.BestSellersListDesign>() {
 
     private val bestSellersList = ArrayList<BookModel>()
 
@@ -36,11 +34,11 @@ class BestSellersListAdapter : RecyclerView.Adapter<BestSellersListAdapter.BestS
                     }
             }
         }
-
     }
 
     override fun getItemCount(): Int = 1
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateList(list: List<BookModel>) {
         bestSellersList.clear()
         bestSellersList.addAll(list)

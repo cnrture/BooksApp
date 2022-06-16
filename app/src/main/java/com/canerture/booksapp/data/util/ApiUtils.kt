@@ -12,5 +12,4 @@ class ApiUtils {
             return RetrofitClient.getClient(BASE_URL).create(BooksDAOInterface::class.java)
         }
     }
-
 }

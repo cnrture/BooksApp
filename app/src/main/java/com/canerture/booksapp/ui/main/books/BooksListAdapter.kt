@@ -1,5 +1,6 @@
 package com.canerture.booksapp.ui.main.books
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filter
@@ -49,6 +50,7 @@ class BooksListAdapter : RecyclerView.Adapter<BooksListAdapter.BooksListDesign>(
 
     override fun getItemCount(): Int = 1
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateList(list: List<BookModel>) {
         booksList.clear()
         booksList.addAll(list)
@@ -88,11 +90,11 @@ class BooksListAdapter : RecyclerView.Adapter<BooksListAdapter.BooksListDesign>(
                 return filterResults
             }
 
+            @SuppressLint("NotifyDataSetChanged")
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
                 booksFilterList = results?.values as ArrayList<BookModel>
                 notifyDataSetChanged()
             }
-
         }
     }
 }
