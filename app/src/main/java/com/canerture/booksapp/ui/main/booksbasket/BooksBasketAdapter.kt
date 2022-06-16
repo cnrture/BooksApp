@@ -1,11 +1,11 @@
 package com.canerture.booksapp.ui.main.booksbasket
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.canerture.booksapp.databinding.BookBasketItemBinding
-import com.canerture.booksapp.data.model.BookModel
 import com.canerture.booksapp.data.model.BooksBasketRoomModel
+import com.canerture.booksapp.databinding.BookBasketItemBinding
 import com.squareup.picasso.Picasso
 
 class BooksBasketAdapter : RecyclerView.Adapter<BooksBasketAdapter.BookBasketItemDesign>() {
@@ -49,6 +49,7 @@ class BooksBasketAdapter : RecyclerView.Adapter<BooksBasketAdapter.BookBasketIte
         return booksBasketList.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateList(list: List<BooksBasketRoomModel>) {
         booksBasketList.clear()
         booksBasketList.addAll(list)

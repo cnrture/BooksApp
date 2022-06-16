@@ -33,7 +33,7 @@ class PaymentFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.booksBasket.observe(viewLifecycleOwner, {
+        viewModel.booksBasket.observe(viewLifecycleOwner) {
             var totalPrice = 0f
             for (i in it) {
                 i.bookPrice?.let {
@@ -42,7 +42,7 @@ class PaymentFragment : Fragment() {
             }
             binding.totalPriceText.text =
                 NumberFormat.getCurrencyInstance(Locale("tr", "TR")).format(totalPrice)
-        })
+        }
 
         with(binding) {
 
@@ -69,10 +69,10 @@ class PaymentFragment : Fragment() {
                     if (addressText.text.isEmpty().not()) {
                         showSuccessDialog()
                         viewModel.clearBasket()
-                    }   else {
+                    } else {
                         Snackbar.make(it, R.string.address_error, 1000).show()
                     }
-                }   else {
+                } else {
                     Snackbar.make(it, R.string.order_now_error, 1000).show()
                 }
             }
@@ -80,7 +80,6 @@ class PaymentFragment : Fragment() {
             cancelPaymentButton.setOnClickListener {
                 it.findNavController().navigate(R.id.action_paymentFragment_to_booksBasketFragment)
             }
-
         }
     }
 
@@ -124,9 +123,7 @@ class PaymentFragment : Fragment() {
                     }
                 }
             }
-
         }
-
     }
 
     private fun checkedRadioButton(

@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.paymentFragment) {
                 binding.bottomNav.visibility = View.GONE
-            }   else {
+            } else {
                 binding.bottomNav.visibility = View.VISIBLE
             }
         }

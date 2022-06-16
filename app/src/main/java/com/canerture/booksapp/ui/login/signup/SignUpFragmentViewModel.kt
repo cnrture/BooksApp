@@ -39,22 +39,15 @@ class SignUpFragmentViewModel : ViewModel() {
     ) {
 
         if (eMail.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || nickname.isEmpty() || phoneNumber.isEmpty()) {
-
             _isInfosValid.value = false
-
-        }   else {
+        } else {
 
             if (Patterns.EMAIL_ADDRESS.matcher(eMail).matches().not()) {
-
                 _isValidMail.value = false
-
-            }   else {
-
+            } else {
                 if (password != confirmPassword) {
-
                     _isPasswordMatch.value = false
-
-                }   else {
+                } else {
                     usersRepo.signUp(eMail, password, nickname, phoneNumber)
                 }
             }

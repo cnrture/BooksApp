@@ -84,7 +84,5 @@ class UsersRepository {
         private const val E_MAIL = "email"
         private const val NICKNAME = "nickname"
         private const val PHONE_NUMBER = "phonenumber"
-
     }
-
 }

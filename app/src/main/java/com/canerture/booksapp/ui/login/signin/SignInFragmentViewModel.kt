@@ -20,5 +20,4 @@ class SignInFragmentViewModel : ViewModel() {
     fun signIn(eMail: String, password: String) {
         usersRepo.signIn(eMail, password)
     }
-
 }

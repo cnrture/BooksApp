@@ -1,16 +1,14 @@
 package com.canerture.booksapp.ui.main.books
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.canerture.booksapp.R
-import com.canerture.booksapp.databinding.BookItemBinding
 import com.canerture.booksapp.data.model.BookModel
 import com.canerture.booksapp.data.model.BooksBasketRoomModel
-import com.google.android.material.snackbar.Snackbar
+import com.canerture.booksapp.databinding.BookItemBinding
 import com.squareup.picasso.Picasso
-import kotlin.collections.ArrayList
 
 class BooksItemAdapter : RecyclerView.Adapter<BooksItemAdapter.BookItemDesign>() {
 
@@ -57,14 +55,13 @@ class BooksItemAdapter : RecyclerView.Adapter<BooksItemAdapter.BookItemDesign>()
                         )
                     )
                 }
-
             }
         }
-
     }
 
     override fun getItemCount(): Int = booksList.size
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateList(list: List<BookModel>) {
         booksList.clear()
         booksList.addAll(list)

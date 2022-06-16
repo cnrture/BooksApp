@@ -4,9 +4,8 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.canerture.booksapp.data.repos.BooksRepository
-import com.canerture.booksapp.data.model.BookModel
 import com.canerture.booksapp.data.model.BooksBasketRoomModel
+import com.canerture.booksapp.data.repos.BooksRepository
 
 class BooksBasketFragmentViewModel(context: Context) : ViewModel() {
 
@@ -34,5 +33,4 @@ class BooksBasketFragmentViewModel(context: Context) : ViewModel() {
         booksRepo.deleteBookFromBasket(bookId)
         getBooksBasket()
     }
-
 }

@@ -2,11 +2,8 @@ package com.canerture.booksapp.ui.main.books
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.appcompat.widget.SearchView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.canerture.booksapp.R
 import com.canerture.booksapp.databinding.BookSearchViewBinding
 
 class SearchBookAdapter : RecyclerView.Adapter<SearchBookAdapter.BookSearchViewDesign>() {
@@ -43,9 +40,6 @@ class SearchBookAdapter : RecyclerView.Adapter<SearchBookAdapter.BookSearchViewD
                 }
             })
         }
-
     }
-
     override fun getItemCount(): Int = 1
-
 }

@@ -68,25 +68,22 @@ class BooksFragment : Fragment() {
 
             with(viewModel) {
 
-                isLoading.observe(viewLifecycleOwner, {
+                isLoading.observe(viewLifecycleOwner) {
                     if (!it) booksLoadingView.visibility = View.GONE
-                })
+                }
 
-                bestSellersList.observe(viewLifecycleOwner, {
+                bestSellersList.observe(viewLifecycleOwner) {
                     if (it.isNullOrEmpty().not()) bestSellersAdapter.updateList(it)
-                })
+                }
 
-                booksList.observe(viewLifecycleOwner, {
+                booksList.observe(viewLifecycleOwner) {
                     if (it.isNullOrEmpty().not()) {
                         booksListAdapter.updateList(it)
                         booksListRecyclerAdapter = concatAdapter
                     }
-                })
-
+                }
             }
-
         }
-
     }
 
     override fun onDestroyView() {
