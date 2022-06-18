@@ -1,6 +1,5 @@
 package com.canerture.booksapp.ui.main.booksbasket
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -14,8 +13,8 @@ class BooksBasketAdapter : RecyclerView.Adapter<BooksBasketAdapter.BookBasketIte
     var onRemoveBasketClick: (Int) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookBasketItemDesign {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val bookBasketItemBinding = BookBasketItemBinding.inflate(layoutInflater, parent, false)
+        val bookBasketItemBinding =
+            BookBasketItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return BookBasketItemDesign(bookBasketItemBinding)
     }
 
@@ -39,21 +38,17 @@ class BooksBasketAdapter : RecyclerView.Adapter<BooksBasketAdapter.BookBasketIte
                 bookBasketDelete.setOnClickListener {
                     onRemoveBasketClick(bookBasket.bookId)
                 }
-
             }
         }
-
     }
 
     override fun getItemCount(): Int {
         return booksBasketList.size
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     fun updateList(list: List<BooksBasketRoomModel>) {
         booksBasketList.clear()
         booksBasketList.addAll(list)
         notifyDataSetChanged()
     }
-
 }

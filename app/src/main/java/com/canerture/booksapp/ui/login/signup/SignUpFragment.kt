@@ -1,14 +1,14 @@
 package com.canerture.booksapp.ui.login.signup
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import com.canerture.booksapp.R
+import com.canerture.booksapp.common.showSnackbar
 import com.canerture.booksapp.databinding.FragmentSignUpBinding
-import com.google.android.material.snackbar.Snackbar
 
 class SignUpFragment : Fragment() {
 
@@ -38,11 +38,10 @@ class SignUpFragment : Fragment() {
             with(viewModel) {
 
                 isInfosValid.observe(viewLifecycleOwner) {
-                    if (it.not()) Snackbar.make(
+                    if (it.not()) showSnackbar(
                         requireView(),
-                        R.string.incomplete_information_entered,
-                        1000
-                    ).show()
+                        R.string.incomplete_information_entered
+                    )
                 }
 
                 isValidMail.observe(viewLifecycleOwner) {
@@ -65,7 +64,7 @@ class SignUpFragment : Fragment() {
 
                 isSignUp.observe(viewLifecycleOwner) {
                     if (it) {
-                        Snackbar.make(requireView(), R.string.sign_up_snack_text, 1000).show()
+                        showSnackbar(requireView(), R.string.sign_up_snack_text)
                         clearFields()
                     } else {
                         emailInputLayout.error = getString(R.string.registered_mail)

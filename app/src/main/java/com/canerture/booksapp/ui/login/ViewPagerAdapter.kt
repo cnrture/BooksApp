@@ -7,7 +7,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.canerture.booksapp.ui.login.signin.SignInFragment
 import com.canerture.booksapp.ui.login.signup.SignUpFragment
 
-
 class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
 

@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.canerture.booksapp.R
+import com.canerture.booksapp.common.showSnackbar
 import com.canerture.booksapp.databinding.FragmentSignInBinding
 import com.canerture.booksapp.ui.main.MainActivity
-import com.google.android.material.snackbar.Snackbar
 
 class SignInFragment : Fragment() {
 
@@ -39,7 +39,7 @@ class SignInFragment : Fragment() {
                     val intent = Intent(context, MainActivity::class.java)
                     startActivity(intent)
                 } else {
-                    Snackbar.make(view, R.string.wrong_email_password, 1000).show()
+                    showSnackbar(view, R.string.wrong_email_password)
                 }
             }
         }

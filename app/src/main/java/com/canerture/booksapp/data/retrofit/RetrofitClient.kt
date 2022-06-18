@@ -13,5 +13,4 @@ class RetrofitClient {
                 .build()
         }
     }
-
 }

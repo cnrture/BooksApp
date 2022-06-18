@@ -2,7 +2,6 @@ package com.canerture.booksapp.ui.main.books
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.RecyclerView
 import com.canerture.booksapp.databinding.BookSearchViewBinding
 
@@ -11,8 +10,8 @@ class SearchBookAdapter : RecyclerView.Adapter<SearchBookAdapter.BookSearchViewD
     var searchText: (String?) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookSearchViewDesign {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val bookSearchViewBinding = BookSearchViewBinding.inflate(layoutInflater, parent, false)
+        val bookSearchViewBinding =
+            BookSearchViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return BookSearchViewDesign(bookSearchViewBinding)
     }
 
@@ -25,21 +24,9 @@ class SearchBookAdapter : RecyclerView.Adapter<SearchBookAdapter.BookSearchViewD
 
         fun bind() {
 
-            bookSearchViewBinding.searchView.setOnQueryTextListener(object :
-                SearchView.OnQueryTextListener {
-                override fun onQueryTextSubmit(query: String?): Boolean {
-                    searchText(query)
-                    return false
-                }
 
-                override fun onQueryTextChange(newText: String?): Boolean {
-                    if (newText.isNullOrEmpty()) {
-                        searchText(newText)
-                    }
-                    return false
-                }
-            })
         }
     }
+
     override fun getItemCount(): Int = 1
 }

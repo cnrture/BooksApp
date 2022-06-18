@@ -1,40 +1,44 @@
 package com.canerture.booksapp.data.repos
 
+import android.content.ContentValues
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.canerture.booksapp.common.Constants.COLLECTION_PATH
+import com.canerture.booksapp.common.Constants.E_MAIL
+import com.canerture.booksapp.common.Constants.FAILURE
+import com.canerture.booksapp.common.Constants.ID
+import com.canerture.booksapp.common.Constants.NICKNAME
+import com.canerture.booksapp.common.Constants.PHONE_NUMBER
+import com.canerture.booksapp.common.Constants.SIGN_IN
+import com.canerture.booksapp.common.Constants.SIGN_UP
+import com.canerture.booksapp.common.Constants.SUCCESS
+import com.canerture.booksapp.data.model.UserModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class UsersRepository {
 
-    private var _isSignIn = MutableLiveData<Boolean>()
+    var isSignIn = MutableLiveData<Boolean>()
 
-    private var _isSignUp = MutableLiveData<Boolean>()
+    var isSignUp = MutableLiveData<Boolean>()
+
+    var userInfo = MutableLiveData<UserModel>()
 
     private var auth = Firebase.auth
     private val db = Firebase.firestore
-
-    fun getIsSignIn(): MutableLiveData<Boolean> {
-        return _isSignIn
-    }
-
-    fun getIsSignUp(): MutableLiveData<Boolean> {
-        return _isSignUp
-    }
 
     fun signIn(eMail: String, password: String) {
 
         auth.signInWithEmailAndPassword(eMail, password).addOnCompleteListener { task ->
 
             if (task.isSuccessful) {
-                _isSignIn.value = true
-                Log.d(SIGN_IN_TAG, SUCCESS)
+                isSignIn.value = true
+                Log.d(SIGN_IN, SUCCESS)
             } else {
-                _isSignIn.value = false
-                Log.w(SIGN_IN_TAG, FAILURE, task.exception)
+                isSignIn.value = false
+                Log.w(SIGN_IN, FAILURE, task.exception)
             }
-
         }
     }
 
@@ -56,33 +60,43 @@ class UsersRepository {
                     db.collection(COLLECTION_PATH).document(fbUser.uid)
                         .set(user)
                         .addOnSuccessListener {
-                            Log.d(SIGN_UP_TAG, SUCCESS)
+                            isSignUp.value = true
+                            Log.d(SIGN_UP, SUCCESS)
                         }
                         .addOnFailureListener { e ->
-                            Log.w(SIGN_UP_TAG, FAILURE, e)
+                            isSignUp.value = false
+                            Log.w(SIGN_UP, FAILURE, e)
                         }
                 }
 
-                _isSignUp.value = true
-                Log.d(SIGN_UP_TAG, SUCCESS)
-
             } else {
-                _isSignUp.value = false
-                Log.w(SIGN_UP_TAG, FAILURE, task.exception)
+                isSignUp.value = false
+                Log.w(SIGN_UP, FAILURE, task.exception)
             }
-
         }
     }
 
-    companion object {
-        private const val SIGN_IN_TAG = "SIGN IN"
-        private const val SIGN_UP_TAG = "SIGN UP"
-        private const val COLLECTION_PATH = "users"
-        private const val SUCCESS = "Success"
-        private const val FAILURE = "Failure"
-        private const val ID = "id"
-        private const val E_MAIL = "email"
-        private const val NICKNAME = "nickname"
-        private const val PHONE_NUMBER = "phonenumber"
+    fun getUserInfo() {
+        auth.currentUser?.let { user ->
+
+            val docRef = db.collection("users").document(user.uid)
+            docRef.get()
+                .addOnSuccessListener { document ->
+                    document?.let {
+                        userInfo.value = UserModel(
+                            user.email,
+                            document.get("nickname") as String,
+                            document.get("phonenumber") as String
+                        )
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.d(ContentValues.TAG, "get failed with ", exception)
+                }
+        }
+    }
+
+    fun signOut() {
+        auth.signOut()
     }
 }

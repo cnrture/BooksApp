@@ -1,6 +1,5 @@
 package com.canerture.booksapp.ui.main.books
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
@@ -9,13 +8,13 @@ import com.canerture.booksapp.data.model.BookModel
 import com.canerture.booksapp.databinding.BestSellerItemBinding
 import com.squareup.picasso.Picasso
 
-class BestSellerItemAdapter : RecyclerView.Adapter<BestSellerItemAdapter.BestSellerItemDesign>() {
+class BestSellersAdapter : RecyclerView.Adapter<BestSellersAdapter.BestSellerItemDesign>() {
 
     private val bestSellersList = ArrayList<BookModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BestSellerItemDesign {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val bestSellerItemBinding = BestSellerItemBinding.inflate(layoutInflater, parent, false)
+        val bestSellerItemBinding =
+            BestSellerItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return BestSellerItemDesign(bestSellerItemBinding)
     }
 
@@ -41,15 +40,12 @@ class BestSellerItemAdapter : RecyclerView.Adapter<BestSellerItemAdapter.BestSel
                         BooksFragmentDirections.actionBooksFragmentToBookDetailBottomSheet(book)
                     it.findNavController().navigate(action)
                 }
-
             }
         }
-
     }
 
     override fun getItemCount(): Int = bestSellersList.size
 
-    @SuppressLint("NotifyDataSetChanged")
     fun updateList(list: List<BookModel>) {
         bestSellersList.clear()
         bestSellersList.addAll(list)

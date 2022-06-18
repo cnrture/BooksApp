@@ -2,16 +2,20 @@ package com.canerture.booksapp.ui.main.payment
 
 import android.os.Bundle
 import android.os.CountDownTimer
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.canerture.booksapp.R
+import com.canerture.booksapp.common.Constants.CARD_NUMBER_APPLE_PAY
+import com.canerture.booksapp.common.Constants.CARD_NUMBER_GOOGLE_PAY
+import com.canerture.booksapp.common.Constants.CARD_NUMBER_MASTERCARD
+import com.canerture.booksapp.common.Constants.CARD_NUMBER_PAYPAL
+import com.canerture.booksapp.common.showSnackbar
 import com.canerture.booksapp.databinding.FragmentPaymentBinding
-import com.google.android.material.snackbar.Snackbar
 import java.text.NumberFormat
 import java.util.*
 
@@ -33,9 +37,9 @@ class PaymentFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.booksBasket.observe(viewLifecycleOwner) {
+        viewModel.booksBasket.observe(viewLifecycleOwner) { list ->
             var totalPrice = 0f
-            for (i in it) {
+            for (i in list) {
                 i.bookPrice?.let {
                     totalPrice += it.toFloat()
                 }
@@ -70,10 +74,10 @@ class PaymentFragment : Fragment() {
                         showSuccessDialog()
                         viewModel.clearBasket()
                     } else {
-                        Snackbar.make(it, R.string.address_error, 1000).show()
+                        showSnackbar(it, R.string.address_error)
                     }
                 } else {
-                    Snackbar.make(it, R.string.order_now_error, 1000).show()
+                    showSnackbar(it, R.string.order_now_error)
                 }
             }
 
@@ -162,13 +166,6 @@ class PaymentFragment : Fragment() {
             }
         }
         timer.start()
-    }
-
-    companion object {
-        private const val CARD_NUMBER_MASTERCARD = "* * * *   * * * *   * * * *   9 2 7 8"
-        private const val CARD_NUMBER_PAYPAL = "* * * *   * * * *   * * * *   3 8 2 5"
-        private const val CARD_NUMBER_APPLE_PAY = "* * * *   * * * *   * * * *   9 5 4 9"
-        private const val CARD_NUMBER_GOOGLE_PAY = "* * * *   * * * *   * * * *   7 3 1 4"
     }
 
     override fun onDestroyView() {

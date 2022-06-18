@@ -1,17 +1,17 @@
 package com.canerture.booksapp.ui.main.books
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.canerture.booksapp.databinding.BooksListBinding
 import com.canerture.booksapp.data.model.BookModel
 import com.canerture.booksapp.data.model.BooksBasketRoomModel
-import kotlin.collections.ArrayList
+import com.canerture.booksapp.databinding.BookItemBinding
+import com.squareup.picasso.Picasso
 
-class BooksListAdapter : RecyclerView.Adapter<BooksListAdapter.BooksListDesign>(), Filterable {
+class AllBooksAdapter : RecyclerView.Adapter<AllBooksAdapter.BookItemDesign>(), Filterable {
 
     private val booksList = ArrayList<BookModel>()
     var booksFilterList = ArrayList<BookModel>()
@@ -21,36 +21,52 @@ class BooksListAdapter : RecyclerView.Adapter<BooksListAdapter.BooksListDesign>(
         booksFilterList = booksList
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BooksListDesign {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val bookListBinding = BooksListBinding.inflate(layoutInflater, parent, false)
-        return BooksListDesign(bookListBinding)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookItemDesign {
+        val bookItemBinding =
+            BookItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return BookItemDesign(bookItemBinding)
     }
 
-    override fun onBindViewHolder(holder: BooksListDesign, position: Int) {
-        holder.bind(booksFilterList)
+    override fun onBindViewHolder(holder: BookItemDesign, position: Int) {
+        holder.bind(booksFilterList[position])
     }
 
-    inner class BooksListDesign(private var booksListBinding: BooksListBinding) :
-        RecyclerView.ViewHolder(booksListBinding.root) {
+    inner class BookItemDesign(private var bookItemBinding: BookItemBinding) :
+        RecyclerView.ViewHolder(bookItemBinding.root) {
 
-        fun bind(bookModelFilterList: ArrayList<BookModel>) {
+        fun bind(book: BookModel) {
 
-            booksListBinding.booksRecycler.apply {
-                adapter = BooksItemAdapter()
-                    .also {
-                        it.updateList(bookModelFilterList)
-                        it.onAddBasketClick = onAddBasketClick
-                    }
+            bookItemBinding.apply {
+
+                bookModel = book
+
+                book.book_image_url.let {
+                    Picasso.get().load(it).into(bookImageView)
+                }
+
+                bookImageView.setOnClickListener {
+                    val action =
+                        BooksFragmentDirections.actionBooksFragmentToBookDetailBottomSheet(book)
+                    it.findNavController().navigate(action)
+                }
+
+                addBasketImage.setOnClickListener {
+                    onAddBasketClick(
+                        BooksBasketRoomModel(
+                            bookName = book.book_name,
+                            bookAuthor = book.book_author,
+                            bookPublisher = book.book_publisher,
+                            bookPrice = book.book_price,
+                            bookImageUrl = book.book_image_url
+                        )
+                    )
+                }
             }
-
         }
-
     }
 
-    override fun getItemCount(): Int = 1
+    override fun getItemCount(): Int = booksFilterList.size
 
-    @SuppressLint("NotifyDataSetChanged")
     fun updateList(list: List<BookModel>) {
         booksList.clear()
         booksList.addAll(list)
@@ -90,7 +106,6 @@ class BooksListAdapter : RecyclerView.Adapter<BooksListAdapter.BooksListDesign>(
                 return filterResults
             }
 
-            @SuppressLint("NotifyDataSetChanged")
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
                 booksFilterList = results?.values as ArrayList<BookModel>
                 notifyDataSetChanged()

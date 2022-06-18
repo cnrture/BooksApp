@@ -1,13 +1,16 @@
 package com.canerture.booksapp.ui.main.books
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.ConcatAdapter
 import com.canerture.booksapp.R
+import com.canerture.booksapp.common.hideKeyboard
+import com.canerture.booksapp.common.showSnackbar
 import com.canerture.booksapp.databinding.FragmentBooksBinding
-import com.google.android.material.snackbar.Snackbar
 
 class BooksFragment : Fragment() {
 
@@ -16,11 +19,8 @@ class BooksFragment : Fragment() {
 
     private val viewModel by lazy { BooksFragmentViewModel(requireContext()) }
 
-    private val bestSellersAdapter by lazy { BestSellersListAdapter() }
-    private val booksListAdapter by lazy { BooksListAdapter() }
-    private val searchBookAdapter by lazy { SearchBookAdapter() }
-
-    private var concatAdapter = ConcatAdapter()
+    private val bestSellersAdapter by lazy { BestSellersAdapter() }
+    private val allBooksAdapter by lazy { AllBooksAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,32 +33,30 @@ class BooksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        concatAdapter = ConcatAdapter(searchBookAdapter, bestSellersAdapter, booksListAdapter)
-
         initObservers()
 
         with(binding) {
 
-            booksRecycleView.setHasFixedSize(true)
-
-            searchBookAdapter.searchText = {
-                if (it.isNullOrEmpty().not()) {
-                    booksListAdapter.filter.filter(it)
-                    concatAdapter.removeAdapter(bestSellersAdapter)
-                } else {
-                    booksListAdapter.filter.filter(it)
-                    concatAdapter.addAdapter(1, bestSellersAdapter)
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return false
                 }
-            }
 
-            booksListAdapter.onAddBasketClick = {
-                if (viewModel.addBookToBasket(it).not()) {
-                    Snackbar.make(view, R.string.add_book_basket_error, 1000).show()
-                } else {
-                    Snackbar.make(view, R.string.add_basket_snack_text, 1000).show()
+                override fun onQueryTextChange(newText: String?): Boolean {
+
+                    allBooksAdapter.filter.filter(newText)
+
+                    if (newText.isNullOrEmpty().not()) {
+                        bestSellersTitle.visibility = View.GONE
+                        bestSellersRecycler.visibility = View.GONE
+                    } else {
+                        bestSellersTitle.visibility = View.VISIBLE
+                        bestSellersRecycler.visibility = View.VISIBLE
+                        hideKeyboard(requireActivity(), view)
+                    }
+                    return false
                 }
-            }
-
+            })
         }
     }
 
@@ -72,15 +70,30 @@ class BooksFragment : Fragment() {
                     if (!it) booksLoadingView.visibility = View.GONE
                 }
 
-                bestSellersList.observe(viewLifecycleOwner) {
-                    if (it.isNullOrEmpty().not()) bestSellersAdapter.updateList(it)
+                bestSellersList.observe(viewLifecycleOwner) { list ->
+                    bestSellersRecycler.apply {
+                        setHasFixedSize(true)
+                        adapter = bestSellersAdapter.also {
+                            it.updateList(list)
+                        }
+                    }
                 }
 
-                booksList.observe(viewLifecycleOwner) {
-                    if (it.isNullOrEmpty().not()) {
-                        booksListAdapter.updateList(it)
-                        booksListRecyclerAdapter = concatAdapter
+                booksList.observe(viewLifecycleOwner) { list ->
+                    allBooksRecycler.apply {
+                        setHasFixedSize(true)
+                        adapter = allBooksAdapter.also { adapter ->
+                            adapter.updateList(list)
+                            adapter.onAddBasketClick = {
+                                viewModel.addBookToBasket(it)
+                            }
+                        }
                     }
+                }
+
+                isBookAddedBasket.observe(viewLifecycleOwner) {
+                    if (it) showSnackbar(requireView(), R.string.add_basket_snack_text)
+                    else showSnackbar(requireView(), R.string.add_book_basket_error)
                 }
             }
         }

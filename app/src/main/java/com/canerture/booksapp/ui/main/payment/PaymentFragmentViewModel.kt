@@ -21,7 +21,7 @@ class PaymentFragmentViewModel(context: Context) : ViewModel() {
 
     private fun getBooksBasket() {
         booksRepo.booksBasket()
-        _booksBasket = booksRepo.getBooksBasketList()
+        _booksBasket = booksRepo.booksBasketList
     }
 
     fun clearBasket() {

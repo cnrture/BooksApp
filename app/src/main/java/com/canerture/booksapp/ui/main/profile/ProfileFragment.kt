@@ -1,9 +1,7 @@
 package com.canerture.booksapp.ui.main.profile
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,14 +10,13 @@ import androidx.fragment.app.Fragment
 import com.canerture.booksapp.R
 import com.canerture.booksapp.databinding.FragmentProfileBinding
 import com.canerture.booksapp.ui.login.LoginActivity
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 
 class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel by lazy { ProfileFragmentViewModel() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,33 +29,21 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val user = Firebase.auth.currentUser
-        val db = Firebase.firestore
-
         binding.profileFragmentObject = this
 
         with(binding) {
 
-            user?.let {
-                emailText.text = user.email
-
-                val docRef = db.collection("users").document(user.uid)
-                docRef.get()
-                    .addOnSuccessListener { document ->
-                        document?.let {
-                            nicknameText.text = document.get("nickname") as String
-                            phoneNumberText.text = document.get("phonenumber") as String
-                        }
-                    }
-                    .addOnFailureListener { exception ->
-                        Log.d(TAG, "get failed with ", exception)
-                    }
+            signOutButton.setOnClickListener {
+                viewModel.signOut().also {
+                    val intent = Intent(requireActivity(), LoginActivity::class.java)
+                    startActivity(intent)
+                }
             }
 
-            signOutButton.setOnClickListener {
-                Firebase.auth.signOut()
-                val intent = Intent(requireActivity(), LoginActivity::class.java)
-                startActivity(intent)
+            viewModel.userInfo.observe(viewLifecycleOwner) {
+                emailText.text = it.email
+                nicknameText.text = it.nickname
+                phoneNumberText.text = it.phoneNumber
             }
         }
     }

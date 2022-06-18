@@ -11,23 +11,19 @@ class SignUpFragmentViewModel : ViewModel() {
     private var usersRepo = UsersRepository()
 
     private var _isInfosValid = MutableLiveData<Boolean>()
-    val isInfosValid: LiveData<Boolean>
-        get() = _isInfosValid
+    val isInfosValid: LiveData<Boolean> = _isInfosValid
 
     private var _isValidMail = MutableLiveData<Boolean>()
-    val isValidMail: LiveData<Boolean>
-        get() = _isValidMail
+    val isValidMail: LiveData<Boolean> = _isValidMail
 
     private var _isPasswordMatch = MutableLiveData<Boolean>()
-    val isPasswordMatch: LiveData<Boolean>
-        get() = _isPasswordMatch
+    val isPasswordMatch: LiveData<Boolean> = _isPasswordMatch
 
     private var _isSignUp = MutableLiveData<Boolean>()
-    val isSignUp: LiveData<Boolean>
-        get() = _isSignUp
+    val isSignUp: LiveData<Boolean> = _isSignUp
 
     init {
-        _isSignUp = usersRepo.getIsSignUp()
+        _isSignUp = usersRepo.isSignUp
     }
 
     fun signUp(

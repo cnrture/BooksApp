@@ -25,8 +25,8 @@ class BooksBasketFragmentViewModel(context: Context) : ViewModel() {
 
     private fun getBooksBasket() {
         booksRepo.booksBasket()
-        _booksBasket = booksRepo.getBooksBasketList()
-        _isLoading = booksRepo.getIsLoading()
+        _booksBasket = booksRepo.booksBasketList
+        _isLoading = booksRepo.isLoading
     }
 
     fun deleteBookFromBasket(bookId: Int) {

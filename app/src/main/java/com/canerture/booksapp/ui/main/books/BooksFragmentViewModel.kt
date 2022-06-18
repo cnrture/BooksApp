@@ -4,9 +4,9 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.canerture.booksapp.data.repos.BooksRepository
 import com.canerture.booksapp.data.model.BookModel
 import com.canerture.booksapp.data.model.BooksBasketRoomModel
+import com.canerture.booksapp.data.repos.BooksRepository
 
 class BooksFragmentViewModel(context: Context) : ViewModel() {
 
@@ -24,6 +24,10 @@ class BooksFragmentViewModel(context: Context) : ViewModel() {
     val isLoading: LiveData<Boolean>
         get() = _isLoading
 
+    private var _isBookAddedBasket = MutableLiveData<Boolean>()
+    val isBookAddedBasket: LiveData<Boolean>
+        get() = _isBookAddedBasket
+
     init {
         getBooks()
         getBestSellers()
@@ -31,17 +35,18 @@ class BooksFragmentViewModel(context: Context) : ViewModel() {
 
     private fun getBooks() {
         booksRepo.books()
-        _booksList = booksRepo.getBooksList()
-        _isLoading = booksRepo.getIsLoading()
+        _booksList = booksRepo.booksList
+        _isLoading = booksRepo.isLoading
     }
 
     private fun getBestSellers() {
         booksRepo.bestSellers()
-        _bestSellersList = booksRepo.getBestSellersList()
-        _isLoading = booksRepo.getIsLoading()
+        _bestSellersList = booksRepo.bestSellersList
+        _isLoading = booksRepo.isLoading
     }
 
-    fun addBookToBasket(bookModel: BooksBasketRoomModel): Boolean {
-        return booksRepo.addBookToBasket(bookModel)
+    fun addBookToBasket(bookModel: BooksBasketRoomModel) {
+        booksRepo.addBookToBasket(bookModel)
+        _isBookAddedBasket = booksRepo.isBookAddedBasket
     }
 }

@@ -7,11 +7,10 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.navArgs
 import com.canerture.booksapp.R
+import com.canerture.booksapp.common.showSnackbar
 import com.canerture.booksapp.data.model.BooksBasketRoomModel
 import com.canerture.booksapp.databinding.BookDetailBottomSheetBinding
-import com.canerture.booksapp.ui.main.books.BooksFragmentViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 
 class BookDetailBottomSheet : BottomSheetDialogFragment() {
@@ -19,7 +18,7 @@ class BookDetailBottomSheet : BottomSheetDialogFragment() {
     private var _binding: BookDetailBottomSheetBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel by lazy { BooksFragmentViewModel(requireContext()) }
+    private val viewModel by lazy { BookDetailBottomSheetViewModel(requireContext()) }
 
     private val args: BookDetailBottomSheetArgs by navArgs()
 
@@ -45,28 +44,20 @@ class BookDetailBottomSheet : BottomSheetDialogFragment() {
 
             addCartButton.setOnClickListener {
 
-                if (viewModel.addBookToBasket(
-                        BooksBasketRoomModel(
-                            bookName = book.book_name,
-                            bookAuthor = book.book_author,
-                            bookPublisher = book.book_publisher,
-                            bookPrice = book.book_price,
-                            bookImageUrl = book.book_image_url
-                        )
-                    ).not()
-                ) {
-                    Snackbar.make(
-                        dialog?.window!!.decorView,
-                        R.string.add_book_basket_error,
-                        1000
-                    ).show()
-                } else {
-                    Snackbar.make(
-                        dialog?.window!!.decorView,
-                        R.string.add_basket_snack_text,
-                        1000
-                    ).show()
-                }
+                viewModel.addBookToBasket(
+                    BooksBasketRoomModel(
+                        bookName = book.book_name,
+                        bookAuthor = book.book_author,
+                        bookPublisher = book.book_publisher,
+                        bookPrice = book.book_price,
+                        bookImageUrl = book.book_image_url
+                    )
+                )
+            }
+
+            viewModel.isBookAddedBasket.observe(viewLifecycleOwner) {
+                if (it) showSnackbar(dialog?.window!!.decorView, R.string.add_basket_snack_text)
+                else showSnackbar(dialog?.window!!.decorView, R.string.add_book_basket_error)
             }
         }
     }
