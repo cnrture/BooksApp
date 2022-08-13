@@ -40,7 +40,7 @@ class AllBooksAdapter : RecyclerView.Adapter<AllBooksAdapter.BookItemDesign>(), 
 
                 bookModel = book
 
-                book.book_image_url.let {
+                book.book_image_url?.let {
                     Picasso.get().load(it).into(bookImageView)
                 }
 
@@ -70,7 +70,7 @@ class AllBooksAdapter : RecyclerView.Adapter<AllBooksAdapter.BookItemDesign>(), 
     fun updateList(list: List<BookModel>) {
         booksList.clear()
         booksList.addAll(list)
-        notifyDataSetChanged()
+        notifyItemRangeChanged(0, list.size)
     }
 
     override fun getFilter(): Filter {
@@ -108,7 +108,7 @@ class AllBooksAdapter : RecyclerView.Adapter<AllBooksAdapter.BookItemDesign>(), 
 
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
                 booksFilterList = results?.values as ArrayList<BookModel>
-                notifyDataSetChanged()
+                notifyItemRangeChanged(0, booksFilterList.size)
             }
         }
     }

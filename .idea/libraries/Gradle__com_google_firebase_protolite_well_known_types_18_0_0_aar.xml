@@ -3,8 +3,9 @@
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/1f3d90d943422dd3ff37372aa6053a62/transformed/jetified-protolite-well-known-types-18.0.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/442dadf68152b3021eb756d1a6824644/transformed/jetified-protolite-well-known-types-18.0.0/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/442dadf68152b3021eb756d1a6824644/transformed/jetified-protolite-well-known-types-18.0.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/442dadf68152b3021eb756d1a6824644/transformed/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/dccfa9c17ab026418f900d97560048a9/transformed/jetified-protolite-well-known-types-18.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/dccfa9c17ab026418f900d97560048a9/transformed/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/dccfa9c17ab026418f900d97560048a9/transformed/jetified-protolite-well-known-types-18.0.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/protolite-well-known-types/18.0.0/8e15c66257eefa93807e8dc218bf82da40c5390c/protolite-well-known-types-18.0.0-javadoc.jar!/" />
