@@ -14,7 +14,6 @@ Project Features
  - Room Database <br>
  - Navigation Component(NavGraph, BottomNav) <br>
  - ViewPager2 in TabLayout <br>
- - SearchView, Vertical Adapter(BestSellers) and Horizontal Adapter(All Books) with ConcatAdapter for Main Screen <br>
  - Firebase Auth (<a href="https://firebase.google.com/docs/auth?authuser=0">Source</a>) <br>
  - SearchView in Adapter (<a href="https://www.tugbaustundag.com/android-recyclerviewa-search-filter-ekleme/">Source</a>) <br>
  - Picasso (<a href="https://square.github.io/picasso/">Source</a>) <br>
@@ -39,7 +38,6 @@ Main Screen
 
 <h3 align="left">
 - Books listed using RecyclerView + DataBinding. <br>
-- For the main screen, I utilized the searchView, horizontal adapter and vertical adapter in a single recyclerView by combining the ConcatAdapter structure. <br>
 - Book search feature works with author, book name and publisher name. Search can be made with the SearchView in the RecyclerView.<br>
 - When the book image is pressed, the BottomShhet opens and details are displayed. The book is sent to the basket with the Add to Basket button. <br>
 - The "+" button in the CardView is used to add book to basket. (Note: Images are added with url.) <br>
