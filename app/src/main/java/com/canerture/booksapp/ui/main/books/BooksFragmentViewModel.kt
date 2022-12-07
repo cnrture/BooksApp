@@ -4,20 +4,19 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.canerture.booksapp.data.model.BookModel
-import com.canerture.booksapp.data.model.BooksBasketRoomModel
+import com.canerture.booksapp.data.model.Book
 import com.canerture.booksapp.data.repos.BooksRepository
 
 class BooksFragmentViewModel(context: Context) : ViewModel() {
 
     private var booksRepo = BooksRepository(context)
 
-    private var _booksList = MutableLiveData<List<BookModel>>()
-    val booksList: LiveData<List<BookModel>>
+    private var _booksList = MutableLiveData<List<Book>>()
+    val booksList: LiveData<List<Book>>
         get() = _booksList
 
-    private var _bestSellersList = MutableLiveData<List<BookModel>>()
-    val bestSellersList: LiveData<List<BookModel>>
+    private var _bestSellersList = MutableLiveData<List<Book>>()
+    val bestSellersList: LiveData<List<Book>>
         get() = _bestSellersList
 
     private var _isLoading = MutableLiveData<Boolean>()
@@ -45,8 +44,8 @@ class BooksFragmentViewModel(context: Context) : ViewModel() {
         _isLoading = booksRepo.isLoading
     }
 
-    fun addBookToBasket(bookModel: BooksBasketRoomModel) {
-        booksRepo.addBookToBasket(bookModel)
+    fun addBookToBasket(book: Book) {
+        booksRepo.addBookToBasket(book)
         _isBookAddedBasket = booksRepo.isBookAddedBasket
     }
 }

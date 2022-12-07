@@ -10,15 +10,11 @@ import com.canerture.booksapp.ui.login.signup.SignUpFragment
 class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
 
-    override fun getItemCount(): Int {
-        return 2
-    }
+    override fun getItemCount() = 2
 
-    override fun createFragment(position: Int): Fragment {
-        when (position) {
-            0 -> return SignInFragment()
-            1 -> return SignUpFragment()
-        }
-        return SignInFragment()
+    override fun createFragment(position: Int): Fragment = when (position) {
+        0 -> SignInFragment()
+        1 -> SignUpFragment()
+        else -> SignInFragment()
     }
 }

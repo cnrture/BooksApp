@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.canerture.booksapp.data.model.UserModel
 import com.canerture.booksapp.data.repos.UsersRepository
 
-class ProfileFragmentViewModel() : ViewModel() {
+class ProfileFragmentViewModel : ViewModel() {
 
     private val usersRepo = UsersRepository()
 
@@ -23,8 +23,6 @@ class ProfileFragmentViewModel() : ViewModel() {
         _userInfo = usersRepo.userInfo
     }
 
-    fun signOut() {
-        usersRepo.signOut()
-    }
+    fun signOut() = usersRepo.signOut()
 
 }

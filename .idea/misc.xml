@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/bg_bottom_nav.xml" value="0.27685185185185185" />
+        <entry key="app/src/main/res/drawable/bg_bottom_sheet.xml" value="0.1195" />
         <entry key="app/src/main/res/drawable/bottom_sheet_line.xml" value="0.1995" />
         <entry key="app/src/main/res/drawable/payment_card_selector.xml" value="0.218" />
         <entry key="app/src/main/res/drawable/payment_selected.xml" value="0.218" />

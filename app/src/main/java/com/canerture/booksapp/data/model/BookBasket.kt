@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "booksbasketdatabase")
-data class BooksBasketRoomModel(
+data class BookBasket(
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
@@ -24,6 +24,6 @@ data class BooksBasketRoomModel(
     var bookPrice: String?,
 
     @ColumnInfo(name = "bookImageUrl")
-    var bookImageUrl: String?
+    var bookImageUrl: String?,
 
-)
+    )

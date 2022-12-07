@@ -4,10 +4,10 @@ import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.canerture.booksapp.common.util.ApiUtils
-import com.canerture.booksapp.data.model.BookModel
-import com.canerture.booksapp.data.model.BooksBasketRoomModel
-import com.canerture.booksapp.data.response.BooksResponse
-import com.canerture.booksapp.data.retrofit.BooksDAOInterface
+import com.canerture.booksapp.data.model.Book
+import com.canerture.booksapp.data.model.BookBasket
+import com.canerture.booksapp.data.model.BooksResponse
+import com.canerture.booksapp.data.retrofit.BooksService
 import com.canerture.booksapp.data.room.BooksBasketDAOInterface
 import com.canerture.booksapp.data.room.BooksBasketRoomDatabase
 import retrofit2.Call
@@ -16,37 +16,37 @@ import retrofit2.Response
 
 class BooksRepository(context: Context) {
 
-    var booksList = MutableLiveData<List<BookModel>>()
+    var booksList = MutableLiveData<List<Book>>()
 
-    var bestSellersList = MutableLiveData<List<BookModel>>()
+    var bestSellersList = MutableLiveData<List<Book>>()
 
-    var booksBasketList = MutableLiveData<List<BooksBasketRoomModel>>()
+    var booksBasketList = MutableLiveData<List<BookBasket>>()
 
     var isLoading = MutableLiveData<Boolean>()
 
     var isBookAddedBasket = MutableLiveData<Boolean>()
 
-    private val booksDIF: BooksDAOInterface = ApiUtils.getBooksDAOInterface()
+    private val booksService: BooksService = ApiUtils.getBooksDAOInterface()
 
     private val booksBasketDAOInterface: BooksBasketDAOInterface? =
         BooksBasketRoomDatabase.booksBasketRoomDatabase(context)?.booksBasketDAOInterface()
 
     fun books() {
         isLoading.value = true
-        booksDIF.allBooks().enqueue(object : Callback<BooksResponse> {
+        booksService.allBooks().enqueue(object : Callback<BooksResponse> {
             override fun onResponse(call: Call<BooksResponse>, response: Response<BooksResponse>) {
 
                 response.body()?.books?.let {
                     booksList.value = it
                     isLoading.value = false
-                } ?: run {
+                } ?: kotlin.run {
                     isLoading.value = false
                 }
 
             }
 
             override fun onFailure(call: Call<BooksResponse>, t: Throwable) {
-                t.localizedMessage?.toString()?.let { Log.e("Books Failure", it) }
+                Log.e("Books Failure", t.message.orEmpty())
                 isLoading.value = false
             }
         })
@@ -54,19 +54,19 @@ class BooksRepository(context: Context) {
 
     fun bestSellers() {
         isLoading.value = true
-        booksDIF.bestSellers().enqueue(object : Callback<BooksResponse> {
+        booksService.bestSellers().enqueue(object : Callback<BooksResponse> {
             override fun onResponse(call: Call<BooksResponse>, response: Response<BooksResponse>) {
 
                 response.body()?.books?.let {
                     bestSellersList.value = it
                     isLoading.value = false
-                } ?: run {
+                } ?: kotlin.run {
                     isLoading.value = false
                 }
             }
 
             override fun onFailure(call: Call<BooksResponse>, t: Throwable) {
-                t.localizedMessage?.toString()?.let { Log.e("Bestsellers Failure", it) }
+                Log.e("Bestsellers Failure", t.message.orEmpty())
                 isLoading.value = false
             }
         })
@@ -78,17 +78,25 @@ class BooksRepository(context: Context) {
         booksBasketDAOInterface?.getBooksBasket()?.let {
             booksBasketList.value = it
             isLoading.value = false
-        } ?: run {
+        } ?: kotlin.run {
             isLoading.value = false
         }
     }
 
-    fun addBookToBasket(bookModel: BooksBasketRoomModel) {
+    fun addBookToBasket(book: Book) {
 
         booksBasketDAOInterface?.getBooksNamesBasket()?.let {
 
-            isBookAddedBasket.value = if (it.contains(bookModel.bookName).not()) {
-                booksBasketDAOInterface.addBookBasket(bookModel)
+            isBookAddedBasket.value = if (it.contains(book.bookName).not()) {
+                booksBasketDAOInterface.addBookBasket(
+                    BookBasket(
+                        bookName = book.bookName,
+                        bookAuthor = book.bookAuthor,
+                        bookPublisher = book.bookPublisher,
+                        bookPrice = book.bookPrice,
+                        bookImageUrl = book.bookImageUrl
+                    )
+                )
                 true
             } else {
                 false
@@ -96,12 +104,8 @@ class BooksRepository(context: Context) {
         }
     }
 
-    fun deleteBookFromBasket(bookId: Int) {
-        booksBasketDAOInterface?.deleteBookWithId(bookId)
-    }
+    fun deleteBookFromBasket(bookId: Int) = booksBasketDAOInterface?.deleteBookWithId(bookId)
 
-    fun clearBasket() {
-        booksBasketDAOInterface?.clearBasket()
-    }
+    fun clearBasket() = booksBasketDAOInterface?.clearBasket()
 
 }

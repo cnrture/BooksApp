@@ -4,9 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.canerture.booksapp.data.model.BooksBasketRoomModel
+import com.canerture.booksapp.data.model.BookBasket
 
-@Database(entities = [BooksBasketRoomModel::class], version = 1)
+@Database(entities = [BookBasket::class], version = 1)
 abstract class BooksBasketRoomDatabase : RoomDatabase() {
 
     abstract fun booksBasketDAOInterface(): BooksBasketDAOInterface
@@ -22,9 +22,7 @@ abstract class BooksBasketRoomDatabase : RoomDatabase() {
                     context,
                     BooksBasketRoomDatabase::class.java,
                     "booksbasketdatabase.db"
-                )
-                    .allowMainThreadQueries()
-                    .build()
+                ).allowMainThreadQueries().build()
             }
             return instance
         }

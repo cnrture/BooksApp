@@ -31,7 +31,7 @@ class SignUpFragmentViewModel : ViewModel() {
         password: String,
         confirmPassword: String,
         nickname: String,
-        phoneNumber: String
+        phoneNumber: String,
     ) {
 
         if (eMail.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || nickname.isEmpty() || phoneNumber.isEmpty()) {

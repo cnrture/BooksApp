@@ -6,60 +6,49 @@ import android.widget.Filter
 import android.widget.Filterable
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.canerture.booksapp.data.model.BookModel
-import com.canerture.booksapp.data.model.BooksBasketRoomModel
+import com.canerture.booksapp.data.model.Book
 import com.canerture.booksapp.databinding.BookItemBinding
 import com.squareup.picasso.Picasso
 
 class AllBooksAdapter : RecyclerView.Adapter<AllBooksAdapter.BookItemDesign>(), Filterable {
 
-    private val booksList = ArrayList<BookModel>()
-    var booksFilterList = ArrayList<BookModel>()
-    var onAddBasketClick: (BooksBasketRoomModel) -> Unit = {}
+    private val booksList = ArrayList<Book>()
+    var booksFilterList = ArrayList<Book>()
+
+    var onAddBasketClick: (Book) -> Unit = {}
+    var onBookClick: (Book) -> Unit = {}
 
     init {
         booksFilterList = booksList
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookItemDesign {
-        val bookItemBinding =
-            BookItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return BookItemDesign(bookItemBinding)
+        val binding = BookItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return BookItemDesign(binding)
     }
 
-    override fun onBindViewHolder(holder: BookItemDesign, position: Int) {
+    override fun onBindViewHolder(holder: BookItemDesign, position: Int) =
         holder.bind(booksFilterList[position])
-    }
 
-    inner class BookItemDesign(private var bookItemBinding: BookItemBinding) :
-        RecyclerView.ViewHolder(bookItemBinding.root) {
+    inner class BookItemDesign(private var binding: BookItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(book: BookModel) {
+        fun bind(book: Book) {
 
-            bookItemBinding.apply {
+            with(binding) {
 
                 bookModel = book
 
-                book.book_image_url?.let {
+                book.bookImageUrl?.let {
                     Picasso.get().load(it).into(bookImageView)
                 }
 
                 bookImageView.setOnClickListener {
-                    val action =
-                        BooksFragmentDirections.actionBooksFragmentToBookDetailBottomSheet(book)
-                    it.findNavController().navigate(action)
+                    onBookClick(book)
                 }
 
                 addBasketImage.setOnClickListener {
-                    onAddBasketClick(
-                        BooksBasketRoomModel(
-                            bookName = book.book_name,
-                            bookAuthor = book.book_author,
-                            bookPublisher = book.book_publisher,
-                            bookPrice = book.book_price,
-                            bookImageUrl = book.book_image_url
-                        )
-                    )
+                    onAddBasketClick(book)
                 }
             }
         }
@@ -67,10 +56,10 @@ class AllBooksAdapter : RecyclerView.Adapter<AllBooksAdapter.BookItemDesign>(), 
 
     override fun getItemCount(): Int = booksFilterList.size
 
-    fun updateList(list: List<BookModel>) {
+    fun updateList(list: List<Book>) {
         booksList.clear()
         booksList.addAll(list)
-        notifyItemRangeChanged(0, list.size)
+        notifyItemRangeInserted(0, list.size)
     }
 
     override fun getFilter(): Filter {
@@ -82,11 +71,11 @@ class AllBooksAdapter : RecyclerView.Adapter<AllBooksAdapter.BookItemDesign>(), 
                 booksFilterList = if (searchText.isEmpty()) {
                     booksList
                 } else {
-                    val resultList = ArrayList<BookModel>()
+                    val resultList = ArrayList<Book>()
                     for (row in booksList) {
-                        row.book_name?.let { bookName ->
-                            row.book_author?.let { bookAuthor ->
-                                row.book_publisher?.let { bookPublisher ->
+                        row.bookName?.let { bookName ->
+                            row.bookAuthor?.let { bookAuthor ->
+                                row.bookPublisher?.let { bookPublisher ->
                                     if (bookName.lowercase().contains(searchText) ||
                                         bookAuthor.lowercase().contains(searchText) ||
                                         bookPublisher.lowercase().contains(searchText)
@@ -107,7 +96,7 @@ class AllBooksAdapter : RecyclerView.Adapter<AllBooksAdapter.BookItemDesign>(), 
             }
 
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                booksFilterList = results?.values as ArrayList<BookModel>
+                booksFilterList = results?.values as ArrayList<Book>
                 notifyItemRangeChanged(0, booksFilterList.size)
             }
         }

@@ -1,14 +1,15 @@
 package com.canerture.booksapp.ui.main.payment
 
 import android.os.Bundle
-import android.os.CountDownTimer
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.canerture.booksapp.R
 import com.canerture.booksapp.common.Constants.CARD_NUMBER_APPLE_PAY
 import com.canerture.booksapp.common.Constants.CARD_NUMBER_GOOGLE_PAY
@@ -27,8 +28,9 @@ class PaymentFragment : Fragment() {
     private val viewModel by lazy { PaymentFragmentViewModel(requireContext()) }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentPaymentBinding.inflate(inflater, container, false)
         return binding.root
@@ -74,15 +76,15 @@ class PaymentFragment : Fragment() {
                         showSuccessDialog()
                         viewModel.clearBasket()
                     } else {
-                        showSnackbar(it, R.string.address_error)
+                        it.showSnackbar(R.string.address_error)
                     }
                 } else {
-                    showSnackbar(it, R.string.order_now_error)
+                    it.showSnackbar(R.string.order_now_error)
                 }
             }
 
             cancelPaymentButton.setOnClickListener {
-                it.findNavController().navigate(R.id.action_paymentFragment_to_booksBasketFragment)
+                findNavController().navigate(R.id.action_paymentFragment_to_booksBasketFragment)
             }
         }
     }
@@ -91,7 +93,7 @@ class PaymentFragment : Fragment() {
 
         setOnClickListener {
 
-            binding.apply {
+            with(binding) {
                 when (it.id) {
                     R.id.masterCard -> {
                         checkedRadioButton(
@@ -136,7 +138,7 @@ class PaymentFragment : Fragment() {
         radioButton3: RadioButton,
         cardNumber: String,
         paymentMethod: Int,
-        paymentTypeImage: Int
+        paymentTypeImage: Int,
     ) {
         radioButton1.isChecked = false
         radioButton2.isChecked = false
@@ -153,19 +155,13 @@ class PaymentFragment : Fragment() {
         dialogBuilder.setView(layoutView)
         val alertDialog = dialogBuilder.create()
 
-        val timer = object : CountDownTimer(2000, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                alertDialog.show()
-                alertDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-            }
+        alertDialog.show()
+        alertDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
-            override fun onFinish() {
-                alertDialog.dismiss()
-                requireView().findNavController()
-                    .navigate(R.id.action_paymentFragment_to_booksFragment)
-            }
-        }
-        timer.start()
+        Handler(Looper.getMainLooper()).postDelayed({
+            alertDialog.dismiss()
+            findNavController().navigate(R.id.action_paymentFragment_to_booksFragment)
+        }, 2000)
     }
 
     override fun onDestroyView() {

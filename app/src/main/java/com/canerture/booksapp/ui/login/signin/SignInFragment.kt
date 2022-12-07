@@ -20,8 +20,9 @@ class SignInFragment : Fragment() {
     private val viewModel by lazy { SignInFragmentViewModel() }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View {
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_in, container, false)
         return binding.root
@@ -29,25 +30,24 @@ class SignInFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.signInFragmentObject = this
+        initObservers()
+    }
 
-        with(viewModel) {
+    private fun initObservers() = with(viewModel) {
 
-            isSignIn.observe(viewLifecycleOwner) {
-                if (it) {
-                    val intent = Intent(context, MainActivity::class.java)
-                    startActivity(intent)
-                } else {
-                    showSnackbar(view, R.string.wrong_email_password)
-                }
+        isSignIn.observe(viewLifecycleOwner) {
+            if (it) {
+                val intent = Intent(context, MainActivity::class.java)
+                startActivity(intent)
+                requireActivity().finish()
+            } else {
+                requireView().showSnackbar(R.string.wrong_email_password)
             }
         }
     }
 
-    fun signInButton(email: String, password: String) {
-        viewModel.signIn(email, password)
-    }
+    fun signInButton(email: String, password: String) = viewModel.signIn(email, password)
 
     override fun onDestroyView() {
         super.onDestroyView()

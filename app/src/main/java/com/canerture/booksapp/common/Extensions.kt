@@ -5,8 +5,8 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import com.google.android.material.snackbar.Snackbar
 
-fun showSnackbar(view: View, text: Int) {
-    Snackbar.make(view, text, 1000).show()
+fun View.showSnackbar(text: Int) {
+    Snackbar.make(this, text, 1000).show()
 }
 
 fun hideKeyboard(activity: Activity, view: View) {

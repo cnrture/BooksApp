@@ -19,8 +19,9 @@ class ProfileFragment : Fragment() {
     private val viewModel by lazy { ProfileFragmentViewModel() }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View {
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
         return binding.root
@@ -39,12 +40,14 @@ class ProfileFragment : Fragment() {
                     startActivity(intent)
                 }
             }
+        }
+    }
 
-            viewModel.userInfo.observe(viewLifecycleOwner) {
-                emailText.text = it.email
-                nicknameText.text = it.nickname
-                phoneNumberText.text = it.phoneNumber
-            }
+    private fun initObservers() = with(binding) {
+        viewModel.userInfo.observe(viewLifecycleOwner) {
+            emailText.text = it.email
+            nicknameText.text = it.nickname
+            phoneNumberText.text = it.phoneNumber
         }
     }
 

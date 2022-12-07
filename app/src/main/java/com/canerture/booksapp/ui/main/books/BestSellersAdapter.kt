@@ -4,41 +4,41 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.canerture.booksapp.data.model.BookModel
+import com.canerture.booksapp.data.model.Book
 import com.canerture.booksapp.databinding.BestSellerItemBinding
 import com.squareup.picasso.Picasso
 
 class BestSellersAdapter : RecyclerView.Adapter<BestSellersAdapter.BestSellerItemDesign>() {
 
-    private val bestSellersList = ArrayList<BookModel>()
+    private val bestSellersList = ArrayList<Book>()
+
+    var onBookClick: (Book) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BestSellerItemDesign {
-        val bestSellerItemBinding =
+        val binding =
             BestSellerItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return BestSellerItemDesign(bestSellerItemBinding)
+        return BestSellerItemDesign(binding)
     }
 
     override fun onBindViewHolder(holder: BestSellerItemDesign, position: Int) {
         holder.bind(bestSellersList[position])
     }
 
-    inner class BestSellerItemDesign(private var bestSellerItemBinding: BestSellerItemBinding) :
-        RecyclerView.ViewHolder(bestSellerItemBinding.root) {
+    inner class BestSellerItemDesign(private var binding: BestSellerItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(book: BookModel) {
+        fun bind(book: Book) {
 
-            bestSellerItemBinding.apply {
+            with(binding) {
 
                 bookModel = book
 
-                book.book_image_url.let {
+                book.bookImageUrl.let {
                     Picasso.get().load(it).into(bookImageView)
                 }
 
                 bookImageView.setOnClickListener {
-                    val action =
-                        BooksFragmentDirections.actionBooksFragmentToBookDetailBottomSheet(book)
-                    it.findNavController().navigate(action)
+                    onBookClick(book)
                 }
             }
         }
@@ -46,9 +46,9 @@ class BestSellersAdapter : RecyclerView.Adapter<BestSellersAdapter.BestSellerIte
 
     override fun getItemCount(): Int = bestSellersList.size
 
-    fun updateList(list: List<BookModel>) {
+    fun updateList(list: List<Book>) {
         bestSellersList.clear()
         bestSellersList.addAll(list)
-        notifyDataSetChanged()
+        notifyItemRangeInserted(0, list.size)
     }
 }

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.canerture.booksapp.R
 import com.canerture.booksapp.common.hideKeyboard
 import com.canerture.booksapp.common.showSnackbar
@@ -23,8 +24,9 @@ class BooksFragment : Fragment() {
     private val allBooksAdapter by lazy { AllBooksAdapter() }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View {
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_books, container, false)
         return binding.root
@@ -60,41 +62,43 @@ class BooksFragment : Fragment() {
         }
     }
 
-    private fun initObservers() {
+    private fun initObservers() = with(binding) {
 
-        with(binding) {
+        with(viewModel) {
 
-            with(viewModel) {
+            isLoading.observe(viewLifecycleOwner) {
+                if (!it) booksLoadingView.visibility = View.GONE
+            }
 
-                isLoading.observe(viewLifecycleOwner) {
-                    if (!it) booksLoadingView.visibility = View.GONE
+            bestSellersList.observe(viewLifecycleOwner) { list ->
+                bestSellersRecycler.apply {
+                    setHasFixedSize(true)
+                    adapter = bestSellersAdapter.also {
+                        it.updateList(list)
+                    }
                 }
+            }
 
-                bestSellersList.observe(viewLifecycleOwner) { list ->
-                    bestSellersRecycler.apply {
-                        setHasFixedSize(true)
-                        adapter = bestSellersAdapter.also {
-                            it.updateList(list)
+            booksList.observe(viewLifecycleOwner) { list ->
+                allBooksRecycler.apply {
+                    setHasFixedSize(true)
+                    adapter = allBooksAdapter.also { adapter ->
+                        adapter.updateList(list)
+                        adapter.onAddBasketClick = {
+                            viewModel.addBookToBasket(it)
+                        }
+                        adapter.onBookClick = {
+                            val action =
+                                BooksFragmentDirections.actionBooksFragmentToBookDetailBottomSheet(it)
+                            findNavController().navigate(action)
                         }
                     }
                 }
+            }
 
-                booksList.observe(viewLifecycleOwner) { list ->
-                    allBooksRecycler.apply {
-                        setHasFixedSize(true)
-                        adapter = allBooksAdapter.also { adapter ->
-                            adapter.updateList(list)
-                            adapter.onAddBasketClick = {
-                                viewModel.addBookToBasket(it)
-                            }
-                        }
-                    }
-                }
-
-                isBookAddedBasket.observe(viewLifecycleOwner) {
-                    if (it) showSnackbar(requireView(), R.string.add_basket_snack_text)
-                    else showSnackbar(requireView(), R.string.add_book_basket_error)
-                }
+            isBookAddedBasket.observe(viewLifecycleOwner) {
+                if (it) requireView().showSnackbar(R.string.add_basket_snack_text)
+                else requireView().showSnackbar(R.string.add_book_basket_error)
             }
         }
     }

@@ -35,7 +35,7 @@
         tools:layout="@layout/book_detail_bottom_sheet">
         <argument
             android:name="bookModel"
-            app:argType="com.canerture.booksapp.data.model.BookModel" />
+            app:argType="com.canerture.booksapp.data.model.Book" />
     </dialog>
     <fragment
         android:id="@+id/paymentFragment"

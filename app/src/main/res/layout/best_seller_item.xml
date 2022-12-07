@@ -8,7 +8,7 @@
 
         <variable
             name="bookModel"
-            type="com.canerture.booksapp.data.model.BookModel" />
+            type="com.canerture.booksapp.data.model.Book" />
 
     </data>
 
@@ -47,7 +47,7 @@
             android:ellipsize="end"
             android:gravity="center_vertical"
             android:maxLines="1"
-            android:text="@{bookModel.book_author}"
+            android:text="@{bookModel.bookAuthor}"
             android:textColor="@color/eden"
             android:textSize="@dimen/text_size_very_small"
             app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +63,7 @@
             android:ellipsize="end"
             android:gravity="center_vertical"
             android:maxLines="1"
-            android:text="@{bookModel.book_name}"
+            android:text="@{bookModel.bookName}"
             android:textColor="@color/eden"
             android:textSize="@dimen/text_size_small"
             android:textStyle="bold"
@@ -77,7 +77,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/margin_very_small"
-            android:text='@{bookModel.book_price + " ₺"}'
+            android:text='@{bookModel.bookPrice + " ₺"}'
             android:textColor="@color/eden"
             android:textSize="@dimen/text_size_small"
             android:textStyle="bold"

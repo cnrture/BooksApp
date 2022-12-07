@@ -17,7 +17,5 @@ class SignInFragmentViewModel : ViewModel() {
         _isSignIn = usersRepo.isSignIn
     }
 
-    fun signIn(eMail: String, password: String) {
-        usersRepo.signIn(eMail, password)
-    }
+    fun signIn(eMail: String, password: String) = usersRepo.signIn(eMail, password)
 }

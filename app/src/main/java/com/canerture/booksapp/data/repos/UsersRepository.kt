@@ -1,6 +1,5 @@
 package com.canerture.booksapp.data.repos
 
-import android.content.ContentValues
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.canerture.booksapp.common.Constants.COLLECTION_PATH
@@ -11,7 +10,8 @@ import com.canerture.booksapp.common.Constants.NICKNAME
 import com.canerture.booksapp.common.Constants.PHONE_NUMBER
 import com.canerture.booksapp.common.Constants.SIGN_IN
 import com.canerture.booksapp.common.Constants.SIGN_UP
-import com.canerture.booksapp.common.Constants.SUCCESS
+import com.canerture.booksapp.common.Constants.USERS
+import com.canerture.booksapp.common.Constants.USER_INFO
 import com.canerture.booksapp.data.model.UserModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
@@ -34,7 +34,6 @@ class UsersRepository {
 
             if (task.isSuccessful) {
                 isSignIn.value = true
-                Log.d(SIGN_IN, SUCCESS)
             } else {
                 isSignIn.value = false
                 Log.w(SIGN_IN, FAILURE, task.exception)
@@ -61,7 +60,6 @@ class UsersRepository {
                         .set(user)
                         .addOnSuccessListener {
                             isSignUp.value = true
-                            Log.d(SIGN_UP, SUCCESS)
                         }
                         .addOnFailureListener { e ->
                             isSignUp.value = false
@@ -79,19 +77,19 @@ class UsersRepository {
     fun getUserInfo() {
         auth.currentUser?.let { user ->
 
-            val docRef = db.collection("users").document(user.uid)
+            val docRef = db.collection(USERS).document(user.uid)
             docRef.get()
                 .addOnSuccessListener { document ->
                     document?.let {
                         userInfo.value = UserModel(
                             user.email,
-                            document.get("nickname") as String,
-                            document.get("phonenumber") as String
+                            document.get(NICKNAME) as String,
+                            document.get(PHONE_NUMBER) as String
                         )
                     }
                 }
                 .addOnFailureListener { exception ->
-                    Log.d(ContentValues.TAG, "get failed with ", exception)
+                    Log.d(USER_INFO, FAILURE, exception)
                 }
         }
     }

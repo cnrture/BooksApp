@@ -18,8 +18,9 @@ class SignUpFragment : Fragment() {
     private val viewModel by lazy { SignUpFragmentViewModel() }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View {
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_up, container, false)
         return binding.root
@@ -31,44 +32,31 @@ class SignUpFragment : Fragment() {
         initObservers()
     }
 
-    private fun initObservers() {
+    private fun initObservers() = with(binding) {
+        with(viewModel) {
 
-        with(binding) {
+            isInfosValid.observe(viewLifecycleOwner) {
+                if (it.not())
+                    requireView().showSnackbar(R.string.incomplete_information_entered)
+            }
 
-            with(viewModel) {
+            isValidMail.observe(viewLifecycleOwner) {
+                emailInputLayout.error = if (!it) getString(R.string.invalid_mail) else ""
+            }
 
-                isInfosValid.observe(viewLifecycleOwner) {
-                    if (it.not()) showSnackbar(
-                        requireView(),
-                        R.string.incomplete_information_entered
-                    )
-                }
+            isPasswordMatch.observe(viewLifecycleOwner) {
+                passwordInputLayout.error =
+                    if (!it) getString(R.string.password_match_error) else ""
+                confirmPasswordInputLayout.error =
+                    if (!it) getString(R.string.password_match_error) else ""
+            }
 
-                isValidMail.observe(viewLifecycleOwner) {
-                    if (it.not()) {
-                        emailInputLayout.error = getString(R.string.invalid_mail)
-                    } else {
-                        emailInputLayout.error = ""
-                    }
-                }
-
-                isPasswordMatch.observe(viewLifecycleOwner) {
-                    if (it.not()) {
-                        passwordInputLayout.error = getString(R.string.password_match_error)
-                        confirmPasswordInputLayout.error = getString(R.string.password_match_error)
-                    } else {
-                        passwordInputLayout.error = ""
-                        confirmPasswordInputLayout.error = ""
-                    }
-                }
-
-                isSignUp.observe(viewLifecycleOwner) {
-                    if (it) {
-                        showSnackbar(requireView(), R.string.sign_up_snack_text)
-                        clearFields()
-                    } else {
-                        emailInputLayout.error = getString(R.string.registered_mail)
-                    }
+            isSignUp.observe(viewLifecycleOwner) {
+                if (it) {
+                    requireView().showSnackbar(R.string.sign_up_snack_text)
+                    clearFields()
+                } else {
+                    emailInputLayout.error = getString(R.string.registered_mail)
                 }
             }
         }
@@ -79,24 +67,20 @@ class SignUpFragment : Fragment() {
         password: String,
         confirmPassword: String,
         nickname: String,
-        phoneNumber: String
-    ) {
-        viewModel.signUp(email, password, confirmPassword, nickname, phoneNumber)
-    }
+        phoneNumber: String,
+    ) = viewModel.signUp(email, password, confirmPassword, nickname, phoneNumber)
 
-    private fun clearFields() {
-        with(binding) {
-            emailEditText.setText("")
-            emailInputLayout.error = ""
-            passwordEditText.setText("")
-            passwordInputLayout.error = ""
-            confirmPasswordEditText.setText("")
-            confirmPasswordInputLayout.error = ""
-            nicknameEditText.setText("")
-            nicknameInputLayout.error = ""
-            phoneNumberEditText.setText("")
-            phoneNumberInputLayout.error = ""
-        }
+    private fun clearFields() = with(binding) {
+        emailEditText.setText("")
+        emailInputLayout.error = ""
+        passwordEditText.setText("")
+        passwordInputLayout.error = ""
+        confirmPasswordEditText.setText("")
+        confirmPasswordInputLayout.error = ""
+        nicknameEditText.setText("")
+        nicknameInputLayout.error = ""
+        phoneNumberEditText.setText("")
+        phoneNumberInputLayout.error = ""
     }
 
     override fun onDestroyView() {

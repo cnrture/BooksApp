@@ -4,15 +4,15 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.canerture.booksapp.data.model.BooksBasketRoomModel
+import com.canerture.booksapp.data.model.BookBasket
 import com.canerture.booksapp.data.repos.BooksRepository
 
 class PaymentFragmentViewModel(context: Context) : ViewModel() {
 
     private val booksRepo = BooksRepository(context)
 
-    private var _booksBasket = MutableLiveData<List<BooksBasketRoomModel>>()
-    val booksBasket: LiveData<List<BooksBasketRoomModel>>
+    private var _booksBasket = MutableLiveData<List<BookBasket>>()
+    val booksBasket: LiveData<List<BookBasket>>
         get() = _booksBasket
 
     init {
@@ -24,8 +24,6 @@ class PaymentFragmentViewModel(context: Context) : ViewModel() {
         _booksBasket = booksRepo.booksBasketList
     }
 
-    fun clearBasket() {
-        booksRepo.clearBasket()
-    }
+    fun clearBasket() = booksRepo.clearBasket()
 
 }
