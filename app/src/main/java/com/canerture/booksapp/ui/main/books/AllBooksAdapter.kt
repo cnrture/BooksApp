@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.canerture.booksapp.data.model.Book
 import com.canerture.booksapp.databinding.BookItemBinding
@@ -39,7 +38,7 @@ class AllBooksAdapter : RecyclerView.Adapter<AllBooksAdapter.BookItemDesign>(), 
 
                 bookModel = book
 
-                book.bookImageUrl?.let {
+                book.imageUrl?.let {
                     Picasso.get().load(it).into(bookImageView)
                 }
 
@@ -73,9 +72,9 @@ class AllBooksAdapter : RecyclerView.Adapter<AllBooksAdapter.BookItemDesign>(), 
                 } else {
                     val resultList = ArrayList<Book>()
                     for (row in booksList) {
-                        row.bookName?.let { bookName ->
-                            row.bookAuthor?.let { bookAuthor ->
-                                row.bookPublisher?.let { bookPublisher ->
+                        row.name?.let { bookName ->
+                            row.author?.let { bookAuthor ->
+                                row.publisher?.let { bookPublisher ->
                                     if (bookName.lowercase().contains(searchText) ||
                                         bookAuthor.lowercase().contains(searchText) ||
                                         bookPublisher.lowercase().contains(searchText)

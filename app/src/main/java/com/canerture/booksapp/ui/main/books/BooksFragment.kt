@@ -73,8 +73,13 @@ class BooksFragment : Fragment() {
             bestSellersList.observe(viewLifecycleOwner) { list ->
                 bestSellersRecycler.apply {
                     setHasFixedSize(true)
-                    adapter = bestSellersAdapter.also {
-                        it.updateList(list)
+                    adapter = bestSellersAdapter.apply {
+                        updateList(list)
+                        onBookClick = {
+                            val action =
+                                BooksFragmentDirections.actionBooksFragmentToBookDetailBottomSheet(it)
+                            findNavController().navigate(action)
+                        }
                     }
                 }
             }
@@ -82,12 +87,12 @@ class BooksFragment : Fragment() {
             booksList.observe(viewLifecycleOwner) { list ->
                 allBooksRecycler.apply {
                     setHasFixedSize(true)
-                    adapter = allBooksAdapter.also { adapter ->
-                        adapter.updateList(list)
-                        adapter.onAddBasketClick = {
+                    adapter = allBooksAdapter.apply {
+                        updateList(list)
+                        onAddBasketClick = {
                             viewModel.addBookToBasket(it)
                         }
-                        adapter.onBookClick = {
+                        onBookClick = {
                             val action =
                                 BooksFragmentDirections.actionBooksFragmentToBookDetailBottomSheet(it)
                             findNavController().navigate(action)

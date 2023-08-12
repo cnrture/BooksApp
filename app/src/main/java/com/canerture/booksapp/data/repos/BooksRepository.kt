@@ -87,14 +87,14 @@ class BooksRepository(context: Context) {
 
         booksBasketDAOInterface?.getBooksNamesBasket()?.let {
 
-            isBookAddedBasket.value = if (it.contains(book.bookName).not()) {
+            isBookAddedBasket.value = if (it.contains(book.name).not()) {
                 booksBasketDAOInterface.addBookBasket(
                     BookBasket(
-                        bookName = book.bookName,
-                        bookAuthor = book.bookAuthor,
-                        bookPublisher = book.bookPublisher,
-                        bookPrice = book.bookPrice,
-                        bookImageUrl = book.bookImageUrl
+                        name = book.name,
+                        author = book.author,
+                        publisher = book.publisher,
+                        price = book.price,
+                        imageUrl = book.imageUrl
                     )
                 )
                 true

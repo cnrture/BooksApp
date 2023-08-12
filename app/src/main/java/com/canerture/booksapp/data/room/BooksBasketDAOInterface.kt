@@ -14,7 +14,7 @@ interface BooksBasketDAOInterface {
     @Query("SELECT * FROM booksbasketdatabase")
     fun getBooksBasket(): List<BookBasket>?
 
-    @Query("SELECT bookName FROM booksbasketdatabase")
+    @Query("SELECT name FROM booksbasketdatabase")
     fun getBooksNamesBasket(): List<String>?
 
     @Query("DELETE FROM booksbasketdatabase WHERE id = :idInput")

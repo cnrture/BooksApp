@@ -18,7 +18,7 @@ import com.canerture.booksapp.common.Constants.CARD_NUMBER_PAYPAL
 import com.canerture.booksapp.common.showSnackbar
 import com.canerture.booksapp.databinding.FragmentPaymentBinding
 import java.text.NumberFormat
-import java.util.*
+import java.util.Locale
 
 class PaymentFragment : Fragment() {
 
@@ -42,7 +42,7 @@ class PaymentFragment : Fragment() {
         viewModel.booksBasket.observe(viewLifecycleOwner) { list ->
             var totalPrice = 0f
             for (i in list) {
-                i.bookPrice?.let {
+                i.price?.let {
                     totalPrice += it.toFloat()
                 }
             }
@@ -103,6 +103,7 @@ class PaymentFragment : Fragment() {
                             R.drawable.ic_mastercard
                         )
                     }
+
                     R.id.paypalCard -> {
                         checkedRadioButton(
                             masterCard, appleCard, googleCard,
@@ -111,6 +112,7 @@ class PaymentFragment : Fragment() {
                             R.drawable.ic_paypal
                         )
                     }
+
                     R.id.appleCard -> {
                         checkedRadioButton(
                             masterCard, paypalCard, googleCard,
@@ -119,6 +121,7 @@ class PaymentFragment : Fragment() {
                             R.drawable.ic_applepay
                         )
                     }
+
                     R.id.googleCard -> {
                         checkedRadioButton(
                             masterCard, appleCard, paypalCard,

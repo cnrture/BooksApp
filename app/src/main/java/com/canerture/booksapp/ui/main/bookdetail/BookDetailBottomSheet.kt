@@ -39,7 +39,7 @@ class BookDetailBottomSheet : BottomSheetDialogFragment() {
 
             bookModel = book
 
-            Picasso.get().load(book.bookImageUrl).into(bookImage)
+            Picasso.get().load(book.imageUrl).into(bookImage)
 
             addCartButton.setOnClickListener { viewModel.addBookToBasket(book) }
 

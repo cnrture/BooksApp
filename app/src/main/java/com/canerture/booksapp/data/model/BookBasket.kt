@@ -9,21 +9,20 @@ data class BookBasket(
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    var bookId: Int = 0,
+    val id: Int = 0,
 
-    @ColumnInfo(name = "bookName")
-    var bookName: String?,
+    @ColumnInfo(name = "name")
+    val name: String?,
 
-    @ColumnInfo(name = "bookAuthor")
-    var bookAuthor: String?,
+    @ColumnInfo(name = "author")
+    val author: String?,
 
-    @ColumnInfo(name = "bookPublisher")
-    var bookPublisher: String?,
+    @ColumnInfo(name = "publisher")
+    val publisher: String?,
 
-    @ColumnInfo(name = "bookPrice")
-    var bookPrice: String?,
+    @ColumnInfo(name = "price")
+    val price: String?,
 
-    @ColumnInfo(name = "bookImageUrl")
-    var bookImageUrl: String?,
-
-    )
+    @ColumnInfo(name = "imageUrl")
+    val imageUrl: String?,
+)

@@ -3,7 +3,6 @@ package com.canerture.booksapp.ui.main.booksbasket
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.canerture.booksapp.data.model.Book
 import com.canerture.booksapp.data.model.BookBasket
 import com.canerture.booksapp.databinding.BookBasketItemBinding
 import com.squareup.picasso.Picasso
@@ -32,12 +31,12 @@ class BooksBasketAdapter : RecyclerView.Adapter<BooksBasketAdapter.BookBasketIte
 
                 bookModel = bookBasket
 
-                bookBasket.bookImageUrl?.let {
+                bookBasket.imageUrl?.let {
                     Picasso.get().load(it).into(bookBasketImageView)
                 }
 
                 bookBasketDelete.setOnClickListener {
-                    onRemoveBasketClick(bookBasket.bookId)
+                    onRemoveBasketClick(bookBasket.id)
                 }
             }
         }

@@ -54,7 +54,7 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="@dimen/margin_small"
                     android:gravity="center"
-                    android:text="@{bookModel.bookName}"
+                    android:text="@{bookModel.name}"
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="@color/eden"
@@ -68,7 +68,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/margin_small"
                     android:gravity="center"
-                    android:text='@{bookModel.bookPrice + " ₺"}'
+                    android:text='@{bookModel.price + " ₺"}'
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="@color/eden"

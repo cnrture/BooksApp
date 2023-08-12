@@ -2,7 +2,6 @@ package com.canerture.booksapp.ui.main.books
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.canerture.booksapp.data.model.Book
 import com.canerture.booksapp.databinding.BestSellerItemBinding
@@ -33,7 +32,7 @@ class BestSellersAdapter : RecyclerView.Adapter<BestSellersAdapter.BestSellerIte
 
                 bookModel = book
 
-                book.bookImageUrl.let {
+                book.imageUrl.let {
                     Picasso.get().load(it).into(bookImageView)
                 }
 

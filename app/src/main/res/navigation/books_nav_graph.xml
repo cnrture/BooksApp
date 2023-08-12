@@ -18,7 +18,7 @@
         android:id="@+id/booksBasketFragment"
         android:name="com.canerture.booksapp.ui.main.booksbasket.BooksBasketFragment"
         android:label="BasketBooksFragment"
-        tools:layout="@layout/fragment_books_basket" >
+        tools:layout="@layout/fragment_books_basket">
         <action
             android:id="@+id/action_booksBasketFragment_to_paymentFragment"
             app:destination="@id/paymentFragment" />
@@ -41,7 +41,7 @@
         android:id="@+id/paymentFragment"
         android:name="com.canerture.booksapp.ui.main.payment.PaymentFragment"
         android:label="fragment_payment"
-        tools:layout="@layout/fragment_payment" >
+        tools:layout="@layout/fragment_payment">
         <action
             android:id="@+id/action_paymentFragment_to_booksFragment"
             app:destination="@id/booksFragment" />
