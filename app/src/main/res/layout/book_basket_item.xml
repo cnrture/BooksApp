@@ -68,7 +68,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/margin_small"
                     android:gravity="center"
-                    android:text='@{bookModel.price + " ₺"}'
+                    android:text='@{bookModel.price + " $"}'
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="@color/eden"
