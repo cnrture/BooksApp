@@ -7,16 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.canerture.booksapp.R
 import com.canerture.booksapp.databinding.FragmentProfileBinding
 import com.canerture.booksapp.ui.login.LoginActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel by lazy { ProfileFragmentViewModel() }
+    private val viewModel by viewModels<ProfileFragmentViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,

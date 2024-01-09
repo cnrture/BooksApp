@@ -13,20 +13,19 @@ import com.canerture.booksapp.common.Constants.SIGN_UP
 import com.canerture.booksapp.common.Constants.USERS
 import com.canerture.booksapp.common.Constants.USER_INFO
 import com.canerture.booksapp.data.model.UserModel
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
-class UsersRepository {
+class UsersRepository(
+    private val auth: FirebaseAuth,
+    private val db: FirebaseFirestore,
+) {
 
     var isSignIn = MutableLiveData<Boolean>()
 
     var isSignUp = MutableLiveData<Boolean>()
 
     var userInfo = MutableLiveData<UserModel>()
-
-    private var auth = Firebase.auth
-    private val db = Firebase.firestore
 
     fun signIn(eMail: String, password: String) {
 

@@ -5,20 +5,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
-import androidx.databinding.DataBindingUtil
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
-import com.canerture.booksapp.R
 import com.canerture.booksapp.common.hideKeyboard
+import com.canerture.booksapp.common.setViewsGone
+import com.canerture.booksapp.common.setViewsVisible
 import com.canerture.booksapp.common.showSnackbar
 import com.canerture.booksapp.databinding.FragmentBooksBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BooksFragment : Fragment() {
 
     private var _binding: FragmentBooksBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel by lazy { BooksFragmentViewModel(requireContext()) }
+    private val viewModel by viewModels<BooksViewModel>()
 
     private val bestSellersAdapter by lazy { BestSellersAdapter() }
     private val allBooksAdapter by lazy { AllBooksAdapter() }
@@ -28,14 +32,16 @@ class BooksFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_books, container, false)
+        _binding = FragmentBooksBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initObservers()
+        viewModel.getBooks()
+
+        initObserver()
 
         with(binding) {
 
@@ -49,11 +55,9 @@ class BooksFragment : Fragment() {
                     allBooksAdapter.filter.filter(newText)
 
                     if (newText.isNullOrEmpty().not()) {
-                        bestSellersTitle.visibility = View.GONE
-                        bestSellersRecycler.visibility = View.GONE
+                        setViewsGone(bestSellersTitle, bestSellersRecycler)
                     } else {
-                        bestSellersTitle.visibility = View.VISIBLE
-                        bestSellersRecycler.visibility = View.VISIBLE
+                        setViewsVisible(bestSellersTitle, bestSellersRecycler)
                         hideKeyboard(requireActivity(), view)
                     }
                     return false
@@ -62,33 +66,17 @@ class BooksFragment : Fragment() {
         }
     }
 
-    private fun initObservers() = with(binding) {
+    private fun initObserver() = with(binding) {
 
-        with(viewModel) {
+        viewModel.booksState.observe(viewLifecycleOwner) { state ->
 
-            isLoading.observe(viewLifecycleOwner) {
-                if (!it) booksLoadingView.visibility = View.GONE
-            }
+            booksLoadingView.isVisible = state.isLoading
 
-            bestSellersList.observe(viewLifecycleOwner) { list ->
-                bestSellersRecycler.apply {
-                    setHasFixedSize(true)
-                    adapter = bestSellersAdapter.apply {
-                        updateList(list)
-                        onBookClick = {
-                            val action =
-                                BooksFragmentDirections.actionBooksFragmentToBookDetailBottomSheet(it)
-                            findNavController().navigate(action)
-                        }
-                    }
-                }
-            }
-
-            booksList.observe(viewLifecycleOwner) { list ->
+            state.booksList?.let { bookList ->
                 allBooksRecycler.apply {
                     setHasFixedSize(true)
                     adapter = allBooksAdapter.apply {
-                        updateList(list)
+                        updateList(bookList)
                         onAddBasketClick = {
                             viewModel.addBookToBasket(it)
                         }
@@ -101,9 +89,26 @@ class BooksFragment : Fragment() {
                 }
             }
 
-            isBookAddedBasket.observe(viewLifecycleOwner) {
-                if (it) requireView().showSnackbar(R.string.add_basket_snack_text)
-                else requireView().showSnackbar(R.string.add_book_basket_error)
+            state.bestSellersList?.let { bestSellerList ->
+                bestSellersRecycler.apply {
+                    setHasFixedSize(true)
+                    adapter = bestSellersAdapter.apply {
+                        updateList(bestSellerList)
+                        onBookClick = {
+                            val action =
+                                BooksFragmentDirections.actionBooksFragmentToBookDetailBottomSheet(it)
+                            findNavController().navigate(action)
+                        }
+                    }
+                }
+            }
+
+            state.errorMessage?.let {
+                requireView().showSnackbar(it)
+            }
+
+            state.failMessage?.let {
+                requireView().showSnackbar(it)
             }
         }
     }

@@ -5,10 +5,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.canerture.booksapp.data.repos.UsersRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class SignUpFragmentViewModel : ViewModel() {
-
-    private var usersRepo = UsersRepository()
+@HiltViewModel
+class SignUpFragmentViewModel @Inject constructor(
+    private val usersRepo: UsersRepository,
+) : ViewModel() {
 
     private var _isInfosValid = MutableLiveData<Boolean>()
     val isInfosValid: LiveData<Boolean> = _isInfosValid

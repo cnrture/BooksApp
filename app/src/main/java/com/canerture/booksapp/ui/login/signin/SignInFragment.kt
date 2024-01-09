@@ -7,17 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.canerture.booksapp.R
 import com.canerture.booksapp.common.showSnackbar
 import com.canerture.booksapp.databinding.FragmentSignInBinding
 import com.canerture.booksapp.ui.main.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SignInFragment : Fragment() {
 
     private var _binding: FragmentSignInBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel by lazy { SignInFragmentViewModel() }
+    private val viewModel by viewModels<SignInFragmentViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,7 +45,7 @@ class SignInFragment : Fragment() {
                 startActivity(intent)
                 requireActivity().finish()
             } else {
-                requireView().showSnackbar(R.string.wrong_email_password)
+                requireView().showSnackbar(getString(R.string.wrong_email_password))
             }
         }
     }

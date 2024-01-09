@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.RadioButton
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.canerture.booksapp.R
 import com.canerture.booksapp.common.Constants.CARD_NUMBER_APPLE_PAY
@@ -17,15 +18,17 @@ import com.canerture.booksapp.common.Constants.CARD_NUMBER_MASTERCARD
 import com.canerture.booksapp.common.Constants.CARD_NUMBER_PAYPAL
 import com.canerture.booksapp.common.showSnackbar
 import com.canerture.booksapp.databinding.FragmentPaymentBinding
+import dagger.hilt.android.AndroidEntryPoint
 import java.text.NumberFormat
 import java.util.Locale
 
+@AndroidEntryPoint
 class PaymentFragment : Fragment() {
 
     private var _binding: FragmentPaymentBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel by lazy { PaymentFragmentViewModel(requireContext()) }
+    private val viewModel by viewModels<PaymentFragmentViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -76,10 +79,10 @@ class PaymentFragment : Fragment() {
                         showSuccessDialog()
                         viewModel.clearBasket()
                     } else {
-                        it.showSnackbar(R.string.address_error)
+                        it.showSnackbar(getString(R.string.address_error))
                     }
                 } else {
-                    it.showSnackbar(R.string.order_now_error)
+                    it.showSnackbar(getString(R.string.order_now_error))
                 }
             }
 

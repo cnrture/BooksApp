@@ -4,6 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".di.BooksApp"
         android:allowBackup="true"
         android:icon="@mipmap/books_app_logo"
         android:label="@string/app_name"

@@ -5,10 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.canerture.booksapp.data.model.UserModel
 import com.canerture.booksapp.data.repos.UsersRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class ProfileFragmentViewModel : ViewModel() {
-
-    private val usersRepo = UsersRepository()
+@HiltViewModel
+class ProfileFragmentViewModel @Inject constructor(
+    private val usersRepo: UsersRepository
+) : ViewModel() {
 
     private var _userInfo = MutableLiveData<UserModel>()
     val userInfo: LiveData<UserModel>

@@ -3,6 +3,8 @@ package com.canerture.booksapp.common
 object Constants {
 
     const val BASE_URL = "https://api.canerture.com/books/"
+    const val BOOKS = "all_books"
+    const val BEST_SELLERS = "best_sellers"
 
     const val CARD_NUMBER_MASTERCARD = "* * * *   * * * *   * * * *   9 2 7 8"
     const val CARD_NUMBER_PAYPAL = "* * * *   * * * *   * * * *   3 8 2 5"

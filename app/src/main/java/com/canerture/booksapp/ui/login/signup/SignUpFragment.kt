@@ -6,16 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.canerture.booksapp.R
 import com.canerture.booksapp.common.showSnackbar
 import com.canerture.booksapp.databinding.FragmentSignUpBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SignUpFragment : Fragment() {
 
     private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel by lazy { SignUpFragmentViewModel() }
+    private val viewModel by viewModels<SignUpFragmentViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,7 +40,7 @@ class SignUpFragment : Fragment() {
 
             isInfosValid.observe(viewLifecycleOwner) {
                 if (it.not())
-                    requireView().showSnackbar(R.string.incomplete_information_entered)
+                    requireView().showSnackbar(getString(R.string.incomplete_information_entered))
             }
 
             isValidMail.observe(viewLifecycleOwner) {
@@ -53,7 +56,7 @@ class SignUpFragment : Fragment() {
 
             isSignUp.observe(viewLifecycleOwner) {
                 if (it) {
-                    requireView().showSnackbar(R.string.sign_up_snack_text)
+                    requireView().showSnackbar(getString(R.string.sign_up_snack_text))
                     clearFields()
                 } else {
                     emailInputLayout.error = getString(R.string.registered_mail)

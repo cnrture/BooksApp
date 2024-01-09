@@ -6,16 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.canerture.booksapp.R
 import com.canerture.booksapp.databinding.FragmentBooksBasketBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BooksBasketFragment : Fragment() {
 
     private var _binding: FragmentBooksBasketBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel by lazy { BooksBasketFragmentViewModel(requireContext()) }
+    private val viewModel by viewModels<BooksBasketFragmentViewModel>()
 
     private val booksBasketAdapter by lazy { BooksBasketAdapter() }
 
