@@ -8,7 +8,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.canerture.booksapp.common.hideKeyboard
 import com.canerture.booksapp.common.setViewsGone
 import com.canerture.booksapp.common.setViewsVisible
@@ -24,8 +24,26 @@ class BooksFragment : Fragment() {
 
     private val viewModel by viewModels<BooksViewModel>()
 
-    private val bestSellersAdapter by lazy { BestSellersAdapter() }
-    private val allBooksAdapter by lazy { AllBooksAdapter() }
+    private val bestSellersAdapter by lazy {
+        BestSellersAdapter(
+            onBookClick = {
+                val action = BooksFragmentDirections.actionBooksFragmentToBookDetailBottomSheet(it)
+                findNavController().navigate(action)
+            }
+        )
+    }
+
+    private val allBooksAdapter by lazy {
+        AllBooksAdapter(
+            onAddBasketClick = {
+                viewModel.addBookToBasket(it)
+            },
+            onBookClick = {
+                val action = BooksFragmentDirections.actionBooksFragmentToBookDetailBottomSheet(it)
+                findNavController().navigate(action)
+            }
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,8 +58,6 @@ class BooksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.getBooks()
-
-        initObserver()
 
         with(binding) {
 
@@ -64,6 +80,8 @@ class BooksFragment : Fragment() {
                 }
             })
         }
+
+        initObserver()
     }
 
     private fun initObserver() = with(binding) {
@@ -73,34 +91,14 @@ class BooksFragment : Fragment() {
             booksLoadingView.isVisible = state.isLoading
 
             state.booksList?.let { bookList ->
-                allBooksRecycler.apply {
-                    setHasFixedSize(true)
-                    adapter = allBooksAdapter.apply {
-                        updateList(bookList)
-                        onAddBasketClick = {
-                            viewModel.addBookToBasket(it)
-                        }
-                        onBookClick = {
-                            val action =
-                                BooksFragmentDirections.actionBooksFragmentToBookDetailBottomSheet(it)
-                            findNavController().navigate(action)
-                        }
-                    }
-                }
+                allBooksAdapter.updateList(bookList)
+                allBooksRecycler.setHasFixedSize(true)
+                allBooksRecycler.adapter = allBooksAdapter
             }
 
             state.bestSellersList?.let { bestSellerList ->
-                bestSellersRecycler.apply {
-                    setHasFixedSize(true)
-                    adapter = bestSellersAdapter.apply {
-                        updateList(bestSellerList)
-                        onBookClick = {
-                            val action =
-                                BooksFragmentDirections.actionBooksFragmentToBookDetailBottomSheet(it)
-                            findNavController().navigate(action)
-                        }
-                    }
-                }
+                bestSellersAdapter.updateList(bestSellerList)
+                bestSellersRecycler.setHasFixedSize(true)
             }
 
             state.errorMessage?.let {

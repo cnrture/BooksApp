@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.canerture.booksapp.R
@@ -27,30 +26,42 @@ class SignInFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_in, container, false)
+        _binding = FragmentSignInBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.signInFragmentObject = this
+
+        with(binding) {
+            signInButton.setOnClickListener {
+                val eMail = emailEditText.text.toString().trim()
+                val password = passwordEditText.text.toString().trim()
+
+                if (eMail.isNotEmpty() && password.isNotEmpty()) {
+                    viewModel.signIn(eMail, password)
+                }
+            }
+        }
+
         initObservers()
     }
 
-    private fun initObservers() = with(viewModel) {
+    private fun initObservers() {
 
-        isSignIn.observe(viewLifecycleOwner) {
-            if (it) {
-                val intent = Intent(context, MainActivity::class.java)
-                startActivity(intent)
-                requireActivity().finish()
-            } else {
+        viewModel.signInState.observe(viewLifecycleOwner) {
+            if (it.isSignIn) {
+                Intent(context, MainActivity::class.java).apply {
+                    startActivity(this)
+                    requireActivity().finish()
+                }
+            }
+
+            if (it.errorMessage != null) {
                 requireView().showSnackbar(getString(R.string.wrong_email_password))
             }
         }
     }
-
-    fun signInButton(email: String, password: String) = viewModel.signIn(email, password)
 
     override fun onDestroyView() {
         super.onDestroyView()

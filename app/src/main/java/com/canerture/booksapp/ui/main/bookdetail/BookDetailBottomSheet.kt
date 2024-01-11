@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.canerture.booksapp.R
@@ -22,14 +21,13 @@ class BookDetailBottomSheet : BottomSheetDialogFragment() {
 
     private val viewModel by viewModels<BookDetailBottomSheetViewModel>()
 
-    private val args: BookDetailBottomSheetArgs by navArgs()
+    private val args by navArgs<BookDetailBottomSheetArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding =
-            DataBindingUtil.inflate(inflater, R.layout.book_detail_bottom_sheet, container, false)
+        _binding = BookDetailBottomSheetBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -40,7 +38,9 @@ class BookDetailBottomSheet : BottomSheetDialogFragment() {
 
         with(binding) {
 
-            bookModel = book
+            bookName.text = book.name
+            bookAuthor.text = book.author
+            bookPrice.text = "${book.price} ₺"
 
             Picasso.get().load(book.imageUrl).into(bookImage)
 

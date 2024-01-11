@@ -1,11 +1,13 @@
 package com.canerture.booksapp.ui.login.signup
 
-import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.canerture.booksapp.common.Resource
 import com.canerture.booksapp.data.repos.UsersRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -13,21 +15,9 @@ class SignUpFragmentViewModel @Inject constructor(
     private val usersRepo: UsersRepository,
 ) : ViewModel() {
 
-    private var _isInfosValid = MutableLiveData<Boolean>()
-    val isInfosValid: LiveData<Boolean> = _isInfosValid
-
-    private var _isValidMail = MutableLiveData<Boolean>()
-    val isValidMail: LiveData<Boolean> = _isValidMail
-
-    private var _isPasswordMatch = MutableLiveData<Boolean>()
-    val isPasswordMatch: LiveData<Boolean> = _isPasswordMatch
-
-    private var _isSignUp = MutableLiveData<Boolean>()
-    val isSignUp: LiveData<Boolean> = _isSignUp
-
-    init {
-        _isSignUp = usersRepo.isSignUp
-    }
+    private var _signUpState = MutableLiveData<SignUpState>()
+    val signUpState: LiveData<SignUpState>
+        get() = _signUpState
 
     fun signUp(
         eMail: String,
@@ -36,21 +26,44 @@ class SignUpFragmentViewModel @Inject constructor(
         nickname: String,
         phoneNumber: String,
     ) {
+        viewModelScope.launch {
+            if (checkFields(eMail, password, confirmPassword, nickname, phoneNumber)) {
+                when (val response = usersRepo.signUp(eMail, password, nickname, phoneNumber)) {
+                    is Resource.Success -> {
+                        _signUpState.value = SignUpState(
+                            isLoading = false,
+                            isSignUp = true
+                        )
+                    }
 
-        if (eMail.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || nickname.isEmpty() || phoneNumber.isEmpty()) {
-            _isInfosValid.value = false
-        } else {
+                    is Resource.Fail -> {
+                        _signUpState.value = SignUpState(isLoading = false, failMessage = response.message)
+                    }
 
-            if (Patterns.EMAIL_ADDRESS.matcher(eMail).matches().not()) {
-                _isValidMail.value = false
-            } else {
-                if (password != confirmPassword) {
-                    _isPasswordMatch.value = false
-                } else {
-                    usersRepo.signUp(eMail, password, nickname, phoneNumber)
+                    is Resource.Error -> {
+                        _signUpState.value = SignUpState(isLoading = false, errorMessage = response.throwable.message)
+                    }
                 }
             }
         }
     }
 
+    private fun checkFields(
+        eMail: String,
+        password: String,
+        confirmPassword: String,
+        nickname: String,
+        phoneNumber: String,
+    ): Boolean {
+        return listOf(eMail, password, confirmPassword, nickname, phoneNumber).any(
+            String::isNullOrEmpty
+        )
+    }
 }
+
+data class SignUpState(
+    val isLoading: Boolean = false,
+    val isSignUp: Boolean = false,
+    val failMessage: String? = null,
+    val errorMessage: String? = null
+)

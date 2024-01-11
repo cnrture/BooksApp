@@ -3,8 +3,6 @@ package com.canerture.booksapp.ui.login
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
-import com.canerture.booksapp.R
 import com.canerture.booksapp.common.Constants.SIGN_IN
 import com.canerture.booksapp.common.Constants.SIGN_UP
 import com.canerture.booksapp.databinding.ActivityLoginBinding
@@ -21,7 +19,8 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         Firebase.auth.currentUser?.let {
             val intent = Intent(this, MainActivity::class.java)

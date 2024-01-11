@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -20,51 +20,59 @@ class BooksBasketFragment : Fragment() {
 
     private val viewModel by viewModels<BooksBasketFragmentViewModel>()
 
-    private val booksBasketAdapter by lazy { BooksBasketAdapter() }
+    private val booksBasketAdapter by lazy {
+        BooksBasketAdapter(
+            onRemoveBasketClick = { viewModel.deleteBookFromBasket(it) }
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_books_basket, container, false)
+        _binding = FragmentBooksBasketBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initObservers()
+        viewModel.getBooksBasket()
 
         with(binding) {
 
             booksBasketRecycleView.setHasFixedSize(true)
 
-            booksBasketAdapter.onRemoveBasketClick = {
-                viewModel.deleteBookFromBasket(it)
+            goToPayButton.setOnClickListener {
+                findNavController().navigate(R.id.action_booksBasketFragment_to_paymentFragment)
             }
         }
+
+        initObservers()
     }
 
     private fun initObservers() = with(binding) {
 
-        with(viewModel) {
+        viewModel.booksBasketState.observe(viewLifecycleOwner) { state ->
 
-            isLoading.observe(viewLifecycleOwner) {
-                if (!it) booksLoadingView.visibility = View.GONE
+            booksLoadingView.isVisible = state.isLoading
+
+            booksBasketRecycleView.isVisible = state.booksList != null
+            emptyBasketText.isVisible = state.booksList == null
+            goToPayButton.isEnabled = state.booksList != null
+
+            state.booksList?.let {
+                booksBasketAdapter.updateList(it)
+                booksBasketRecycleView.adapter = booksBasketAdapter
             }
 
-            booksBasket.observe(viewLifecycleOwner) { list ->
-                booksBasketAdapter.updateList(list)
-                booksBasketRecyclerAdapter = booksBasketAdapter
-                emptyBasketText.visibility = View.GONE
+            state.errorMessage?.let {
+                emptyBasketText.text = it
+            }
 
-                if (list.isNotEmpty()) {
-                    goToPayButton.setOnClickListener {
-                        findNavController().navigate(R.id.action_booksBasketFragment_to_paymentFragment)
-                    }
-                }
+            state.failMessage?.let {
+                emptyBasketText.text = it
             }
         }
     }

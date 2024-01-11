@@ -5,10 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.canerture.booksapp.R
 import com.canerture.booksapp.databinding.FragmentProfileBinding
 import com.canerture.booksapp.ui.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,14 +24,14 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.profileFragmentObject = this
+        viewModel.getUserInfo()
 
         with(binding) {
 
@@ -44,13 +42,15 @@ class ProfileFragment : Fragment() {
                 }
             }
         }
+
+        initObservers()
     }
 
     private fun initObservers() = with(binding) {
-        viewModel.userInfo.observe(viewLifecycleOwner) {
-            emailText.text = it.email
-            nicknameText.text = it.nickname
-            phoneNumberText.text = it.phoneNumber
+        viewModel.profileState.observe(viewLifecycleOwner) {
+            emailText.text = it.userData?.email
+            nicknameText.text = it.userData?.nickname
+            phoneNumberText.text = it.userData?.phoneNumber
         }
     }
 

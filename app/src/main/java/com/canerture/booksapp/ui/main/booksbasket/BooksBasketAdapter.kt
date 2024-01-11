@@ -7,11 +7,11 @@ import com.canerture.booksapp.data.model.BookBasket
 import com.canerture.booksapp.databinding.BookBasketItemBinding
 import com.squareup.picasso.Picasso
 
-class BooksBasketAdapter : RecyclerView.Adapter<BooksBasketAdapter.BookBasketItemDesign>() {
+class BooksBasketAdapter(
+    private val onRemoveBasketClick: (Int) -> Unit
+) : RecyclerView.Adapter<BooksBasketAdapter.BookBasketItemDesign>() {
 
     private val booksBasketList = ArrayList<BookBasket>()
-
-    var onRemoveBasketClick: (Int) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookBasketItemDesign {
         val binding =
@@ -29,7 +29,8 @@ class BooksBasketAdapter : RecyclerView.Adapter<BooksBasketAdapter.BookBasketIte
 
             with(binding) {
 
-                bookModel = bookBasket
+                bookNameText.text = bookBasket.name
+                bookPriceText.text = "${bookBasket.price} ₺"
 
                 bookBasket.imageUrl?.let {
                     Picasso.get().load(it).into(bookBasketImageView)

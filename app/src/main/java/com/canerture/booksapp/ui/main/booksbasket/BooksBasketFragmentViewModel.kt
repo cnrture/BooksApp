@@ -3,9 +3,12 @@ package com.canerture.booksapp.ui.main.booksbasket
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.canerture.booksapp.common.Resource
 import com.canerture.booksapp.data.model.BookBasket
 import com.canerture.booksapp.data.repos.BooksRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -13,20 +16,30 @@ class BooksBasketFragmentViewModel @Inject constructor(
     private val booksRepo: BooksRepository
 ) : ViewModel() {
 
-    private var _booksBasket = MutableLiveData<List<BookBasket>>()
-    val booksBasket: LiveData<List<BookBasket>>
-        get() = _booksBasket
+    private var _booksBasketState = MutableLiveData(BooksBasketState(isLoading = true))
+    val booksBasketState: LiveData<BooksBasketState>
+        get() = _booksBasketState
 
-    private var _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean>
-        get() = _isLoading
+    fun getBooksBasket() {
+        viewModelScope.launch {
+            when (val response = booksRepo.booksBasket()) {
+                is Resource.Success -> {
+                    _booksBasketState.value = BooksBasketState(
+                        isLoading = false,
+                        booksList = response.data
+                    )
+                }
 
-    init {
-        getBooksBasket()
-    }
+                is Resource.Fail -> {
+                    _booksBasketState.value = BooksBasketState(isLoading = false, failMessage = response.message)
+                }
 
-    private fun getBooksBasket() {
-        booksRepo.booksBasket()
+                is Resource.Error -> {
+                    _booksBasketState.value =
+                        BooksBasketState(isLoading = false, errorMessage = response.throwable.message)
+                }
+            }
+        }
     }
 
     fun deleteBookFromBasket(bookId: Int) {
@@ -34,3 +47,10 @@ class BooksBasketFragmentViewModel @Inject constructor(
         getBooksBasket()
     }
 }
+
+data class BooksBasketState(
+    val isLoading: Boolean = false,
+    val booksList: List<BookBasket>? = null,
+    val errorMessage: String? = null,
+    val failMessage: String? = null
+)

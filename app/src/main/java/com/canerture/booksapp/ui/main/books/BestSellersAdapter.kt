@@ -7,11 +7,11 @@ import com.canerture.booksapp.data.model.Book
 import com.canerture.booksapp.databinding.BestSellerItemBinding
 import com.squareup.picasso.Picasso
 
-class BestSellersAdapter : RecyclerView.Adapter<BestSellersAdapter.BestSellerItemDesign>() {
+class BestSellersAdapter(
+    private val onBookClick: (Book) -> Unit,
+) : RecyclerView.Adapter<BestSellersAdapter.BestSellerItemDesign>() {
 
     private val bestSellersList = ArrayList<Book>()
-
-    var onBookClick: (Book) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BestSellerItemDesign {
         val binding =
@@ -30,7 +30,9 @@ class BestSellersAdapter : RecyclerView.Adapter<BestSellersAdapter.BestSellerIte
 
             with(binding) {
 
-                bookModel = book
+                bookAuthorText.text = book.author
+                bookNameText.text = book.name
+                bookPriceText.text = "${book.price} ₺"
 
                 book.imageUrl.let {
                     Picasso.get().load(it).into(bookImageView)

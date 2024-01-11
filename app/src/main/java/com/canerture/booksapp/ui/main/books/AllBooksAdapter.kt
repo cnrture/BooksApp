@@ -9,13 +9,13 @@ import com.canerture.booksapp.data.model.Book
 import com.canerture.booksapp.databinding.BookItemBinding
 import com.squareup.picasso.Picasso
 
-class AllBooksAdapter : RecyclerView.Adapter<AllBooksAdapter.BookItemDesign>(), Filterable {
+class AllBooksAdapter(
+    private val onAddBasketClick: (Book) -> Unit,
+    private val onBookClick: (Book) -> Unit,
+) : RecyclerView.Adapter<AllBooksAdapter.BookItemDesign>(), Filterable {
 
     private val booksList = ArrayList<Book>()
     var booksFilterList = ArrayList<Book>()
-
-    var onAddBasketClick: (Book) -> Unit = {}
-    var onBookClick: (Book) -> Unit = {}
 
     init {
         booksFilterList = booksList
@@ -36,7 +36,9 @@ class AllBooksAdapter : RecyclerView.Adapter<AllBooksAdapter.BookItemDesign>(), 
 
             with(binding) {
 
-                bookModel = book
+                bookAuthorText.text = book.author
+                bookNameText.text = book.name
+                bookPriceText.text = "${book.price} ₺"
 
                 book.imageUrl?.let {
                     Picasso.get().load(it).into(bookImageView)
