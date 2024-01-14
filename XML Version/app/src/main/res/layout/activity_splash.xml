@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.jaredrummler.android.widget.AnimatedSvgView
+        android:id="@+id/animated_svg_view"
+        android:layout_width="@dimen/splash_logo_width_height"
+        android:layout_height="@dimen/splash_logo_width_height"
+        android:layout_gravity="center"
+        app:animatedSvgFillColors="@array/booksapp_logo_colors"
+        app:animatedSvgFillStart="1000"
+        app:animatedSvgFillTime="750"
+        app:animatedSvgGlyphStrings="@array/booksapp_logo_strings"
+        app:animatedSvgImageSizeX="150"
+        app:animatedSvgImageSizeY="150"
+        app:animatedSvgTraceTime="1500"
+        app:animatedSvgTraceTimePerGlyph="1000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

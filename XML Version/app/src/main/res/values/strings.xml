@@ -1,0 +1,80 @@
+<resources>
+
+    <string name="app_name">Books App</string>
+
+    <string name="book_image_description">Book Image</string>
+    <string name="profile_picture_description">Profile Picture</string>
+    <string name="books_app_logo_description">Books App Logo</string>
+    <string name="add_basket_description">Add Basket Icon</string>
+
+    <string name="cancel">CANCEL</string>
+    <string name="add_basket">ADD BASKET</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="sign_in">SIGN IN</string>
+
+    <string name="search_view_hint">Enter book name, author or publisher</string>
+    <string name="nickname_hint">Nickname</string>
+    <string name="phone_number_hint">Phone Number</string>
+    <string name="e_mail_hint">E - Mail</string>
+    <string name="password_hint">Password</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+
+    <string name="e_mail_address">E-Mail\nAddress</string>
+    <string name="nickname">Nickname</string>
+    <string name="phone_number">Phone\nNumber</string>
+    <string name="books">Books</string>
+    <string name="basket">Basket</string>
+    <string name="profile">Profile</string>
+    <string name="best_sellers">Best Sellers</string>
+    <string name="add_basket_snack_text">Book added to basket!</string>
+    <string name="basket_empty">Your basket is empty!</string>
+    <string name="invalid_mail">Invalid e-mail address</string>
+    <string name="registered_mail">E-mail address already registered!</string>
+    <string name="incomplete_information_entered">Incomplete information entered!</string>
+    <string name="wrong_email_password">Wrong E-mail or Password, Try Again !</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="credit_card">Credit Card</string>
+    <string name="paypal">Paypal</string>
+    <string name="apple_pay">Apple Pay</string>
+    <string name="google_pay">Google Pay</string>
+    <string name="address_title">Address</string>
+    <string name="edit">Edit</string>
+    <string name="save">Save</string>
+    <string name="total_price">Total Price</string>
+    <string name="order_now">Order Now</string>
+    <string name="choose_a_payment_method">Choose a payment method</string>
+    <string name="your_order_has_been_received">Your order\nhas been received</string>
+    <string name="go_to_pay">Go To Pay</string>
+    <string name="total_price_value">%s ₺</string>
+    <string name="order_now_error">Please choose a payment method!</string>
+    <string name="address_error">Please enter address information!</string>
+    <string name="add_book_basket_error">The book is already in the basket!</string>
+    <string name="sign_up_snack_text">Registration successfully created</string>
+    <string name="password_match_error">Passwords do not match</string>
+    <string name="sign_out">Sign Out</string>
+
+    <string-array name="booksapp_logo_strings">
+        <item>M5.27,46.7H146.63c2.9,0 5.27,1.74 5.27,3.86v63.17c0,2.12 -2.37,3.86 -5.27,3.86l-69,4.35a26.93,26.93 0,0 1,-5.46 0L5.27,117.59c-2.9,0 -5.27,-1.74 -5.27,-3.86V50.56C0,48.44 2.37,46.7 5.27,46.7Z</item>
+        <item>M76,113.65s31.48,-11.54 68.41,-2.3V41.81s-36.85,-23.9 -68.41,0Z</item>
+        <item>M76,111.37S97.83,93.5 127.79,96.94V26S97.73,14.73 76,39.54Z</item>
+        <item>M76,111.88s12.28,-24.21 35.27,-26.57V12.88S88,14.32 76,40Z</item>
+        <item>M76,113.65S78.63,83.1 94.65,75V1.06S78.18,15.19 76,41.81Z</item>
+        <item>M76,113.65s-31.48,-11.54 -68.41,-2.3V41.81s36.85,-23.9 68.41,0Z</item>
+        <item>M76,111.37S54.07,93.5 24.11,96.94V26S54.17,14.73 76,39.54Z</item>
+        <item>M76,111.88S63.67,87.67 40.68,85.31V12.88S64,14.32 76,40Z</item>
+        <item>M76,113.65S73.27,83.1 57.25,75V1.06S73.72,15.19 76,41.81Z</item>
+    </string-array>
+
+    <integer-array name="booksapp_logo_colors">
+        <item>@color/eden</item>
+        <item>@color/elm</item>
+        <item>@color/icecold</item>
+        <item>@color/macaroniandcheese</item>
+        <item>@color/chardonnay</item>
+        <item>@color/elm</item>
+        <item>@color/icecold</item>
+        <item>@color/macaroniandcheese</item>
+        <item>@color/chardonnay</item>
+    </integer-array>
+
+</resources>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aquahaze">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="@dimen/profile_card_width_height"
+        android:layout_height="@dimen/profile_card_width_height"
+        android:layout_marginStart="@dimen/margin_very_big"
+        android:layout_marginEnd="@dimen/margin_very_big"
+        app:cardCornerRadius="@dimen/card_corner_radius_small"
+        app:cardElevation="@dimen/card_elevation"
+        app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:contentDescription="@string/profile_picture_description"
+            app:srcCompat="@drawable/profile_unselected" />
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_very_big"
+        android:layout_marginEnd="@dimen/margin_very_big"
+        app:cardCornerRadius="@dimen/card_corner_radius_small"
+        app:cardElevation="@dimen/card_elevation"
+        app:layout_constraintBottom_toTopOf="@+id/cardView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:strokeColor="@color/eden"
+        app:strokeWidth="@dimen/stroke_width_small">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:background="@color/eden">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/e_mail_address"
+                    android:textColor="@color/chardonnay"
+                    android:textSize="@dimen/text_size_small" />
+            </FrameLayout>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="@dimen/divider_width_profile"
+                android:layout_height="@dimen/divider_height_profile"
+                android:background="@color/chardonnay" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/emailText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingHorizontal="12dp"
+                    android:textColor="@color/eden"
+                    android:textSize="@dimen/text_size_big" />
+            </FrameLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_very_big"
+        android:layout_marginEnd="@dimen/margin_very_big"
+        app:cardCornerRadius="@dimen/card_corner_radius_small"
+        app:cardElevation="@dimen/card_elevation"
+        app:layout_constraintBottom_toTopOf="@+id/cardView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        app:strokeColor="@color/eden"
+        app:strokeWidth="@dimen/stroke_width_small">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:background="@color/eden">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/nickname"
+                    android:textColor="@color/chardonnay"
+                    android:textSize="@dimen/text_size_small" />
+            </FrameLayout>
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="@dimen/divider_width_profile"
+                android:layout_height="@dimen/divider_height_profile"
+                android:background="@color/chardonnay" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/nicknameText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingHorizontal="12dp"
+                    android:textColor="@color/eden"
+                    android:textSize="@dimen/text_size_big" />
+            </FrameLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_very_big"
+        android:layout_marginEnd="@dimen/margin_very_big"
+        app:cardCornerRadius="@dimen/card_corner_radius_small"
+        app:cardElevation="@dimen/card_elevation"
+        app:layout_constraintBottom_toTopOf="@id/signOutButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3"
+        app:strokeColor="@color/eden"
+        app:strokeWidth="@dimen/stroke_width_small">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:background="@color/eden">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/phone_number"
+                    android:textColor="@color/chardonnay"
+                    android:textSize="@dimen/text_size_small" />
+            </FrameLayout>
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="@dimen/divider_width_profile"
+                android:layout_height="@dimen/divider_height_profile"
+                android:background="@color/chardonnay" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/phoneNumberText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingHorizontal="12dp"
+                    android:textColor="@color/eden"
+                    android:textSize="@dimen/text_size_big" />
+            </FrameLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <Button
+        android:id="@+id/signOutButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/button_height"
+        android:text="@string/sign_out"
+        android:textColor="@color/chardonnay"
+        android:textSize="@dimen/button_text_size_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/cardView4"
+        app:layout_constraintStart_toStartOf="@id/cardView4"
+        app:layout_constraintTop_toBottomOf="@id/cardView4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

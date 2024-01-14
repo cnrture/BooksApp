@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aquahaze"
+    android:padding="@dimen/padding_big"
+    tools:context=".ui.main.payment.PaymentFragment">
+
+    <TextView
+        android:id="@+id/paymentTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/payment_method"
+        android:textColor="@color/eden"
+        android:textSize="@dimen/text_size_very_big"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioButton
+        android:id="@+id/masterCard"
+        android:layout_width="@dimen/radio_button_width_height"
+        android:layout_height="@dimen/radio_button_width_height"
+        android:background="@drawable/payment_card_selector"
+        android:button="@null"
+        android:elevation="@dimen/card_elevation_small"
+        app:layout_constraintBottom_toTopOf="@+id/paymentMethodText"
+        app:layout_constraintEnd_toStartOf="@+id/paypalCard"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/paymentTitle" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="@dimen/radio_button_width_height"
+        android:layout_height="@dimen/radio_button_width_height"
+        android:elevation="@dimen/card_elevation"
+        android:padding="@dimen/padding_big"
+        android:src="@drawable/ic_mastercard"
+        app:layout_constraintBottom_toBottomOf="@+id/masterCard"
+        app:layout_constraintEnd_toEndOf="@+id/masterCard"
+        app:layout_constraintStart_toStartOf="@+id/masterCard"
+        app:layout_constraintTop_toTopOf="@+id/masterCard" />
+
+    <RadioButton
+        android:id="@+id/paypalCard"
+        android:layout_width="@dimen/radio_button_width_height"
+        android:layout_height="@dimen/radio_button_width_height"
+        android:background="@drawable/payment_card_selector"
+        android:button="@null"
+        android:elevation="@dimen/card_elevation_small"
+        app:layout_constraintBottom_toBottomOf="@+id/masterCard"
+        app:layout_constraintEnd_toStartOf="@+id/appleCard"
+        app:layout_constraintStart_toEndOf="@+id/masterCard"
+        app:layout_constraintTop_toTopOf="@+id/masterCard" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="@dimen/radio_button_width_height"
+        android:layout_height="@dimen/radio_button_width_height"
+        android:elevation="@dimen/card_elevation"
+        android:padding="@dimen/padding_big"
+        android:src="@drawable/ic_paypal"
+        app:layout_constraintBottom_toBottomOf="@+id/paypalCard"
+        app:layout_constraintEnd_toEndOf="@+id/paypalCard"
+        app:layout_constraintStart_toStartOf="@+id/paypalCard"
+        app:layout_constraintTop_toTopOf="@+id/paypalCard" />
+
+    <RadioButton
+        android:id="@+id/googleCard"
+        android:layout_width="@dimen/radio_button_width_height"
+        android:layout_height="@dimen/radio_button_width_height"
+        android:background="@drawable/payment_card_selector"
+        android:button="@null"
+        android:elevation="@dimen/card_elevation_small"
+        app:layout_constraintBottom_toBottomOf="@+id/masterCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/appleCard"
+        app:layout_constraintTop_toTopOf="@+id/masterCard" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="@dimen/radio_button_width_height"
+        android:layout_height="@dimen/radio_button_width_height"
+        android:elevation="@dimen/card_elevation"
+        android:padding="@dimen/padding_big"
+        android:src="@drawable/ic_googlepay"
+        app:layout_constraintBottom_toBottomOf="@+id/googleCard"
+        app:layout_constraintEnd_toEndOf="@+id/googleCard"
+        app:layout_constraintStart_toStartOf="@+id/googleCard"
+        app:layout_constraintTop_toTopOf="@+id/googleCard" />
+
+    <RadioButton
+        android:id="@+id/appleCard"
+        android:layout_width="@dimen/radio_button_width_height"
+        android:layout_height="@dimen/radio_button_width_height"
+        android:background="@drawable/payment_card_selector"
+        android:button="@null"
+        android:elevation="@dimen/card_elevation_small"
+        app:layout_constraintBottom_toBottomOf="@+id/masterCard"
+        app:layout_constraintEnd_toStartOf="@+id/googleCard"
+        app:layout_constraintStart_toEndOf="@+id/paypalCard"
+        app:layout_constraintTop_toTopOf="@+id/masterCard" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="@dimen/radio_button_width_height"
+        android:layout_height="@dimen/radio_button_width_height"
+        android:elevation="@dimen/card_elevation"
+        android:padding="@dimen/padding_big"
+        android:src="@drawable/ic_applepay"
+        app:layout_constraintBottom_toBottomOf="@+id/appleCard"
+        app:layout_constraintEnd_toEndOf="@+id/appleCard"
+        app:layout_constraintStart_toStartOf="@+id/appleCard"
+        app:layout_constraintTop_toTopOf="@+id/appleCard" />
+
+    <TextView
+        android:id="@+id/paymentMethodText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_a_payment_method"
+        android:textColor="@color/eden"
+        android:textSize="@dimen/text_size_big"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cardCard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/masterCard" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_very_big"
+        android:alpha="0.5"
+        app:cardCornerRadius="@dimen/card_corner_radius_medium"
+        app:cardElevation="@dimen/card_elevation_small"
+        app:layout_constraintBottom_toTopOf="@+id/addressText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paymentMethodText">
+
+        <ImageView
+            android:id="@+id/paymentCard"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/image_card_width"
+            android:src="@drawable/bg_credit_card" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/cardNumberText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:elevation="@dimen/card_elevation_small"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_small"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/cardCard"
+        app:layout_constraintEnd_toStartOf="@+id/paymentTypeImage"
+        app:layout_constraintStart_toStartOf="@+id/cardCard"
+        app:layout_constraintTop_toTopOf="@+id/cardCard"
+        tools:text="* * * *   * * * *   * * * *   9 2 7 8" />
+
+    <ImageView
+        android:id="@+id/paymentTypeImage"
+        android:layout_width="55dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="24dp"
+        android:elevation="@dimen/card_elevation_small"
+        app:layout_constraintBottom_toBottomOf="@+id/cardCard"
+        app:layout_constraintEnd_toEndOf="@+id/cardCard"
+        app:layout_constraintTop_toTopOf="@+id/cardCard"
+        tools:src="@drawable/ic_mastercard" />
+
+    <TextView
+        android:id="@+id/addressTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_very_small"
+        android:text="@string/address_title"
+        android:textColor="@color/eden"
+        android:textSize="@dimen/text_size_big"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/addressText"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/addressText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:alpha="0.7"
+        android:lines="4"
+        android:textColor="@color/eden"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintBottom_toTopOf="@+id/totalPriceTitle"
+        app:layout_constraintEnd_toStartOf="@+id/editImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardCard" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/addressTextInput"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/aquahaze"
+        android:visibility="gone"
+        app:boxStrokeColor="@color/eden"
+        app:layout_constraintBottom_toBottomOf="@+id/addressText"
+        app:layout_constraintEnd_toEndOf="@+id/addressText"
+        app:layout_constraintStart_toStartOf="@+id/addressText"
+        app:layout_constraintTop_toTopOf="@+id/addressText">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/addressEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|top"
+            android:lines="4" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/editImage"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintBottom_toBottomOf="@+id/editText"
+        app:layout_constraintEnd_toStartOf="@+id/editText"
+        app:layout_constraintTop_toTopOf="@+id/editText"
+        app:tint="@color/eden" />
+
+    <TextView
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/edit"
+        android:textColor="@color/eden"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintBottom_toBottomOf="@+id/addressText"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/totalPriceTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_price"
+        android:textColor="@color/eden"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintBottom_toTopOf="@+id/orderNowButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressText" />
+
+    <TextView
+        android:id="@+id/totalPriceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="textEnd"
+        android:textColor="@color/eden"
+        android:textSize="@dimen/text_size_medium"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/totalPriceTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/totalPriceTitle"
+        tools:text="$348,67" />
+
+    <Button
+        android:id="@+id/orderNowButton"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:text="@string/order_now"
+        android:textColor="@color/chardonnay"
+        android:textSize="@dimen/button_text_size_medium"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cancelPaymentButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/cancelPaymentButton"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:text="@string/cancel"
+        android:textColor="@color/chardonnay"
+        android:textSize="@dimen/button_text_size_medium"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

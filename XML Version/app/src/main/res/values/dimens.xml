@@ -1,0 +1,58 @@
+<resources>
+
+    <dimen name="toolbar_title">30sp</dimen>
+
+    <dimen name="splash_logo_width_height">250dp</dimen>
+
+    <dimen name="basket_card_height">140dp</dimen>
+
+    <dimen name="margin_incredible">150dp</dimen>
+    <dimen name="margin_biggest">75dp</dimen>
+    <dimen name="margin_very_big">32dp</dimen>
+    <dimen name="margin_big">24dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_very_small">4dp</dimen>
+
+    <dimen name="card_corner_radius_medium">8dp</dimen>
+    <dimen name="card_corner_radius_small">10dp</dimen>
+    <dimen name="card_elevation">10dp</dimen>
+    <dimen name="card_elevation_small">6dp</dimen>
+
+    <dimen name="padding_big">16dp</dimen>
+    <dimen name="padding_medium">10dp</dimen>
+    <dimen name="padding_medium_small">8dp</dimen>
+    <dimen name="padding_small">4dp</dimen>
+
+    <dimen name="text_size_biggest">36sp</dimen>
+    <dimen name="text_size_very_big">24sp</dimen>
+    <dimen name="text_size_big">20sp</dimen>
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="text_size_small">16sp</dimen>
+    <dimen name="text_size_very_small">14sp</dimen>
+
+    <dimen name="button_text_size_medium">16sp</dimen>
+    <dimen name="button_text_size">14sp</dimen>
+    <dimen name="button_height">56dp</dimen>
+    <dimen name="button_width">150dp</dimen>
+
+    <dimen name="stroke_width_very_small">1dp</dimen>
+    <dimen name="stroke_width_small">2dp</dimen>
+
+    <dimen name="divider_width">54dp</dimen>
+    <dimen name="divider_height">3dp</dimen>
+
+    <dimen name="divider_width_profile">3dp</dimen>
+    <dimen name="divider_height_profile">75dp</dimen>
+
+    <dimen name="image_card_width">150dp</dimen>
+    <dimen name="image_card_height">225dp</dimen>
+
+    <dimen name="profile_card_width_height">200dp</dimen>
+
+    <dimen name="layout_width">125dp</dimen>
+    <dimen name="layout_height">175dp</dimen>
+
+    <dimen name="radio_button_width_height">80dp</dimen>
+
+</resources>

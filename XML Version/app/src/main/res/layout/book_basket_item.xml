@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/basket_card_height"
+    android:layout_margin="@dimen/margin_medium"
+    app:cardBackgroundColor="@color/peachcream"
+    app:cardCornerRadius="@dimen/card_corner_radius_small"
+    app:cardElevation="@dimen/card_elevation">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6"
+            android:padding="@dimen/padding_medium">
+
+            <ImageView
+                android:id="@+id/bookBasketImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:contentDescription="@string/book_image_description" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/margin_big"
+            android:layout_weight="0.8"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/bookNameText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/eden"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bookPriceText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_small"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/eden"
+                android:textSize="@dimen/text_size_medium" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/bookBasketDelete"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:background="@color/chardonnay"
+            android:contentDescription="Book Delete Icon"
+            android:padding="@dimen/padding_small"
+            app:srcCompat="@drawable/ic_delete" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

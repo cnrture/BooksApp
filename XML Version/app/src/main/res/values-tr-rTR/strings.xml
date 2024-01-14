@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kitaplar Uygulaması</string>
+
+    <string name="book_image_description">Kitap Görseli</string>
+    <string name="profile_picture_description">Profil Resmi</string>
+    <string name="books_app_logo_description">Kitaplar Uygulaması Logo</string>
+    <string name="add_basket_description">Sepete Ekle İkonu</string>
+
+    <string name="cancel">VAZGEÇ</string>
+    <string name="add_basket">SEPETE EKLE</string>
+    <string name="sign_up">ÜYE OL</string>
+    <string name="sign_in">GİRİŞ YAP</string>
+
+    <string name="search_view_hint">Kitap adı, yazar veya yayınevi giriniz</string>
+    <string name="nickname_hint">Kullanıcı Adı</string>
+    <string name="phone_number_hint">Tel No</string>
+    <string name="e_mail_hint">E- Mail</string>
+    <string name="password_hint">Şifre</string>
+    <string name="confirm_password_hint">Şifreni Onayla</string>
+
+    <string name="e_mail_address">E-Mail\nAdresi</string>
+    <string name="nickname">Kullanıcı Adı</string>
+    <string name="phone_number">Telefon\nNumarası</string>
+    <string name="books">Kitaplar</string>
+    <string name="basket">Sepet</string>
+    <string name="profile">Profil</string>
+    <string name="best_sellers">Çok Satanlar</string>
+    <string name="add_basket_snack_text">Kitap sepetinize eklendi!</string>
+    <string name="basket_empty">Sepetiniz boş!</string>
+    <string name="invalid_mail">Geçersiz e-mail adresi!</string>
+    <string name="registered_mail">Mail adresi zaten kayıtlı!</string>
+    <string name="incomplete_information_entered">Eksik bilgi girildi!</string>
+    <string name="wrong_email_password">Hatalı E-mail veya şifre, tekrar deneyin!</string>
+    <string name="payment_method">Ödeme Yöntemi</string>
+    <string name="credit_card">Kredi Kartı</string>
+    <string name="paypal">Paypal</string>
+    <string name="apple_pay">Apple Pay</string>
+    <string name="google_pay">Google Pay</string>
+    <string name="address_title">Adres</string>
+    <string name="edit">Düzenle</string>
+    <string name="save">Kaydet</string>
+    <string name="total_price">Toplam Fiyat</string>
+    <string name="order_now">Şimdi Sipariş Ver</string>
+    <string name="choose_a_payment_method">Ödeme yöntemi seçin</string>
+    <string name="your_order_has_been_received">Siparişiniz alındı</string>
+    <string name="go_to_pay">Ödemeye Geç</string>
+    <string name="total_price_value">%f ₺</string>
+    <string name="order_now_error">Lütfen ödeme yöntemi seçiniz!</string>
+    <string name="address_error">Lütfen adres bilgisi girin!</string>
+    <string name="add_book_basket_error">Kitap zaten sepette mevcut!</string>
+    <string name="sign_up_snack_text">Kayıt başarıyla oluşturuldu</string>
+    <string name="password_match_error">Şifreler eşleşmiyor</string>
+    <string name="sign_out">Çıkış Yap</string>
+
+    <string-array name="booksapp_logo_strings">
+        <item>M5.27,46.7H146.63c2.9,0 5.27,1.74 5.27,3.86v63.17c0,2.12 -2.37,3.86 -5.27,3.86l-69,4.35a26.93,26.93 0,0 1,-5.46 0L5.27,117.59c-2.9,0 -5.27,-1.74 -5.27,-3.86V50.56C0,48.44 2.37,46.7 5.27,46.7Z</item>
+        <item>M76,113.65s31.48,-11.54 68.41,-2.3V41.81s-36.85,-23.9 -68.41,0Z</item>
+        <item>M76,111.37S97.83,93.5 127.79,96.94V26S97.73,14.73 76,39.54Z</item>
+        <item>M76,111.88s12.28,-24.21 35.27,-26.57V12.88S88,14.32 76,40Z</item>
+        <item>M76,113.65S78.63,83.1 94.65,75V1.06S78.18,15.19 76,41.81Z</item>
+        <item>M76,113.65s-31.48,-11.54 -68.41,-2.3V41.81s36.85,-23.9 68.41,0Z</item>
+        <item>M76,111.37S54.07,93.5 24.11,96.94V26S54.17,14.73 76,39.54Z</item>
+        <item>M76,111.88S63.67,87.67 40.68,85.31V12.88S64,14.32 76,40Z</item>
+        <item>M76,113.65S73.27,83.1 57.25,75V1.06S73.72,15.19 76,41.81Z</item>
+    </string-array>
+
+    <integer-array name="booksapp_logo_colors">
+        <item>@color/eden</item>
+        <item>@color/elm</item>
+        <item>@color/icecold</item>
+        <item>@color/macaroniandcheese</item>
+        <item>@color/chardonnay</item>
+        <item>@color/elm</item>
+        <item>@color/icecold</item>
+        <item>@color/macaroniandcheese</item>
+        <item>@color/chardonnay</item>
+    </integer-array>
+
+</resources>

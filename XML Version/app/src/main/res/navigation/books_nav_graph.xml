@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/books_nav_graph"
+    app:startDestination="@id/booksFragment">
+
+    <fragment
+        android:id="@+id/booksFragment"
+        android:name="com.canerture.booksapp.ui.main.books.BooksFragment"
+        android:label="BooksFragment"
+        tools:layout="@layout/fragment_books">
+        <action
+            android:id="@+id/action_booksFragment_to_bookDetailBottomSheet"
+            app:destination="@id/bookDetailBottomSheet" />
+    </fragment>
+    <fragment
+        android:id="@+id/booksBasketFragment"
+        android:name="com.canerture.booksapp.ui.main.booksbasket.BooksBasketFragment"
+        android:label="BasketBooksFragment"
+        tools:layout="@layout/fragment_books_basket">
+        <action
+            android:id="@+id/action_booksBasketFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.canerture.booksapp.ui.main.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
+    <dialog
+        android:id="@+id/bookDetailBottomSheet"
+        android:name="com.canerture.booksapp.ui.main.bookdetail.BookDetailBottomSheet"
+        android:label="BookDetailBottomSheet"
+        tools:layout="@layout/book_detail_bottom_sheet">
+        <argument
+            android:name="bookModel"
+            app:argType="com.canerture.booksapp.data.model.Book" />
+    </dialog>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.canerture.booksapp.ui.main.payment.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment">
+        <action
+            android:id="@+id/action_paymentFragment_to_booksFragment"
+            app:destination="@id/booksFragment" />
+        <action
+            android:id="@+id/action_paymentFragment_to_booksBasketFragment"
+            app:destination="@id/booksBasketFragment" />
+    </fragment>
+</navigation>

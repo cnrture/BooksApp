@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/layout_width"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_medium"
+    app:cardBackgroundColor="@color/aquahaze"
+    app:cardCornerRadius="@dimen/card_corner_radius_small"
+    app:cardElevation="0dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bookImageCard"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layout_height"
+        app:cardCornerRadius="@dimen/card_corner_radius_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/bookImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/book_image_description"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/bookAuthorText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_small"
+        android:alpha="0.7"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:textColor="@color/eden"
+        android:textSize="@dimen/text_size_very_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bookImageCard"
+        tools:text="Frank Herbert" />
+
+    <TextView
+        android:id="@+id/bookNameText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_small"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:textColor="@color/eden"
+        android:textSize="@dimen/text_size_small"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bookAuthorText"
+        tools:text="Dune" />
+
+    <TextView
+        android:id="@+id/bookPriceText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_very_small"
+        android:textColor="@color/eden"
+        android:textSize="@dimen/text_size_small"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bookNameText"
+        tools:text="39,00 ₺" />
+</androidx.constraintlayout.widget.ConstraintLayout>
