@@ -2,6 +2,7 @@ package com.canerture.booksapp.ui.login
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.canerture.booksapp.common.Constants.SIGN_IN
 import com.canerture.booksapp.common.Constants.SIGN_UP
@@ -19,6 +20,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

@@ -1,0 +1,57 @@
+[versions]
+agp = "8.13.2"
+kotlin = "2.2.21"
+core-ktx = "1.17.0"
+appcompat = "1.7.1"
+material = "1.13.0"
+lifecycle-runtime-ktx = "2.10.0"
+ksp = "2.2.21-2.0.4"
+retrofit = "3.0.0"
+hilt = "2.57.2"
+constraintlayout = "2.1.4"
+navigation = "2.7.6"
+retrofitGson = "2.9.0"
+activity-ktx = "1.8.2"
+picasso = "2.71828"
+recyclerview = "1.3.2"
+lottie = "6.1.0"
+animatedSvgView = "1.0.6"
+room = "2.6.1"
+firebaseBom = "32.7.0"
+legacySupport = "1.0.0"
+googleServices = "4.4.2"
+navigationSafeArgs = "2.7.6"
+
+[libraries]
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupport" }
+navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
+navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
+converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitGson" }
+lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle-runtime-ktx" }
+lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle-runtime-ktx" }
+activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "activity-ktx" }
+picasso = { group = "com.squareup.picasso", name = "picasso", version.ref = "picasso" }
+recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" }
+animated-svg-view = { group = "com.jaredrummler", name = "animated-svg-view", version.ref = "animatedSvgView" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
+firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx" }
+firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+navigation-safeargs = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigationSafeArgs" }
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
