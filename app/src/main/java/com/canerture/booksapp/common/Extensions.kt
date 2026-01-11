@@ -3,6 +3,9 @@ package com.canerture.booksapp.common
 import android.app.Activity
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import androidx.fragment.app.Fragment
+import androidx.navigation.NavDirections
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 
 fun View.visible() {
@@ -29,4 +32,8 @@ fun hideKeyboard(activity: Activity, view: View) {
     val inputMethodManager =
         activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
     inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+}
+
+fun Fragment.navigate(direction: NavDirections) {
+    findNavController().navigate(direction)
 }

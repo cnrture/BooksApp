@@ -8,8 +8,8 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.canerture.booksapp.common.hideKeyboard
+import com.canerture.booksapp.common.navigate
 import com.canerture.booksapp.common.setViewsGone
 import com.canerture.booksapp.common.setViewsVisible
 import com.canerture.booksapp.common.showSnackbar
@@ -26,22 +26,14 @@ class BooksFragment : Fragment() {
 
     private val bestSellersAdapter by lazy {
         BestSellersAdapter(
-            onBookClick = {
-                val action = BooksFragmentDirections.actionBooksFragmentToBookDetailBottomSheet(it)
-                findNavController().navigate(action)
-            }
+            onBookClick = { navigate(BooksFragmentDirections.booksToBookDetailBS(it)) }
         )
     }
 
     private val allBooksAdapter by lazy {
         AllBooksAdapter(
-            onAddBasketClick = {
-                viewModel.addBookToBasket(it)
-            },
-            onBookClick = {
-                val action = BooksFragmentDirections.actionBooksFragmentToBookDetailBottomSheet(it)
-                findNavController().navigate(action)
-            }
+            onAddBasketClick = { viewModel.addBookToBasket(it) },
+            onBookClick = { navigate(BooksFragmentDirections.booksToBookDetailBS(it)) }
         )
     }
 

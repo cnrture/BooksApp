@@ -10,12 +10,12 @@ import android.widget.RadioButton
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.canerture.booksapp.R
 import com.canerture.booksapp.common.Constants.CARD_NUMBER_APPLE_PAY
 import com.canerture.booksapp.common.Constants.CARD_NUMBER_GOOGLE_PAY
 import com.canerture.booksapp.common.Constants.CARD_NUMBER_MASTERCARD
 import com.canerture.booksapp.common.Constants.CARD_NUMBER_PAYPAL
+import com.canerture.booksapp.common.navigate
 import com.canerture.booksapp.common.showSnackbar
 import com.canerture.booksapp.databinding.FragmentPaymentBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -87,7 +87,7 @@ class PaymentFragment : Fragment() {
             }
 
             cancelPaymentButton.setOnClickListener {
-                findNavController().navigate(R.id.action_paymentFragment_to_booksBasketFragment)
+                navigate(PaymentFragmentDirections.paymentToBookBasket())
             }
         }
     }
@@ -166,7 +166,7 @@ class PaymentFragment : Fragment() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             alertDialog.dismiss()
-            findNavController().navigate(R.id.action_paymentFragment_to_booksFragment)
+            navigate(PaymentFragmentDirections.paymentToBooks())
         }, 2000)
     }
 

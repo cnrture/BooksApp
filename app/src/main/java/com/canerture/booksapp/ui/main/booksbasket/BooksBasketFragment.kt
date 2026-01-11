@@ -7,8 +7,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import com.canerture.booksapp.R
+import com.canerture.booksapp.common.navigate
 import com.canerture.booksapp.databinding.FragmentBooksBasketBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -45,7 +44,7 @@ class BooksBasketFragment : Fragment() {
             booksBasketRecycleView.setHasFixedSize(true)
 
             goToPayButton.setOnClickListener {
-                findNavController().navigate(R.id.action_booksBasketFragment_to_paymentFragment)
+                navigate(BooksBasketFragmentDirections.booksToPayment())
             }
         }
 
