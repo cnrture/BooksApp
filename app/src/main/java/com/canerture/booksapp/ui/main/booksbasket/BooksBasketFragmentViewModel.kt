@@ -20,16 +20,9 @@ class BooksBasketFragmentViewModel @Inject constructor(
         get() = _booksBasketState
 
     fun getBooksBasket() = viewModelScope.launch {
-        booksRepo.booksBasket().fold(
-            onSuccess = { bookList ->
-                _booksBasketState.value = BooksBasketState(
-                    isLoading = false,
-                    booksList = bookList
-                )
-            },
-            onFailure = {
-                _booksBasketState.value = BooksBasketState(isLoading = false, errorMessage = it.message)
-            }
+        _booksBasketState.value = booksRepo.booksBasket().fold(
+            onSuccess = { BooksBasketState(isLoading = false, booksList = it) },
+            onFailure = { BooksBasketState(isLoading = false, errorMessage = it.message) }
         )
     }
 

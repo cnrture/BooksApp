@@ -19,16 +19,9 @@ class SignInFragmentViewModel @Inject constructor(
         get() = _signInState
 
     fun signIn(eMail: String, password: String) = viewModelScope.launch {
-        usersRepo.signIn(eMail, password).fold(
-            onSuccess = {
-                _signInState.value = SignInState(
-                    isLoading = false,
-                    isSignIn = true
-                )
-            },
-            onFailure = {
-                _signInState.value = SignInState(isLoading = false, errorMessage = it.message)
-            },
+        _signInState.value = usersRepo.signIn(eMail, password).fold(
+            onSuccess = { SignInState(isLoading = false, isSignIn = true) },
+            onFailure = { SignInState(isLoading = false, errorMessage = it.message) }
         )
     }
 }

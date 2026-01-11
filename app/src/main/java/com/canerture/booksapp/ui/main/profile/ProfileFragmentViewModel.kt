@@ -20,16 +20,9 @@ class ProfileFragmentViewModel @Inject constructor(
         get() = _profileState
 
     fun getUserInfo() = viewModelScope.launch {
-        usersRepo.getUserInfo().fold(
-            onSuccess = { userData ->
-                _profileState.value = ProfileState(
-                    isLoading = false,
-                    userData = userData,
-                )
-            },
-            onFailure = {
-                _profileState.value = ProfileState(isLoading = false, errorMessage = it.message)
-            }
+        _profileState.value = usersRepo.getUserInfo().fold(
+            onSuccess = { ProfileState(isLoading = false, userData = it) },
+            onFailure = { ProfileState(isLoading = false, errorMessage = it.message) }
         )
     }
 

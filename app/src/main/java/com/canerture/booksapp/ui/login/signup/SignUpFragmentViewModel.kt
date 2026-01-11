@@ -27,16 +27,9 @@ class SignUpFragmentViewModel @Inject constructor(
     ) {
         viewModelScope.launch {
             if (checkFields(eMail, password, confirmPassword, nickname, phoneNumber)) {
-                usersRepo.signUp(eMail, password, nickname, phoneNumber).fold(
-                    onSuccess = {
-                        _signUpState.value = SignUpState(
-                            isLoading = false,
-                            isSignUp = true
-                        )
-                    },
-                    onFailure = {
-                        _signUpState.value = SignUpState(isLoading = false, errorMessage = it.message)
-                    },
+                _signUpState.value = usersRepo.signUp(eMail, password, nickname, phoneNumber).fold(
+                    onSuccess = { SignUpState(isLoading = false, isSignUp = true) },
+                    onFailure = { SignUpState(isLoading = false, errorMessage = it.message) },
                 )
             }
         }

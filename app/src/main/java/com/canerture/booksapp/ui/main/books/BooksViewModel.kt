@@ -20,17 +20,15 @@ class BooksViewModel @Inject constructor(
         get() = _booksState
 
     fun getBooks() = viewModelScope.launch {
-        booksRepo.books().fold(
+        _booksState.value = booksRepo.books().fold(
             onSuccess = { bookList ->
-                _booksState.value = BooksState(
+                BooksState(
                     isLoading = false,
                     booksList = bookList,
                     bestSellersList = bookList.filter { it.isBestSeller == true }
                 )
             },
-            onFailure = {
-                _booksState.value = BooksState(isLoading = false, errorMessage = it.message)
-            }
+            onFailure = { BooksState(isLoading = false, errorMessage = it.message) }
         )
     }
 
