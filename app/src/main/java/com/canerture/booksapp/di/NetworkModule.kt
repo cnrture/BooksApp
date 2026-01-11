@@ -1,6 +1,6 @@
 package com.canerture.booksapp.di
 
-import com.canerture.booksapp.common.Constants.BASE_URL
+import com.canerture.booksapp.BuildConfig
 import com.canerture.booksapp.data.retrofit.BooksService
 import dagger.Module
 import dagger.Provides
@@ -18,7 +18,7 @@ class NetworkModule {
     @Singleton
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

@@ -9,8 +9,7 @@ import com.canerture.booksapp.common.Constants.SIGN_UP
 import com.canerture.booksapp.databinding.ActivityLoginBinding
 import com.canerture.booksapp.ui.main.MainActivity
 import com.google.android.material.tabs.TabLayoutMediator
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Firebase.auth.currentUser?.let {
+        FirebaseAuth.getInstance().currentUser?.let {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
