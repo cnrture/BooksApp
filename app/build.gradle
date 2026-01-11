@@ -10,12 +10,12 @@ plugins {
 
 android {
     namespace "com.canerture.booksapp"
-    compileSdk 34
+    compileSdk 36
 
     defaultConfig {
         applicationId "com.canerture.booksapp"
         minSdkVersion 23
-        targetSdk 34
+        targetSdk 36
         versionCode 1
         versionName "1.0"
 
