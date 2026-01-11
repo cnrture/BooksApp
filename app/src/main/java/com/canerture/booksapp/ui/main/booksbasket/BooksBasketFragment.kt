@@ -70,10 +70,6 @@ class BooksBasketFragment : Fragment() {
             state.errorMessage?.let {
                 emptyBasketText.text = it
             }
-
-            state.failMessage?.let {
-                emptyBasketText.text = it
-            }
         }
     }
 

@@ -1,6 +1,5 @@
 package com.canerture.booksapp.data.repos
 
-import com.canerture.booksapp.common.Resource
 import com.canerture.booksapp.data.model.Book
 import com.canerture.booksapp.data.model.BookBasket
 import com.canerture.booksapp.data.retrofit.BooksService
@@ -8,34 +7,33 @@ import com.canerture.booksapp.data.room.BooksBasketDAO
 
 class BooksRepository(
     private val booksService: BooksService,
-    private val booksDAO: BooksBasketDAO
+    private val booksDAO: BooksBasketDAO,
 ) {
-
-    suspend fun books(): Resource<List<Book>> {
+    suspend fun books(): Result<List<Book>> {
         return try {
             val response = booksService.allBooks()
 
             if (response.isSuccessful) {
-                Resource.Success(response.body()?.books.orEmpty())
+                Result.success(response.body()?.books.orEmpty())
             } else {
-                Resource.Fail(response.message())
+                Result.failure(Exception(response.message()))
             }
         } catch (e: Exception) {
-            Resource.Error(e)
+            Result.failure(e)
         }
     }
 
-    fun booksBasket(): Resource<List<BookBasket>> {
+    fun booksBasket(): Result<List<BookBasket>> {
         return try {
             val response = booksDAO.getBooksBasket()
 
             if (response.isNullOrEmpty()) {
-                Resource.Fail("Sepetinizde kitap bulunmamaktadır.")
+                Result.failure(Exception("Basket is empty"))
             } else {
-                Resource.Success(response)
+                Result.success(response)
             }
         } catch (e: Exception) {
-            Resource.Error(e)
+            Result.failure(e)
         }
     }
 

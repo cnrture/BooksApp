@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PaymentFragmentViewModel @Inject constructor(
-    private val booksRepo: BooksRepository
+    private val booksRepo: BooksRepository,
 ) : ViewModel() {
 
     private var _booksBasket = MutableLiveData<List<BookBasket>>()
@@ -21,9 +21,7 @@ class PaymentFragmentViewModel @Inject constructor(
         getBooksBasket()
     }
 
-    private fun getBooksBasket() {
-        booksRepo.booksBasket()
-    }
+    private fun getBooksBasket() = booksRepo.booksBasket()
 
     fun clearBasket() = booksRepo.clearBasket()
 

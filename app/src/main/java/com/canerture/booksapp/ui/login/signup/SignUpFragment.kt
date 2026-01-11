@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.canerture.booksapp.R
 import com.canerture.booksapp.common.showSnackbar
 import com.canerture.booksapp.databinding.FragmentSignUpBinding
 import com.canerture.booksapp.ui.main.MainActivity
@@ -58,7 +57,7 @@ class SignUpFragment : Fragment() {
             }
 
             if (it.errorMessage != null) {
-                requireView().showSnackbar(getString(R.string.wrong_email_password))
+                requireView().showSnackbar(it.errorMessage)
             }
         }
     }

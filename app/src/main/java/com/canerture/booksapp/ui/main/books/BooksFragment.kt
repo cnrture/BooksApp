@@ -104,10 +104,6 @@ class BooksFragment : Fragment() {
             state.errorMessage?.let {
                 requireView().showSnackbar(it)
             }
-
-            state.failMessage?.let {
-                requireView().showSnackbar(it)
-            }
         }
     }
 

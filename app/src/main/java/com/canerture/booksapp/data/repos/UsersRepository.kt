@@ -6,7 +6,6 @@ import com.canerture.booksapp.common.Constants.ID
 import com.canerture.booksapp.common.Constants.NICKNAME
 import com.canerture.booksapp.common.Constants.PHONE_NUMBER
 import com.canerture.booksapp.common.Constants.USERS
-import com.canerture.booksapp.common.Resource
 import com.canerture.booksapp.data.model.UserModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -16,22 +15,21 @@ class UsersRepository(
     private val auth: FirebaseAuth,
     private val db: FirebaseFirestore,
 ) {
-
-    suspend fun signIn(eMail: String, password: String): Resource<Unit> {
+    suspend fun signIn(eMail: String, password: String): Result<Unit> {
         return try {
             val signInTask = auth.signInWithEmailAndPassword(eMail, password).await()
 
             if (signInTask.user != null) {
-                Resource.Success(Unit)
+                Result.success(Unit)
             } else {
-                Resource.Fail("Kullanıcı bulunamadı.")
+                Result.failure(Exception("User not found."))
             }
         } catch (e: Exception) {
-            Resource.Error(e)
+            Result.failure(e)
         }
     }
 
-    suspend fun signUp(eMail: String, password: String, nickname: String, phoneNumber: String): Resource<Unit> {
+    suspend fun signUp(eMail: String, password: String, nickname: String, phoneNumber: String): Result<Unit> {
 
         return try {
             val signUpTask = auth.createUserWithEmailAndPassword(eMail, password).await()
@@ -47,16 +45,16 @@ class UsersRepository(
 
                 db.collection(COLLECTION_PATH).document(currentUser.uid).set(user).await()
 
-                Resource.Success(Unit)
+                Result.success(Unit)
             } else {
-                Resource.Fail("Kullanıcı bulunamadı.")
+                Result.failure(Exception("User not found."))
             }
         } catch (e: Exception) {
-            Resource.Error(e)
+            Result.failure(e)
         }
     }
 
-    suspend fun getUserInfo(): Resource<UserModel> {
+    suspend fun getUserInfo(): Result<UserModel> {
 
         return try {
             val currentUser = auth.currentUser
@@ -70,12 +68,12 @@ class UsersRepository(
                     userData.get(PHONE_NUMBER) as String
                 )
 
-                Resource.Success(user)
+                Result.success(user)
             } else {
-                Resource.Fail("Kullanıcı bulunamadı.")
+                Result.failure(Exception("User not found."))
             }
         } catch (e: Exception) {
-            Resource.Error(e)
+            Result.failure(e)
         }
     }
 

@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.canerture.booksapp.common.Resource
 import com.canerture.booksapp.data.repos.UsersRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -28,22 +27,17 @@ class SignUpFragmentViewModel @Inject constructor(
     ) {
         viewModelScope.launch {
             if (checkFields(eMail, password, confirmPassword, nickname, phoneNumber)) {
-                when (val response = usersRepo.signUp(eMail, password, nickname, phoneNumber)) {
-                    is Resource.Success -> {
+                usersRepo.signUp(eMail, password, nickname, phoneNumber).fold(
+                    onSuccess = {
                         _signUpState.value = SignUpState(
                             isLoading = false,
                             isSignUp = true
                         )
-                    }
-
-                    is Resource.Fail -> {
-                        _signUpState.value = SignUpState(isLoading = false, failMessage = response.message)
-                    }
-
-                    is Resource.Error -> {
-                        _signUpState.value = SignUpState(isLoading = false, errorMessage = response.throwable.message)
-                    }
-                }
+                    },
+                    onFailure = {
+                        _signUpState.value = SignUpState(isLoading = false, errorMessage = it.message)
+                    },
+                )
             }
         }
     }
@@ -56,7 +50,7 @@ class SignUpFragmentViewModel @Inject constructor(
         phoneNumber: String,
     ): Boolean {
         return listOf(eMail, password, confirmPassword, nickname, phoneNumber).any(
-            String::isNullOrEmpty
+            String::isNotBlank
         )
     }
 }
@@ -64,6 +58,5 @@ class SignUpFragmentViewModel @Inject constructor(
 data class SignUpState(
     val isLoading: Boolean = false,
     val isSignUp: Boolean = false,
-    val failMessage: String? = null,
-    val errorMessage: String? = null
+    val errorMessage: String? = null,
 )
